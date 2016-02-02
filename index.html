@@ -48,10 +48,27 @@
        </form>
       -->
       
-       <audio id="reason">
+       <audio id="help">
               <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a1.mp3" type="audio/mp3">
       Your browser does not support the audio element.
        </audio>
+       
+       <audio id="bsubject">
+           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/b2.mp3" type="audio/mp3">
+         
+       </audio>
+       
+       <audio id="verb">
+           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/c1.mp3" type="audio/mp3">
+         
+       </audio>
+       
+       <audio id="object">
+           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/d2.mp3" type="audio/mp3">
+         
+       </audio>
+       
+       
       
       <form>
           <button type="button" id="givemeareasonbutton"
@@ -67,7 +84,10 @@
       <script>
           
           function giveMeAReason(){
-document.getElementById("reason").play();
+document.getElementById("help").play();
+document.getElementById("bsubject").play();
+document.getElementById("verb").play();
+document.getElementById("object").play();
         
     }
     </script>
