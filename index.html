@@ -85,15 +85,16 @@
           function giveMeAReason(){
               
 document.getElementById("help").play();
-document.getElementById("help").onended = playSubject();
+document.getElementById("help").onended = function(){playSubject()};
+
 
 function playSubject(){
     document.getElementById("bsubject").play();
-    document.getElementById("bsubject").onended = playVerb();
+    document.getElementById("bsubject").onended = function(){playVerb()};
     
    function playVerb(){
     document.getElementById("verb").play();
-    document.getElementById("verb").onended = playObject();
+    document.getElementById("verb").onended = function(){playObject()};
     
       function playObject(){
     document.getElementById("object").play();
