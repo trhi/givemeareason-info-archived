@@ -85,9 +85,15 @@
           
           function giveMeAReason(){
 document.getElementById("help").play();
+if(document.getElementById("help").onended()==true){
 document.getElementById("bsubject").play();
+if(document.getElementById("bsubject").onended()==true){
 document.getElementById("verb").play();
+if(document.getElementById("verb").onended()==true){
 document.getElementById("object").play();
+}
+}
+}
         
     }
     </script>
