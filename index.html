@@ -87,6 +87,13 @@
       <script>
           
           function giveMeAReason(){
+             
+        
+
+  //If button is enabled, -> Disable
+  if (document.getElementById("givemeareasonbutton").disabled === false) {
+    document.getElementById("givemeareasonbutton").disabled = true;
+}
               
 document.getElementById("help").play();
 document.getElementById("help").onended = function(){playSubject()}; //wait until clip has finished playing before playing next clip
@@ -109,6 +116,11 @@ function playSubject(){
     
       function playObject(){
     document.getElementById("object").play();
+    
+    //If button is disabled, -> enable
+    if (document.getElementById("givemeareasonbutton").disabled === true) {
+    document.getElementById("givemeareasonbutton").disabled = false;
+  }
    
     
 }
