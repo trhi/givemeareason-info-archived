@@ -22,6 +22,14 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width">
+    <style>
+    #givemeareasonbutton {
+    width: 200px;
+    height: 200px;
+    background-image: url(http://transit6.cargocollective.com/1/17/565866/10706491/give-me-a-reason-ms.png);
+    background-repeat: no-repeat;
+}
+</style>    
     
     <title>Give Me a Reason
     </title>
@@ -40,17 +48,14 @@
        </form>
       -->
       
-     
        <audio id="reason">
               <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a1.mp3" type="audio/mp3">
       Your browser does not support the audio element.
        </audio>
       
- 
-      
       <form>
-          <button type="image" src="http://transit6.cargocollective.com/1/17/565866/10706491/give-me-a-reason-ms.png"
-                  width="500" height="500"
+          <button type="button" id="givemeareasonbutton"
+                
                   onclick="giveMeAReason()"></button>
                   
      
