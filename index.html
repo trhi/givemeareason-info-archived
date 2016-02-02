@@ -88,16 +88,18 @@
           function giveMeAReason(){
               
 document.getElementById("help").play();
-document.getElementById("help").onended = function(){playSubject()};
+document.getElementById("help").onended = function(){playSubject()}; //wait until clip has finished playing before playing next clip
 
 
 function playSubject(){
     document.getElementById("bsubject").play();
-    document.getElementById("bsubject").onended = function(){playVerb()};
+    document.getElementById("bsubject").onended = function(){playVerb()};//wait until clip has finished playing before playing next clip
+
     
    function playVerb(){
     document.getElementById("verb").play();
-    document.getElementById("verb").onended = function(){playObject()};
+    document.getElementById("verb").onended = function(){playObject()};//wait until clip has finished playing before playing next clip
+
     
       function playObject(){
     document.getElementById("object").play();
