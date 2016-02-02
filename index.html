@@ -81,7 +81,8 @@
      
   </form>
 
-      
+      <p id="demo"></p>
+
 
       <script>
           
@@ -89,7 +90,12 @@
               
 document.getElementById("help").play();
 document.getElementById("help").onended = function(){playSubject()}; //wait until clip has finished playing before playing next clip
+document.body.innerHTML() = document.getElementById("help").src;
+document.getElementById("help").onended = function() {printHelp()};
 
+function printHelp() {
+    document.getElementById("demo").innerHTML = document.getElementById("help").src;
+}
 
 function playSubject(){
     document.getElementById("bsubject").play();
@@ -103,7 +109,7 @@ function playSubject(){
     
       function playObject(){
     document.getElementById("object").play();
-    
+   
     
 }
     
