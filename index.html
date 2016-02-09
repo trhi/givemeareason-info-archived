@@ -61,7 +61,7 @@
        </form>
       -->
       
-       <audio id="help">
+       <audio id="help/">
               <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3" type="audio/mp3">
       Your browser does not support the audio element.
        </audio>
@@ -71,17 +71,20 @@
       Your browser does not support the audio element.
        </audio>
        
-       <audio id="bsubject">
+      
+      
+      
+       <audio id="subject/">
            <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/b2.mp3" type="audio/mp3">
          
        </audio>
        
-       <audio id="verb">
+       <audio id="verb/">
            <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/c2.mp3" type="audio/mp3">
          
        </audio>
        
-       <audio id="object">
+       <audio id="object/">
            <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/d2.mp3" type="audio/mp3">
          
        </audio>
@@ -138,7 +141,11 @@
               //max is exluded because max is given as the length of the array
               //and min is given as 0.
               //ie. if length = 2, there are indeces 0 and 1, not 0, 1 and 2.
-              return Math.floor((Math.random() * max - min) + min);
+              //ugh, except this mucks up the generating for the chooserandom index
+              //for the recordings themselves..
+              //ie. take care of the 0 array index issue in choosePerson()
+              //return Math.floor(Math.random() * (max - min + 1)) + min;
+              return Math.floor((Math.random() * max - min + 1) + min);
               
           }
           
@@ -150,7 +157,9 @@
             //!!!!!!!!!! Chose to declare persons as a global variable
             //var randomIndex is an integer
             //function chooseIndex(min, max) generates a random number between max inclusive and min inclusive
-            var index = randomIndex(0, persons.length);
+            var index = randomIndex(1, persons.length);
+            //to correct for random number generator
+            var index = index - 1;
             return persons[index];
             
               
@@ -212,9 +221,11 @@
               
            function playAudio(){
             // 
-            //      
-            // 
-            // 
+                 // if (typeIndex == types.length){  
+                 //     return;
+                 // }else{
+             
+                 // typeIndex = typeIndex + 1;
                   var person = choosePerson();
                   var index = chooseStringIndex(person);
             //      //does this way of calling it work?
@@ -224,8 +235,36 @@
             //
             //
             //    //if you have only one audio element and it has id="audio"
-                  document.getElementById("audio").src = audiosrc;  
-                  document.getElementById("audio").play();
+                  document.getElementById(types[typeIndex]).src = audiosrc;  
+                  document.getElementById(types[typeIndex]).play();
+                  
+                  //if(document.getElementById(types[typeIndex]).ended){
+                      
+                  //    playNext();
+                      
+                 // }
+                  
+                //  document.getElementById(types[typeIndex]).onended = playNext(); 
+                //      function playNext(){
+                      
+                //      typeIndex = typeIndex + 1;
+                      
+              //        if(typeIndex < types.length){
+  
+                 //           playAudio();
+                        
+                  //    }else{
+                  //      return;
+                 //     }
+                      
+               //   }
+                  
+                  
+                  //document.getElementById("audio").onended = playAudio();
+                  
+                  
+                  
+    }
                   
                   //typeIndex = typeIndex + 1;
                   
@@ -249,7 +288,7 @@
             //
             //
             //
-            }
+          //  }
              
               
             //var helpPath = "https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a1.mp3";              
@@ -338,8 +377,14 @@
        
         //OR do: playAudio("help/"); 
         //playAudio(typeIndex);
-        playAudio();
-       // playHelp();
+        
+       // function playReason(){
+        
+           // for(typeIndex < types.length; typeIndex++)
+            
+                      playAudio();
+               
+        //}
 
         //playSubject();
         
