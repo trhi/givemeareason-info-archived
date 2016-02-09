@@ -65,6 +65,11 @@
               <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3" type="audio/mp3">
       Your browser does not support the audio element.
        </audio>
+      
+      <audio id="audio">
+              <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+       </audio>
        
        <audio id="bsubject">
            <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/b2.mp3" type="audio/mp3">
@@ -99,14 +104,23 @@
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
           var persons = ["k","s"];
+          //var audiopath gives the path at raw where you find all the files
           var audiopath = "https://raw.githubusercontent.com/trhi/trhi.github.io/randomise-draft/audio/de/";
+          //var mp3 for concatenation later on (need this be global? or just inside playAudio function?)
           var mp3 = ".mp3";
           //var ogg = ".ogg"; //implement for ogg too at some point?  
     
+          //var typeIndex starts at 0 and gets +1 everytime we go through one playAudio()
+          var typeIndex = 0; //global counter variable
+          //var type is an array of the type of audio in question, this is used for 
+          //concatenating the path of the audio source file later on
+          //main purpose in this data structure solution is to create single 
+          //playAudio() function ie. reuse code as much as possible.
+          var types = ["help/", "subject/", "object/", "verb/"];
     
           //toggles the button state = enabled or disabled depending on whether audio is playing
           //and the best part is that this function actually works! Hurray!
-            function toggleButtonState(){
+          function toggleButtonState(){
   
             if (document.getElementById("givemeareasonbutton").disabled === false) {
                 document.getElementById("givemeareasonbutton").disabled = true;
@@ -141,7 +155,8 @@
             
               
           }
-          
+     
+    
           //generates a random help utterance given a person
           //each person has a different maximum number of utterances available
           //grr.. although I wanted each to have 8 and 8 only..
@@ -159,18 +174,19 @@
                   return randomIndex(1,9);                  
               }
               
-              //if(person === "t"){                  
+              //if(person.match(/t/)){                  
               //    return chooseIndex(1,8);                  
               //}
-              //if(person === "f"){                  
+              //if(person.match(/f/)){                  
               //    return chooseIndex(1,8);                  
               //}
-              //if(person === "h"){                  
+              //if(person.match(/h/)){                  
               //    return chooseIndex(1,8);                  
               //}
               
           }
-          
+ 
+    
           //creates a string version of the index (for later path concatenation
           function chooseStringIndex(person){
               
@@ -189,26 +205,34 @@
               
           }
 
+
           //play audio given type, person, index
-          function playAudio(type, person, index){
+          //function playAudio(type, person, index){
               
               
-            // playAudio(typeIndex){
+           function playAudio(){
             // 
             //      
             // 
             // 
-            //      var person = choosePerson();
-            //      var index = chooseStringIndex(person);
+                  var person = choosePerson();
+                  var index = chooseStringIndex(person);
             //      //does this way of calling it work?
-            //      var category = type[typeIndex].substring(0,1);
-            //      var filename = person.concat(index, category, mp3);
-            //      var src = audiopath.concat(type[typeIndex], filename);
+                  var category = types[typeIndex].substring(0,1);
+                  var filename = person.concat(index, category, mp3);
+                  var audiosrc = audiopath.concat(types[typeIndex], filename);
             //
             //
-            //      //if you have only one audio element and it has id="audio"
-            //      document.getElementById("audio").src = src;  
-            //      document.getElementById("audio").play();
+            //    //if you have only one audio element and it has id="audio"
+                  document.getElementById("audio").src = audiosrc;  
+                  document.getElementById("audio").play();
+                  
+                  //typeIndex = typeIndex + 1;
+                  
+                  //if(typeIndex < types.length){
+                  //document.getElementById("audio").onended = playAudio();
+                 // }
+                  
             //
             //      //how to toggle between types of audio to play?
             //      
@@ -225,7 +249,7 @@
             //
             //
             //
-            //}
+            }
              
               
             //var helpPath = "https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a1.mp3";              
@@ -244,46 +268,46 @@
             // https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3
               
               
-              if(type === "help/"){
+             // if(type === "help/"){
                   
                   // WATCH OUT! INDEX NEEDS TO HAVE 01 not just 1!!!
                   //attempt to solve this by chooseStringIndex()
-                  var h = "h";
-                  var filename = person.concat(index, h, mp3);
+             //     var h = "h";
+             //     var filename = person.concat(index, h, mp3);
                   //var filenameogg = person.concat(index.toString(), ogg);
                   //***For testing: have it print out the filename to see if it constructed it right.
-                  var helpsrc = audiopath.concat(type, filename);
+             //     var helpsrc = audiopath.concat(type, filename);
                   
-                  document.getElementById("help").src = helpsrc;  
-                  document.getElementById("help").play();
+              //    document.getElementById("help").src = helpsrc;  
+              //    document.getElementById("help").play();
    
                   //do not do this yet:
                   //document.getElementById("help").onended = playSubject();
 
-              }
+            //  }
               
               
-          }
+         // }
           
           
-          function playHelp(){ 
+         // function playHelp(){ 
              
             //for playAudio: that it knows to change help
-            var type = "help/";
+         //   var type = "help/";
             //var person is a string  
             //function generatePerson() returns a letter identifying one of the persons given the global array persons
-            var person = choosePerson();   
+         //   var person = choosePerson();   
             //function generateIndex(person) generates an index/recording to play given person          
-            var index = chooseStringIndex(person);
+         //   var index = chooseStringIndex(person);
             
             //for a second i thought I couldve just called it all simsalabim, but no, need the person and index separate for parsing the string for the path..
             //var index = generateIndex(persons[generatePerson()]);
             
             //playHelp or playAudio? 4 or 1 audio elements?
             //and now we are ready to play the audio...
-            playAudio(type, person, index);
+         //   playAudio(type, person, index);
             
-         }
+      //   }
          
          // copied from playHelp()..
          //function playSubject(){ 
@@ -313,14 +337,17 @@
         toggleButtonState();
        
         //OR do: playAudio("help/"); 
-        //OR do: playAudio(type[typeIndex]);
-        playHelp();
+        //playAudio(typeIndex);
+        playAudio();
+       // playHelp();
 
         //playSubject();
         
        // playObject();
         
        // playVerb();
+   
+        typeIndex = 0;
    
         toggleButtonState();
 
