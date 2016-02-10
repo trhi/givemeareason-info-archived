@@ -88,14 +88,20 @@
            <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/d2.mp3" type="audio/mp3">
          
        </audio>
+      
+         <audio id="x/">
+           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/b2.mp3" type="audio/mp3">
+         
+       </audio>
        
        
       
       <form>
           <button type="button" id="givemeareasonbutton"
                 
-                  onclick="giveMeAReason()"></button>
+                  onclick="giveMeAReason()" ></button>
                   
+     <!--implement this later: ondblclick="playAudio("x", 99, typeIndex[4])"-->
      
   </form>
 
@@ -120,6 +126,7 @@
           //main purpose in this data structure solution is to create single 
           //playAudio() function ie. reuse code as much as possible.
           var types = ["help/", "subject/", "object/", "verb/"];
+          // add element: "x/"
     
           //toggles the button state = enabled or disabled depending on whether audio is playing
           //and the best part is that this function actually works! Hurray!
@@ -187,10 +194,10 @@
               //    return chooseIndex(1,8);                  
               //}
               //if(person.match(/f/)){                  
-              //    return chooseIndex(1,8);                  
+              //    return chooseIndex(1,7);                  
               //}
               //if(person.match(/h/)){                  
-              //    return chooseIndex(1,8);                  
+              //    return chooseIndex(1,6);                  
               //}
               
           }
@@ -219,24 +226,56 @@
           //function playAudio(type, person, index){
               
               
-           function playAudio(){
+          //    function playHelp(){
+                  
+           //       playAudio(0);
+                      
+                 
+                      
+          //        }
+                  
+             
+              
+          //  function playNext(){
+                
+         //        if (typeIndex < types.length){
+          //          typeIndex = typeIndex + 1;
+          //          playAudio();
+           //      }else{
+           //         return;
+           //      }
+                
+            
+                  
+         //  }
+                  
+              //try function createSource and separate: playHelp etc. nested
+          // function playAudio(){
+            // 
+            // 
+            // 
             // 
                  // if (typeIndex == types.length){  
                  //     return;
                  // }else{
              
                  // typeIndex = typeIndex + 1;
+                
+                function createSource(typeIndex){
+                
                   var person = choosePerson();
                   var index = chooseStringIndex(person);
             //      //does this way of calling it work?
                   var category = types[typeIndex].substring(0,1);
                   var filename = person.concat(index, category, mp3);
-                  var audiosrc = audiopath.concat(types[typeIndex], filename);
-            //
+                  return audiosrc = audiopath.concat(types[typeIndex], filename);
+            }
             //
             //    //if you have only one audio element and it has id="audio"
-                  document.getElementById(types[typeIndex]).src = audiosrc;  
-                  document.getElementById(types[typeIndex]).play();
+             //     document.getElementById(types[typeIndex]).src = audiosrc;  
+             //     document.getElementById(types[typeIndex]).play();
+                  
+             //     document.getElementById(types[typeIndex]).onended = playNext();
                   
                   //if(document.getElementById(types[typeIndex]).ended){
                       
@@ -264,7 +303,7 @@
                   
                   
                   
-    }
+   // }
                   
                   //typeIndex = typeIndex + 1;
                   
@@ -381,8 +420,68 @@
        // function playReason(){
         
            // for(typeIndex < types.length; typeIndex++)
+        //    typeIndex = 0;
+                   //  playAudio();
+                     
+                     
+             document.getElementById(types[typeIndex]).src = createSource(typeIndex);        
+             document.getElementById(types[typeIndex+1]).src = createSource(typeIndex+1);
+          //   document.getElementById(types[typeIndex+2]).src = createSource(typeIndex+2);
+         //    document.getElementById(types[typeIndex+3]).src = createSource(typeIndex+3);
+             
+             document.getElementById(types[typeIndex]).play();
+             document.getElementById(types[typeIndex]).onended = document.getElementById(types[typeIndex+1]).play();
+        //     document.getElementById(types[typeIndex+1]).onended = document.getElementById(types[typeIndex+2]).play();
+       //      document.getElementById(types[typeIndex+2]).onended = document.getElementById(types[typeIndex+3]).play();
+        
+        
+        toggleButtonState();
+        
+      /* //  playHelp();        
+                     
+       // function playHelp(){                        
+                   
+            //var helpsource = createSource(0);    
+       //     document.getElementById(types[typeIndex]).src = createSource(typeIndex);
+        //    document.getElementById(types[typeIndex]).play();
+        //    document.getElementById(types[typeIndex]).onended = playSubject();
+                
+        //       function playSubject(){
+                
+                    //var subjectsource = createSource(0);    
+        //            document.getElementById(types[typeIndex]).src = createSource(typeIndex+1);
+        //            document.getElementById(types[typeIndex]).play();
+                   // document.getElementById(types[typeIndex]).onended = playObject();
+                    
+                       function playObject(){
+                            
+           //                document.getElementById(types[typeIndex]).src = createSource(typeIndex+2);
+           //                document.getElementById(types[typeIndex]).play();
+           //                 document.getElementById(types[typeIndex]).onended = playVerb();
+                            
+                               function playVerb(){
+               //                     
+                                    document.getElementById(types[typeIndex]).src = createSource(typeIndex+3);
+                                    document.getElementById(types[typeIndex]).play();
+                                    typeIndex = 0;
+                                    //document.getElementById(types[typeIndex]).onended = playVerb();
+                                    
+                                }
+                //            
+                        }
+                
+                
+            }
             
-                      playAudio();
+                     }
+                       
+                  
+                  
+                  
+                  
+                  
+                      
+                     //playHelp();
                
         //}
 
@@ -392,9 +491,11 @@
         
        // playVerb();
    
-        typeIndex = 0;
+        //typeIndex = 0;
+        
+        */
    
-        toggleButtonState();
+        //toggleButtonState();
 
 // Returns a random integer between min (included) and max (included)
 // Using Math.round() will give you a non-uniform distribution!
