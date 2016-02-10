@@ -112,9 +112,9 @@
     
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
-          var persons = ["k","s"];
+          var persons = ["k","h","t","f","s"];
           //var audiopath gives the path at raw where you find all the files
-          var audiopath = "https://raw.githubusercontent.com/trhi/trhi.github.io/randomise-draft/audio/de/";
+          var audiopath = "https://raw.githubusercontent.com/trhi/trhi.github.io/randomise-draft-battle/audio/de/";
           //var mp3 for concatenation later on (need this be global? or just inside playAudio function?)
           var mp3 = ".mp3";
           //var ogg = ".ogg"; //implement for ogg too at some point?  
@@ -190,15 +190,15 @@
                   return randomIndex(1,9);                  
               }
               
-              //if(person.match(/t/)){                  
-              //    return chooseIndex(1,8);                  
-              //}
-              //if(person.match(/f/)){                  
-              //    return chooseIndex(1,7);                  
-              //}
-              //if(person.match(/h/)){                  
-              //    return chooseIndex(1,6);                  
-              //}
+              if(person.match(/t/)){                  
+                  return chooseIndex(1,8);                  
+              }
+              if(person.match(/f/)){                  
+                  return chooseIndex(1,7);                  
+              }
+              if(person.match(/h/)){                  
+                  return chooseIndex(1,6);                  
+              }
               
           }
  
