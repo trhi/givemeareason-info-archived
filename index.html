@@ -50,16 +50,6 @@
   </head>
   <body>
 
-
-     <!--
-      <form>
-          <input 
-              type="image"
-              src="http://transit6.cargocollective.com/1/17/565866/10706491/give-me-a-reason-ms.png"
-           class="img-circle"
-     
-       </form>
-      -->
       
        <audio id="help/">
               <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3" type="audio/mp3">
@@ -121,12 +111,12 @@
     
           //var typeIndex starts at 0 and gets +1 everytime we go through one playAudio()
           var typeIndex = 0; //global counter variable
-          //var type is an array of the type of audio in question, this is used for 
+          //var types is an array of the type of audio in question, this is used for 
           //concatenating the path of the audio source file later on
           //main purpose in this data structure solution is to create single 
           //playAudio() function ie. reuse code as much as possible.
           var types = ["help/", "subject/", "object/", "verb/"];
-          // add element: "x/"
+          // add element: "x/"?
     
           //toggles the button state = enabled or disabled depending on whether audio is playing
           //and the best part is that this function actually works! Hurray!
@@ -161,7 +151,6 @@
               
             // var persons is an array of strings..  
             //var persons = ["k","h","t","f","s"];
-            //!!!!!!!!!! Chose to declare persons as a global variable
             //var randomIndex is an integer
             //function chooseIndex(min, max) generates a random number between max inclusive and min inclusive
             var index = randomIndex(1, persons.length);
@@ -177,7 +166,6 @@
           //each person has a different maximum number of utterances available
           //grr.. although I wanted each to have 8 and 8 only..
           //or should i call this by saying: persons[randomIndex]
-          //this function needs a new name...
           function chooseIndex(person){
               
               if(person.match(/k/)){
@@ -211,7 +199,6 @@
                   
                   var zero = "0";
                   return zero.concat(index.toString()); 
-                  //for testing print out value here
                   
               }else{              
                   
@@ -221,47 +208,7 @@
               
           }
 
-
-          //play audio given type, person, index
-          //function playAudio(type, person, index){
-              
-              
-          //    function playHelp(){
-                  
-           //       playAudio(0);
-                      
-                 
-                      
-          //        }
-                  
-             
-              
-          //  function playNext(){
-                
-         //        if (typeIndex < types.length){
-          //          typeIndex = typeIndex + 1;
-          //          playAudio();
-           //      }else{
-           //         return;
-           //      }
-                
-            
-                  
-         //  }
-                  
-              //try function createSource and separate: playHelp etc. nested
-          // function playAudio(){
-            // 
-            // 
-            // 
-            // 
-                 // if (typeIndex == types.length){  
-                 //     return;
-                 // }else{
-             
-                 // typeIndex = typeIndex + 1;
-                
-                function createSource(typeIndex){
+            function createSource(typeIndex){
                 
                   var person = choosePerson();
                   var index = chooseStringIndex(person);
@@ -270,169 +217,14 @@
                   var filename = person.concat(index, category, mp3);
                   return audiosrc = audiopath.concat(types[typeIndex], filename);
             }
-            //
-            //    //if you have only one audio element and it has id="audio"
-             //     document.getElementById(types[typeIndex]).src = audiosrc;  
-             //     document.getElementById(types[typeIndex]).play();
-                  
-             //     document.getElementById(types[typeIndex]).onended = playNext();
-                  
-                  //if(document.getElementById(types[typeIndex]).ended){
-                      
-                  //    playNext();
-                      
-                 // }
-                  
-                //  document.getElementById(types[typeIndex]).onended = playNext(); 
-                //      function playNext(){
-                      
-                //      typeIndex = typeIndex + 1;
-                      
-              //        if(typeIndex < types.length){
-  
-                 //           playAudio();
-                        
-                  //    }else{
-                  //      return;
-                 //     }
-                      
-               //   }
-                  
-                  
-                  //document.getElementById("audio").onended = playAudio();
-                  
-                  
-                  
-   // }
-                  
-                  //typeIndex = typeIndex + 1;
-                  
-                  //if(typeIndex < types.length){
-                  //document.getElementById("audio").onended = playAudio();
-                 // }
-                  
-            //
-            //      //how to toggle between types of audio to play?
-            //      
-            //      
-            //      //or
-            //      //Global var typeIndex = 0; //global counter variable
-            //      //var type = ["help/", "subject/", "object/", "verb/"];
-            //      
-            //      typeIndex = typeIndex + 1;
-            //      if(typeIndex < type.length){
-            //      document.getElementById("audio").onended = playAudio(typeIndex[index]);
-            //      }
-            //
-            //
-            //
-            //
-          //  }
-             
-              
-            //var helpPath = "https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a1.mp3";              
-            //document.getElementById(reason).src = reasonPath;
-            //this code works. Concatenating the string works, as does
-            //passsing it on to the audio element as a src attribute
-            //
-            // var varpath = "https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/";
-            // var filename = "a2.mp3";
-            // var helpsrc = varpath.concat(filename);
-            //  
-            //  document.getElementById("demo").innerHTML = helpsrc;          
-            //  document.getElementById("help").src = helpsrc;
-            //  
-            // src for help: 
-            // https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3
-              
-              
-             // if(type === "help/"){
-                  
-                  // WATCH OUT! INDEX NEEDS TO HAVE 01 not just 1!!!
-                  //attempt to solve this by chooseStringIndex()
-             //     var h = "h";
-             //     var filename = person.concat(index, h, mp3);
-                  //var filenameogg = person.concat(index.toString(), ogg);
-                  //***For testing: have it print out the filename to see if it constructed it right.
-             //     var helpsrc = audiopath.concat(type, filename);
-                  
-              //    document.getElementById("help").src = helpsrc;  
-              //    document.getElementById("help").play();
-   
-                  //do not do this yet:
-                  //document.getElementById("help").onended = playSubject();
-
-            //  }
-              
-              
-         // }
-          
-          
-         // function playHelp(){ 
-             
-            //for playAudio: that it knows to change help
-         //   var type = "help/";
-            //var person is a string  
-            //function generatePerson() returns a letter identifying one of the persons given the global array persons
-         //   var person = choosePerson();   
-            //function generateIndex(person) generates an index/recording to play given person          
-         //   var index = chooseStringIndex(person);
-            
-            //for a second i thought I couldve just called it all simsalabim, but no, need the person and index separate for parsing the string for the path..
-            //var index = generateIndex(persons[generatePerson()]);
-            
-            //playHelp or playAudio? 4 or 1 audio elements?
-            //and now we are ready to play the audio...
-         //   playAudio(type, person, index);
-            
-      //   }
-         
-         // copied from playHelp()..
-         //function playSubject(){ 
-             
-            //for playAudio: that it knows to change help
-           // var type = "subject/";
-            //var person is a string  
-            //function generatePerson() returns a letter identifying one of the persons given the global array persons
-           // var person = choosePerson();   
-            //function generateIndex(person) generates an index/recording to play given person          
-          //  var index = chooseStringIndex(person);
-            
-            //for a second i thought I couldve just called it all simsalabim, but no, need the person and index separate for parsing the string for the path..
-            //var index = generateIndex(persons[generatePerson()]);
-            
-            //playHelp or playAudio? 4 or 1 audio elements?
-            //and now we are ready to play the audio...
-       //     playAudio(type, person, index);
-            
-     //    }
-          
-          
+       
           
     function giveMeAReason(){
             
         //first, toggle button state: disable the button while audio is playing
-       // toggleButtonState();
-        
+       // toggleButtonState();  
        toggleButtonState();
         
-     /*   function toggleButtonState(){
-  
-            if (document.getElementById("givemeareasonbutton").disabled === false) {
-                document.getElementById("givemeareasonbutton").disabled = true;
-            }else{
-                 document.getElementById("givemeareasonbutton").disabled = false;
-            }
-        }*/
-       
-        //OR do: playAudio("help/"); 
-        //playAudio(typeIndex);
-        
-       // function playReason(){
-        
-           // for(typeIndex < types.length; typeIndex++)
-        //    typeIndex = 0;
-                   //  playAudio();
       document.getElementById(types[typeIndex]).src = createSource(typeIndex);
       document.getElementById(types[typeIndex]).play();
       document.getElementById(types[typeIndex]).onended = function(){playSubject()};
@@ -453,120 +245,11 @@
                                         document.getElementById(types[typeIndex+3]).play(); 
                                         document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
                                 }
-    
                     }
-    
-        }                    
-                     
-         
-         
+        }                           
     }
 
-                     
-           //  document.getElementById(types[typeIndex]).src = createSource(typeIndex);        
-         //    document.getElementById(types[typeIndex+1]).src = createSource(typeIndex+1);
-          //   document.getElementById(types[typeIndex+2]).src = createSource(typeIndex+2);
-         //    document.getElementById(types[typeIndex+3]).src = createSource(typeIndex+3);
-             
-       //      document.getElementById(types[typeIndex]).play();
-        //     document.getElementById(types[typeIndex]).onended = document.getElementById(types[typeIndex+1]).play();
-        //     document.getElementById(types[typeIndex+1]).onended = document.getElementById(types[typeIndex+2]).play();
-       //      document.getElementById(types[typeIndex+2]).onended = document.getElementById(types[typeIndex+3]).play();
-        
-        
-        
-        
-      /* //  playHelp();        
-                     
-       // function playHelp(){                        
-                   
-            //var helpsource = createSource(0);    
-       //     document.getElementById(types[typeIndex]).src = createSource(typeIndex);
-        //    document.getElementById(types[typeIndex]).play();
-        //    document.getElementById(types[typeIndex]).onended = playSubject();
-                
-        //       function playSubject(){
-                
-                    //var subjectsource = createSource(0);    
-        //            document.getElementById(types[typeIndex]).src = createSource(typeIndex+1);
-        //            document.getElementById(types[typeIndex]).play();
-                   // document.getElementById(types[typeIndex]).onended = playObject();
-                    
-                       function playObject(){
-                            
-           //                document.getElementById(types[typeIndex]).src = createSource(typeIndex+2);
-           //                document.getElementById(types[typeIndex]).play();
-           //                 document.getElementById(types[typeIndex]).onended = playVerb();
-                            
-                               function playVerb(){
-               //                     
-                                    document.getElementById(types[typeIndex]).src = createSource(typeIndex+3);
-                                    document.getElementById(types[typeIndex]).play();
-                                    typeIndex = 0;
-                                    //document.getElementById(types[typeIndex]).onended = playVerb();
-                                    
-                                }
-                //            
-                        }
-                
-                
-            }
-            
-                     }
-                       
-                  
-                  
-                  
-                  
-                  
-                      
-                     //playHelp();
-               
-        //}
 
-        //playSubject();
-        
-       // playObject();
-        
-       // playVerb();
-   
-        //typeIndex = 0;
-        
-        */
-   
-        //toggleButtonState();
-
-// Returns a random integer between min (included) and max (included)
-// Using Math.round() will give you a non-uniform distribution!
-//function getRandomIntInclusive(min, max) {
-//  return Math.floor(Math.random() * (max - min + 1)) + min;
-//}
-
-              
-//document.getElementById("help").play();
-//document.getElementById("help").onended = playSubject(); //wait until clip has finished playing before playing next clip
-
-
-//function playSubject(){
-//    document.getElementById("bsubject").play();
-//    document.getElementById("bsubject").onended = playVerb();//wait until clip has finished playing before playing next clip
-
-    
-//   function playVerb(){
-//    document.getElementById("verb").play();
-//    document.getElementById("verb").onended = playObject();//wait until clip has finished playing before playing next clip
-
-    
-//      function playObject(){
-//    document.getElementById("object").play();
-    
-    
-//lastly, toggle button state: enable the button once playing audio has ceased
-//toggleButtonState();
-    
-//}
-    
-//}
     
 
 
