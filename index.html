@@ -48,37 +48,34 @@
   </head>
   <body>
 
+     
+            <audio id="pause">
+              <source src="audio/de/other/f03o.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+            </audio>
       
        <audio id="help/">
-              <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3" type="audio/mp3">
+              <source src="audio/de/other/f03o.mp3" type="audio/mp3">
       Your browser does not support the audio element.
        </audio>
-      
-      <audio id="audio">
-              <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a2.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
-       </audio>
-       
-      
-      
       
        <audio id="subject/">
-           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/b2.mp3" type="audio/mp3">
+           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
          
        </audio>
        
        <audio id="verb/">
-           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/c2.mp3" type="audio/mp3">
+           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
          
        </audio>
        
        <audio id="object/">
-           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/d2.mp3" type="audio/mp3">
+           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
          
        </audio>
       
          <audio id="x/">
-           <source src="https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/b2.mp3" type="audio/mp3">
+           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
          
        </audio>
        
@@ -224,27 +221,87 @@
        toggleButtonState();
         
       document.getElementById(types[typeIndex]).src = createSource(typeIndex);
-      document.getElementById(types[typeIndex]).play();
-      document.getElementById(types[typeIndex]).onended = function(){playSubject()};
+      document.getElementById(types[typeIndex]).load();
+     // document.getElementById(types[typeIndex]).play();
+     // document.getElementById(types[typeIndex]).onended = function(){playSubject()};
+     playSubject();
         
         
         function playSubject(){
             document.getElementById(types[typeIndex+1]).src = createSource(typeIndex+1);
-            document.getElementById(types[typeIndex+1]).play();
-            document.getElementById(types[typeIndex+1]).onended = function(){playObject()};//wait until clip has finished playing before playing next clip
+            document.getElementById(types[typeIndex+1]).load();
+           // document.getElementById(types[typeIndex+1]).play();
+           // document.getElementById(types[typeIndex+1]).onended = function(){playObject()};//wait until clip has finished playing before playing next clip
+           playObject();
 
                     function playObject(){                            
                             document.getElementById(types[typeIndex+2]).src = createSource(typeIndex+2);
-                            document.getElementById(types[typeIndex+2]).play();
-                            document.getElementById(types[typeIndex+2]).onended = function(){playVerb()};
+                            document.getElementById(types[typeIndex+2]).load();
+                            //document.getElementById(types[typeIndex+2]).play();
+                            //document.getElementById(types[typeIndex+2]).onended = function(){playVerb()};
+                            playVerb();
    
                                 function playVerb(){
                                         document.getElementById(types[typeIndex+3]).src = createSource(typeIndex+3);
-                                        document.getElementById(types[typeIndex+3]).play(); 
-                                        document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
+                                        document.getElementById(types[typeIndex+3]).load();
+                                       // document.getElementById(types[typeIndex+3]).play(); 
+                                        //document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
                                 }
                     }
-        }                           
+        }
+        
+        
+        /*
+         * audio[0].onended=function(){
+        setTimeout(function(){
+         audio[1].play()
+        ;}, 2000);
+        };
+        */
+       
+        
+        document.getElementById(types[typeIndex]).play();
+        //document.getElementById(types[typeIndex]).onended = function(){            
+           //this works setTimeout(function(){document.getElementById(types[typeIndex+1]).play();}, 1000);
+          //  };
+          
+          document.getElementById(types[typeIndex]).onended = function(){
+              
+              document.getElementById(types[typeIndex+1]).play();
+              document.getElementById(types[typeIndex+1]).onended = function(){
+                   document.getElementById(types[typeIndex+2]).play();
+                   document.getElementById(types[typeIndex+2]).onended = function(){
+                       document.getElementById(types[typeIndex+3]).play();
+                       document.getElementById(types[typeIndex+3]).onended = function(){
+                           document.getElementById(types[typeIndex]).onended = toggleButtonState();
+                       };
+                   };
+              };
+              
+          };
+          
+          
+        //document.getElementById(types[typeIndex+1]).onended = setTimeout(function(){document.getElementById(types[typeIndex+2]).play();}, 1000);  
+        //setTimeout(function(){document.getElementById(types[typeIndex+3]).play();}, 1000);
+        
+        
+       // document.getElementById("pause").play();
+       // document.getElementById("pause").play();
+       // document.getElementById("pause").play();
+       // document.getElementById("pause").play();
+        //document.getElementById(types[typeIndex+1]).play();
+           // document.getElementById(types[typeIndex+1]).play();
+        
+       // document.getElementById(types[typeIndex+1]).onended = document.getElementById(types[typeIndex+2]).play();
+       // document.getElementById(types[typeIndex+2]).onended = document.getElementById(types[typeIndex+3]).play();
+
+
+        //document.getElementById(types[typeIndex+2]).play();
+        //document.getElementById(types[typeIndex+3]).play();
+       // document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
+        
+        // this was cut out document.getElementById(types[typeIndex]).onended = toggleButtonState();
+        
     }
 
 
