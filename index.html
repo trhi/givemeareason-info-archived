@@ -72,7 +72,9 @@
                 onclick="giveMeAReason()" ></button>     
       </form>
 
+      <div>
       <p id="demo"></p>
+      </div>
 
 
     <script>
@@ -80,7 +82,7 @@
     //attempt to implement jQuery
     $(document).ready(function(){
         
-        $(":button").click(function(
+      /*  $(":button").click(function(
                 
                 function toggleButtonState(){
                 if (document.getElementById("givemeareasonbutton").disabled === false) {
@@ -88,33 +90,24 @@
                 }else{
                     document.getElementById("givemeareasonbutton").disabled = false;
                 }
-           }
-                   
-                   
-                  var url = "/audio/de/givemeareasonde.json";
-            var reasonde = [];  
-                
-                
-                
-                var i;
-            for(i = 0; i < reasonde.f[1].length; i++) {
-                document.getElementById("demo").innerHTML = "Hello World";
-                out += 'Filename: ' + reasonde.f.help[i].filename + ' auf deutsch is: ' +
-                reasonde.f.help[i].de + '<br>';
-            }
-            document.getElementById("demo").innerHTML = out;
-            
-                
-                
-                ){//end of button click method
-    }); //end of jQuery methods
+           }*/
+                  
+        $(":button").click(function(){
+        $.getJSON("givemeareasonde.json", function(result){
+            $.each(result, function(i, field){
+                $("div").append(field + " ");
+            });
+        });
+         });         
+             
+    } //end of jQuery methods
     
         
        //toggles the button state = enabled or disabled depending on whether audio is playing
           //and the best part is that this function actually works! Hurray!
           
         
-        function giveMeAReason(){
+       /* function giveMeAReason(){
             //first thing, last thing
             //toggleButtonState();
             
@@ -140,7 +133,7 @@
             */
             
 
-            
+            /*
             var i;
             for(i = 0; i < reasonde.f[1].length; i++) {
                 document.getElementById("demo").innerHTML = "Hello World";
@@ -153,7 +146,7 @@
             
             //last thing, first thing
             //toggleButtonState();
-        };
+        };*/
     
 
         /*
