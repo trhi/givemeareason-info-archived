@@ -40,7 +40,10 @@
     cursor: url(images/Sun_symbol.svg), wait;
     }
 
+   
     </style>   
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     
     <title>Give Me a Reason
     </title>
@@ -48,53 +51,112 @@
   </head>
   <body>
 
-     
-            <audio id="pause">
-              <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-            </audio>
-      
        <audio id="help/">
-              <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
       
        <audio id="subject/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
+           <source src="audio/de/other/f03o.mp3" type="audio/mp3"> 
        </audio>
        
        <audio id="verb/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
        
        <audio id="object/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
-      
-         <audio id="x/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
-       </audio>
-       
-       
       
       <form>
-          <button type="button" id="givemeareasonbutton"
-                
-                  onclick="giveMeAReason()" ></button>
-                  
-     <!--implement this later: ondblclick="playAudio("x", 99, typeIndex[4])"-->
-     
-  </form>
+            <button type="button" id="givemeareasonbutton"
+                onclick="giveMeAReason()" ></button>     
+      </form>
 
       <p id="demo"></p>
 
 
-      <script>
+    <script>
     
+    //attempt to implement jQuery
+    $(document).ready(function(){
+        
+        $(":button").click(function(
+                
+                function toggleButtonState(){
+                if (document.getElementById("givemeareasonbutton").disabled === false) {
+                     document.getElementById("givemeareasonbutton").disabled = true;
+                }else{
+                    document.getElementById("givemeareasonbutton").disabled = false;
+                }
+           }
+                   
+                   
+                  var url = "/audio/de/givemeareasonde.json";
+            var reasonde = [];  
+                
+                
+                
+                var i;
+            for(i = 0; i < reasonde.f[1].length; i++) {
+                document.getElementById("demo").innerHTML = "Hello World";
+                out += 'Filename: ' + reasonde.f.help[i].filename + ' auf deutsch is: ' +
+                reasonde.f.help[i].de + '<br>';
+            }
+            document.getElementById("demo").innerHTML = out;
+            
+                
+                
+                ){//end of button click method
+    }); //end of jQuery methods
+    
+        
+       //toggles the button state = enabled or disabled depending on whether audio is playing
+          //and the best part is that this function actually works! Hurray!
+          
+        
+        function giveMeAReason(){
+            //first thing, last thing
+            //toggleButtonState();
+            
+            $(":button").toggleButtonState();
+            
+           // document.getElementById("demo").innerHTML = "Hello World";
+            
+            //xmlhttp request and json file
+            //var xmlhttp = new XMLHttpRequest();
+            var url = "/audio/de/givemeareasonde.json";
+            var reasonde = [];
+       
+            //reasonde = JSON.parse("/audio/de/givemeareasonde.json");
+       
+            /*xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readystate === 4 && xmlhttp.status === 200){
+                reasonde = JSON.parse(xmlhttp.responsetext);               
+            };
+            };
+        
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            */
+            
+
+            
+            var i;
+            for(i = 0; i < reasonde.f[1].length; i++) {
+                document.getElementById("demo").innerHTML = "Hello World";
+                out += 'Filename: ' + reasonde.f.help[i].filename + ' auf deutsch is: ' +
+                reasonde.f.help[i].de + '<br>';
+            }
+            document.getElementById("demo").innerHTML = out;
+            
+            
+            
+            //last thing, first thing
+            //toggleButtonState();
+        };
+    
+
+        /*
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
           var persons = ["k","h","t","f","s"];
@@ -136,11 +198,11 @@
               //for the recordings themselves..
               //ie. take care of the 0 array index issue in choosePerson()
               //return Math.floor(Math.random() * (max - min + 1)) + min;
-              /*
-               * 
-               * function getRandomIntInclusive(min, max) {
+                //
+                
+               //function getRandomIntInclusive(min, max) {
                         return Math.floor(Math.random() * (max - min + 1)) + min;
-               */
+               //
               return Math.floor((Math.random() * max - min + 1) + min);
               //return Math.floor(Math.random() * (max - min)) + min;
               
@@ -288,10 +350,8 @@
         ;}, 2000);
         };
         */
-        
-        
-        
-    }
+              
+   // }
 
 
     
