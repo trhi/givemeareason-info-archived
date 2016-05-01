@@ -74,82 +74,12 @@
 
      
       <p id="demo"></p>
+      <p id="demo2"></p>
       
 
 
     <script>
-    
-    //attempt to implement jQuery
-   /* $(document).ready(function(){
-        
-      /*  $(":button").click(function(
-                
-                function toggleButtonState(){
-                if (document.getElementById("givemeareasonbutton").disabled === false) {
-                     document.getElementById("givemeareasonbutton").disabled = true;
-                }else{
-                    document.getElementById("givemeareasonbutton").disabled = false;
-                }
-           }
-                  
-        $(":button").click(function(){
-        $.getJSON("givemeareasonde.json", function(result){
-            $.each(result, function(i, field){
-                $("div").append(field + " ");
-            });
-        });
-         });         
-             
-     //end of jQuery methods*/
-    
-        
-       //toggles the button state = enabled or disabled depending on whether audio is playing
-          //and the best part is that this function actually works! Hurray!
-          
-        
-       /* function giveMeAReason(){
-            //first thing, last thing
-            //toggleButtonState();
-            
-            $(":button").toggleButtonState();
-            
-           // document.getElementById("demo").innerHTML = "Hello World";
-            
-            //xmlhttp request and json file
-            //var xmlhttp = new XMLHttpRequest();
-            var url = "/audio/de/givemeareasonde.json";
-            var reasonde = [];
-       
-            //reasonde = JSON.parse("/audio/de/givemeareasonde.json");
-       
-            /*xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readystate === 4 && xmlhttp.status === 200){
-                reasonde = JSON.parse(xmlhttp.responsetext);               
-            };
-            };
-        
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-            */
-            
 
-            /*
-            var i;
-            for(i = 0; i < reasonde.f[1].length; i++) {
-                document.getElementById("demo").innerHTML = "Hello World";
-                out += 'Filename: ' + reasonde.f.help[i].filename + ' auf deutsch is: ' +
-                reasonde.f.help[i].de + '<br>';
-            }
-            document.getElementById("demo").innerHTML = out;
-            
-            
-            
-            //last thing, first thing
-            //toggleButtonState();
-        };*/
-    
-
-        
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
           var persons = ["k","h","t","f","s"];
@@ -211,9 +141,7 @@
             //to correct for random number generator
             var index = index - 1;
             return persons[index];
-            
-              
-          }
+            }
      
     
           //generates a random help utterance given a person
@@ -275,25 +203,8 @@
       toggleButtonState(); 
       
       
-      
-      /*
-      var text = '{"full":[' +
-    '{"filename":"f01full.mp3","de":"Ich helfe weil dadurch keine angst wachsen kann","en":"I help" },' +
-    '{"filename":"h02full.mp3","de":"Ich helfe weil ich dieser Menschen auch unser Umgebung zeigen will, damit sie sich auskennen." },' +
-    '{"filename":"Peter","de":"Jones" }]}';
-
-    obj = JSON.parse(text);
-    
-    document.getElementById("demo").innerHTML = "Filename is: " +
-    obj.full[0].filename + "<br>" + obj.full[1].de;
-      
-      */
-      
-      
-      
-      
     var xmlhttp = new XMLHttpRequest();
-    var url = "/audio/de/a/a.txt";
+    var url = "audio/de/k/k.txt";
 
     xmlhttp.onreadystatechange = function() {
      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -305,62 +216,18 @@
     xmlhttp.send();
     
     function myFunction(arr) {
-      var out = "";
-      var i;
-      for(i = 0; i < 4; i++) {
-          out += "Filename is: " + arr.full[i].filename 
-                  + " <br> And in german it is" + 
-          arr.full[i].de;
-     }
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+          out += "Filename is: " + arr[0].full[i].filename + "<br> And in german it says: " + 
+             arr[0].full[i].de + '</a><br>';
       document.getElementById("demo").innerHTML = out;
+    }
     }
       
       
-      
-      /*
-      var text = '{ "full": [' +
-       '{"filename":"a name1", "de":"auf deutsch", "en":"in english"},' +
-      '{"filename":"a name2", "de":"auf deutsch", "en":"in english"},' +
-       '{"filename":"a name3", "de":"auf deutsch", "en":"in english"}' +
-            '],' +
-    '"help": ['+
-       ' {"filename":"help1 name", "de":"auf deutsch", "en":"in english"},'+
-       ' {"filename":"help2 name", "de":"auf deutsch", "en":"in english"}'+
-   '],'+
-   '"object": ['+
-        '{"filename":"object1 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"object2 name", "de":"auf deutsch", "en":"in english"}'+
-   '],'+
-    '"subject":['+
-        '{"filename":"subject1 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"subject2 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"subject3 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"subject4 name", "de":"auf deutsch", "en":"in english"}'+
-   '],'+
-    '"verb":['+
-        '{"filename":"verb1 name", "de":"auf deutsch", "en":"in english"},'+
-       '{"filename":"verb2 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"verb3 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"verb4 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"verb5 name", "de":"auf deutsch", "en":"in english"}'+
-    ']'+
-'}';
-      
-      
-     document.getElementById("demo").innerHTML = "Hello World";
-      
-   var trialobject = JSON.parse(text);   
-      
-      var i;
-      for(i=0; i<trialobject.length;i++){
         
-        document.getElementById("demo").innerHTML =
-trialobject.full[i].filename;
-      
-        };
-        
-        */
-        
+      //givemeareason code  
       document.getElementById(types[typeIndex]).src = createSource(typeIndex);
       document.getElementById(types[typeIndex]).load();
       loadSubject();
@@ -400,44 +267,7 @@ trialobject.full[i].filename;
           };
           
     }
-        //some code to try to get the audio to run smoothly..
-        //document.getElementById(types[typeIndex+1]).onended = setTimeout(function(){document.getElementById(types[typeIndex+2]).play();}, 1000);  
-        //setTimeout(function(){document.getElementById(types[typeIndex+3]).play();}, 1000);
-        
-        
-       // document.getElementById("pause").play();
-       // document.getElementById("pause").play();
-       // document.getElementById("pause").play();
-       // document.getElementById("pause").play();
-        //document.getElementById(types[typeIndex+1]).play();
-           // document.getElementById(types[typeIndex+1]).play();
-        
-       // document.getElementById(types[typeIndex+1]).onended = document.getElementById(types[typeIndex+2]).play();
-       // document.getElementById(types[typeIndex+2]).onended = document.getElementById(types[typeIndex+3]).play();
 
-
-        //document.getElementById(types[typeIndex+2]).play();
-        //document.getElementById(types[typeIndex+3]).play();
-       // document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
-        
-        // this was cut out document.getElementById(types[typeIndex]).onended = toggleButtonState();
-       
-                //again, an attempt to get the audio to run smoothly..
-        /*
-         * audio[0].onended=function(){
-        setTimeout(function(){
-         audio[1].play()
-        ;}, 2000);
-        };
-        */
-              
-   // }
-
-
-    
-
-
-    
     </script>
       
     
