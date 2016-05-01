@@ -72,15 +72,15 @@
                 onclick="giveMeAReason()" ></button>     
       </form>
 
-      <div>
+     
       <p id="demo"></p>
-      </div>
+      
 
 
     <script>
     
     //attempt to implement jQuery
-    $(document).ready(function(){
+   /* $(document).ready(function(){
         
       /*  $(":button").click(function(
                 
@@ -90,7 +90,7 @@
                 }else{
                     document.getElementById("givemeareasonbutton").disabled = false;
                 }
-           }*/
+           }
                   
         $(":button").click(function(){
         $.getJSON("givemeareasonde.json", function(result){
@@ -100,7 +100,7 @@
         });
          });         
              
-    } //end of jQuery methods
+     //end of jQuery methods*/
     
         
        //toggles the button state = enabled or disabled depending on whether audio is playing
@@ -149,7 +149,7 @@
         };*/
     
 
-        /*
+        
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
           var persons = ["k","h","t","f","s"];
@@ -194,7 +194,7 @@
                 //
                 
                //function getRandomIntInclusive(min, max) {
-                        return Math.floor(Math.random() * (max - min + 1)) + min;
+               // return Math.floor(Math.random() * (max - min + 1)) + min;
                //
               return Math.floor((Math.random() * max - min + 1) + min);
               //return Math.floor(Math.random() * (max - min)) + min;
@@ -273,6 +273,93 @@
       //first, toggle button state: disable the button while audio is playing
       // toggleButtonState();  
       toggleButtonState(); 
+      
+      
+      
+      /*
+      var text = '{"full":[' +
+    '{"filename":"f01full.mp3","de":"Ich helfe weil dadurch keine angst wachsen kann","en":"I help" },' +
+    '{"filename":"h02full.mp3","de":"Ich helfe weil ich dieser Menschen auch unser Umgebung zeigen will, damit sie sich auskennen." },' +
+    '{"filename":"Peter","de":"Jones" }]}';
+
+    obj = JSON.parse(text);
+    
+    document.getElementById("demo").innerHTML = "Filename is: " +
+    obj.full[0].filename + "<br>" + obj.full[1].de;
+      
+      */
+      
+      
+      
+      
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/audio/de/a/a.txt";
+
+    xmlhttp.onreadystatechange = function() {
+     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+          myFunction(myArr);
+     }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+    
+    function myFunction(arr) {
+      var out = "";
+      var i;
+      for(i = 0; i < 4; i++) {
+          out += "Filename is: " + arr.full[i].filename 
+                  + " <br> And in german it is" + 
+          arr.full[i].de;
+     }
+      document.getElementById("demo").innerHTML = out;
+    }
+      
+      
+      
+      /*
+      var text = '{ "full": [' +
+       '{"filename":"a name1", "de":"auf deutsch", "en":"in english"},' +
+      '{"filename":"a name2", "de":"auf deutsch", "en":"in english"},' +
+       '{"filename":"a name3", "de":"auf deutsch", "en":"in english"}' +
+            '],' +
+    '"help": ['+
+       ' {"filename":"help1 name", "de":"auf deutsch", "en":"in english"},'+
+       ' {"filename":"help2 name", "de":"auf deutsch", "en":"in english"}'+
+   '],'+
+   '"object": ['+
+        '{"filename":"object1 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"object2 name", "de":"auf deutsch", "en":"in english"}'+
+   '],'+
+    '"subject":['+
+        '{"filename":"subject1 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"subject2 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"subject3 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"subject4 name", "de":"auf deutsch", "en":"in english"}'+
+   '],'+
+    '"verb":['+
+        '{"filename":"verb1 name", "de":"auf deutsch", "en":"in english"},'+
+       '{"filename":"verb2 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"verb3 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"verb4 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"verb5 name", "de":"auf deutsch", "en":"in english"}'+
+    ']'+
+'}';
+      
+      
+     document.getElementById("demo").innerHTML = "Hello World";
+      
+   var trialobject = JSON.parse(text);   
+      
+      var i;
+      for(i=0; i<trialobject.length;i++){
+        
+        document.getElementById("demo").innerHTML =
+trialobject.full[i].filename;
+      
+        };
+        
+        */
         
       document.getElementById(types[typeIndex]).src = createSource(typeIndex);
       document.getElementById(types[typeIndex]).load();
@@ -286,7 +373,7 @@
                     function loadObject(){                            
                             document.getElementById(types[typeIndex+2]).src = createSource(typeIndex+2);
                             document.getElementById(types[typeIndex+2]).load();
-                            playVerb();
+                            loadVerb();
    
                                 function loadVerb(){
                                         document.getElementById(types[typeIndex+3]).src = createSource(typeIndex+3);
@@ -312,7 +399,7 @@
               
           };
           
-         
+    }
         //some code to try to get the audio to run smoothly..
         //document.getElementById(types[typeIndex+1]).onended = setTimeout(function(){document.getElementById(types[typeIndex+2]).play();}, 1000);  
         //setTimeout(function(){document.getElementById(types[typeIndex+3]).play();}, 1000);
