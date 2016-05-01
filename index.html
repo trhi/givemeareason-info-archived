@@ -40,7 +40,10 @@
     cursor: url(images/Sun_symbol.svg), wait;
     }
 
+   
     </style>   
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     
     <title>Give Me a Reason
     </title>
@@ -48,62 +51,113 @@
   </head>
   <body>
 
-     
-            <audio id="pause">
-              <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-            </audio>
-      
        <audio id="help/">
-              <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
       
        <audio id="subject/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
+           <source src="audio/de/other/f03o.mp3" type="audio/mp3"> 
        </audio>
        
        <audio id="verb/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
        
        <audio id="object/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
-      
-         <audio id="x/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-         
-       </audio>
-       
-       
       
       <form>
-          <button type="button" id="givemeareasonbutton"
-                
-                  onclick="giveMeAReason()" ></button>
-                  
-     <!--implement this later: ondblclick="playAudio("x", 99, typeIndex[4])"-->
+            <button type="button" id="givemeareasonbutton"
+                onclick="giveMeAReason()" ></button>     
+      </form>
+
      
-  </form>
-
       <p id="demo"></p>
+      
 
 
-      <script>
+    <script>
     
+    //attempt to implement jQuery
+   /* $(document).ready(function(){
+        
+      /*  $(":button").click(function(
+                
+                function toggleButtonState(){
+                if (document.getElementById("givemeareasonbutton").disabled === false) {
+                     document.getElementById("givemeareasonbutton").disabled = true;
+                }else{
+                    document.getElementById("givemeareasonbutton").disabled = false;
+                }
+           }
+                  
+        $(":button").click(function(){
+        $.getJSON("givemeareasonde.json", function(result){
+            $.each(result, function(i, field){
+                $("div").append(field + " ");
+            });
+        });
+         });         
+             
+     //end of jQuery methods*/
+    
+        
+       //toggles the button state = enabled or disabled depending on whether audio is playing
+          //and the best part is that this function actually works! Hurray!
+          
+        
+       /* function giveMeAReason(){
+            //first thing, last thing
+            //toggleButtonState();
+            
+            $(":button").toggleButtonState();
+            
+           // document.getElementById("demo").innerHTML = "Hello World";
+            
+            //xmlhttp request and json file
+            //var xmlhttp = new XMLHttpRequest();
+            var url = "/audio/de/givemeareasonde.json";
+            var reasonde = [];
+       
+            //reasonde = JSON.parse("/audio/de/givemeareasonde.json");
+       
+            /*xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readystate === 4 && xmlhttp.status === 200){
+                reasonde = JSON.parse(xmlhttp.responsetext);               
+            };
+            };
+        
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            */
+            
+
+            /*
+            var i;
+            for(i = 0; i < reasonde.f[1].length; i++) {
+                document.getElementById("demo").innerHTML = "Hello World";
+                out += 'Filename: ' + reasonde.f.help[i].filename + ' auf deutsch is: ' +
+                reasonde.f.help[i].de + '<br>';
+            }
+            document.getElementById("demo").innerHTML = out;
+            
+            
+            
+            //last thing, first thing
+            //toggleButtonState();
+        };*/
+    
+
+        
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
           var persons = ["k","h","t","f","s"];
-          //var audiopath gives the path at raw where you find all the files
+          //var audiopath gives the path where you find all the files
           var audiopath = "audio/de/";
           //var mp3 for concatenation later on (need this be global? or just inside playAudio function?)
           var mp3 = ".mp3";
-          //var ogg = ".ogg"; //implement for ogg too at some point?  
-    
+
           //var typeIndex starts at 0 and gets +1 everytime we go through one playAudio()
           var typeIndex = 0; //global counter variable
           //var types is an array of the type of audio in question, this is used for 
@@ -111,23 +165,23 @@
           //main purpose in this data structure solution is to create single 
           //playAudio() function ie. reuse code as much as possible.
           var types = ["help/", "subject/", "object/", "verb/"];
-          // add element: "x/"?
+          
     
           //toggles the button state = enabled or disabled depending on whether audio is playing
           //and the best part is that this function actually works! Hurray!
           function toggleButtonState(){
-  
-            if (document.getElementById("givemeareasonbutton").disabled === false) {
-                document.getElementById("givemeareasonbutton").disabled = true;
-            }else{
-                 document.getElementById("givemeareasonbutton").disabled = false;
-            }
-    
-}
-          
-          
-          //changed name to randomIndex
+                if (document.getElementById("givemeareasonbutton").disabled === false) {
+                     document.getElementById("givemeareasonbutton").disabled = true;
+                }else{
+                    document.getElementById("givemeareasonbutton").disabled = false;
+                }
+           }
+                    
+          //this function generates a randomIndex given a min and max value
+          //the max value should be the length of the array, min should be zero?
           function randomIndex(min, max){
+              
+              //this function will work for the .json datamodel
               
               //standard means to choose random number between max (excluded) and min (included)
               //max is exluded because max is given as the length of the array
@@ -137,14 +191,19 @@
               //for the recordings themselves..
               //ie. take care of the 0 array index issue in choosePerson()
               //return Math.floor(Math.random() * (max - min + 1)) + min;
+                //
+                
+               //function getRandomIntInclusive(min, max) {
+               // return Math.floor(Math.random() * (max - min + 1)) + min;
+               //
               return Math.floor((Math.random() * max - min + 1) + min);
+              //return Math.floor(Math.random() * (max - min)) + min;
               
           }
           
           //chooses a person, ie. chooses random person from a list of persons
-          function choosePerson(){
-              
-            // var persons is an array of strings..  
+          function choosePerson(){             
+            // var persons is an array of strings/characters..  
             //var persons = ["k","h","t","f","s"];
             //var randomIndex is an integer
             //function chooseIndex(min, max) generates a random number between max inclusive and min inclusive
@@ -161,18 +220,13 @@
           //each person has a different maximum number of utterances available
           //grr.. although I wanted each to have 8 and 8 only..
           //or should i call this by saying: persons[randomIndex]
-          function chooseIndex(person){
-              
+          function chooseIndex(person){              
               if(person.match(/k/)){
-                  
-                  return randomIndex(1,12);
-                  //for testing print out value here
-                 
+                  return randomIndex(1,12);               
               }
               if(person.match(/s/)){                  
                   return randomIndex(1,9);                  
-              }
-              
+              }              
               if(person.match(/t/)){                  
                   return randomIndex(1,8);                  
               }
@@ -181,33 +235,33 @@
               }
               if(person.match(/h/)){                  
                   return randomIndex(1,6);                  
-              }
-              
+              }            
           }
  
     
           //creates a string version of the index (for later path concatenation
           function chooseStringIndex(person){
-              
-              var index = chooseIndex(person);
-              if(index < 10){
-                  
+            var index = chooseIndex(person);
+              if(index < 10){             
                   var zero = "0";
-                  return zero.concat(index.toString()); 
-                  
-              }else{              
-                  
-                  return index.toString();
-                  
-              }
-              
+                  return zero.concat(index.toString());                 
+              }else{                               
+                  return index.toString();                 
+              }        
           }
 
-            function createSource(typeIndex){
-                
+            //concatenates the src/path+filename
+            //given the person = a letter,
+            //index of the audiofile in string form,
+            //and by taking the first letter of the category, eg. help = h
+            //and then creating the filename: eg. k+01+h+.mp3
+            //and then creating the full source using "audiopath"/string ie. audio/de/ 
+            //and the type from the types array eg. help/
+            //and finally, the filename eg. k001h.mp3
+            function createSource(typeIndex){                
                   var person = choosePerson();
                   var index = chooseStringIndex(person);
-            //      //does this way of calling it work?
+                  //does this way of calling it work?
                   var category = types[typeIndex].substring(0,1);
                   var filename = person.concat(index, category, mp3);
                   return audiosrc = audiopath.concat(types[typeIndex], filename);
@@ -216,57 +270,122 @@
           
     function giveMeAReason(){
             
-        //first, toggle button state: disable the button while audio is playing
-       // toggleButtonState();  
-       toggleButtonState();
+      //first, toggle button state: disable the button while audio is playing
+      // toggleButtonState();  
+      toggleButtonState(); 
+      
+      
+      
+      /*
+      var text = '{"full":[' +
+    '{"filename":"f01full.mp3","de":"Ich helfe weil dadurch keine angst wachsen kann","en":"I help" },' +
+    '{"filename":"h02full.mp3","de":"Ich helfe weil ich dieser Menschen auch unser Umgebung zeigen will, damit sie sich auskennen." },' +
+    '{"filename":"Peter","de":"Jones" }]}';
+
+    obj = JSON.parse(text);
+    
+    document.getElementById("demo").innerHTML = "Filename is: " +
+    obj.full[0].filename + "<br>" + obj.full[1].de;
+      
+      */
+      
+      
+      
+      
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/audio/de/a/a.txt";
+
+    xmlhttp.onreadystatechange = function() {
+     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+          myFunction(myArr);
+     }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+    
+    function myFunction(arr) {
+      var out = "";
+      var i;
+      for(i = 0; i < 4; i++) {
+          out += "Filename is: " + arr.full[i].filename 
+                  + " <br> And in german it is" + 
+          arr.full[i].de;
+     }
+      document.getElementById("demo").innerHTML = out;
+    }
+      
+      
+      
+      /*
+      var text = '{ "full": [' +
+       '{"filename":"a name1", "de":"auf deutsch", "en":"in english"},' +
+      '{"filename":"a name2", "de":"auf deutsch", "en":"in english"},' +
+       '{"filename":"a name3", "de":"auf deutsch", "en":"in english"}' +
+            '],' +
+    '"help": ['+
+       ' {"filename":"help1 name", "de":"auf deutsch", "en":"in english"},'+
+       ' {"filename":"help2 name", "de":"auf deutsch", "en":"in english"}'+
+   '],'+
+   '"object": ['+
+        '{"filename":"object1 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"object2 name", "de":"auf deutsch", "en":"in english"}'+
+   '],'+
+    '"subject":['+
+        '{"filename":"subject1 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"subject2 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"subject3 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"subject4 name", "de":"auf deutsch", "en":"in english"}'+
+   '],'+
+    '"verb":['+
+        '{"filename":"verb1 name", "de":"auf deutsch", "en":"in english"},'+
+       '{"filename":"verb2 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"verb3 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"verb4 name", "de":"auf deutsch", "en":"in english"},'+
+        '{"filename":"verb5 name", "de":"auf deutsch", "en":"in english"}'+
+    ']'+
+'}';
+      
+      
+     document.getElementById("demo").innerHTML = "Hello World";
+      
+   var trialobject = JSON.parse(text);   
+      
+      var i;
+      for(i=0; i<trialobject.length;i++){
+        
+        document.getElementById("demo").innerHTML =
+trialobject.full[i].filename;
+      
+        };
+        
+        */
         
       document.getElementById(types[typeIndex]).src = createSource(typeIndex);
       document.getElementById(types[typeIndex]).load();
-     // document.getElementById(types[typeIndex]).play();
-     // document.getElementById(types[typeIndex]).onended = function(){playSubject()};
-     playSubject();
-        
-        
-        function playSubject(){
+      loadSubject();
+       
+        function loadSubject(){
             document.getElementById(types[typeIndex+1]).src = createSource(typeIndex+1);
             document.getElementById(types[typeIndex+1]).load();
-           // document.getElementById(types[typeIndex+1]).play();
-           // document.getElementById(types[typeIndex+1]).onended = function(){playObject()};//wait until clip has finished playing before playing next clip
-           playObject();
+            loadObject();
 
-                    function playObject(){                            
+                    function loadObject(){                            
                             document.getElementById(types[typeIndex+2]).src = createSource(typeIndex+2);
                             document.getElementById(types[typeIndex+2]).load();
-                            //document.getElementById(types[typeIndex+2]).play();
-                            //document.getElementById(types[typeIndex+2]).onended = function(){playVerb()};
-                            playVerb();
+                            loadVerb();
    
-                                function playVerb(){
+                                function loadVerb(){
                                         document.getElementById(types[typeIndex+3]).src = createSource(typeIndex+3);
                                         document.getElementById(types[typeIndex+3]).load();
-                                       // document.getElementById(types[typeIndex+3]).play(); 
-                                        //document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
                                 }
                     }
         }
-        
-        
-        /*
-         * audio[0].onended=function(){
-        setTimeout(function(){
-         audio[1].play()
-        ;}, 2000);
-        };
-        */
-       
-        
         document.getElementById(types[typeIndex]).play();
         //document.getElementById(types[typeIndex]).onended = function(){            
            //this works setTimeout(function(){document.getElementById(types[typeIndex+1]).play();}, 1000);
           //  };
-          
-          document.getElementById(types[typeIndex]).onended = function(){
-              
+        document.getElementById(types[typeIndex]).onended = function(){   
               document.getElementById(types[typeIndex+1]).play();
               document.getElementById(types[typeIndex+1]).onended = function(){
                    document.getElementById(types[typeIndex+2]).play();
@@ -280,7 +399,8 @@
               
           };
           
-          
+    }
+        //some code to try to get the audio to run smoothly..
         //document.getElementById(types[typeIndex+1]).onended = setTimeout(function(){document.getElementById(types[typeIndex+2]).play();}, 1000);  
         //setTimeout(function(){document.getElementById(types[typeIndex+3]).play();}, 1000);
         
@@ -301,8 +421,17 @@
        // document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
         
         // this was cut out document.getElementById(types[typeIndex]).onended = toggleButtonState();
-        
-    }
+       
+                //again, an attempt to get the audio to run smoothly..
+        /*
+         * audio[0].onended=function(){
+        setTimeout(function(){
+         audio[1].play()
+        ;}, 2000);
+        };
+        */
+              
+   // }
 
 
     
@@ -311,19 +440,6 @@
     
     </script>
       
-    <!--  
-      <script>
-      
-      "GiveMeAReason()"
-                  function "GiveMeAReason()"{
-                      //this is where you assign the path for the audio element. for the sake of this trial, just use a1
-        var reasonPath = "https://raw.githubusercontent.com/trhi/trhi.github.io/master/MP3/a1.mp3";              
-
-                      document.getElementById(reason).src = reasonPath;
-                      document.getElementById(reason).play();
-          }
-  </script>
-        -->
     
     
     <!-- cope with screen rotations and scaling-->
