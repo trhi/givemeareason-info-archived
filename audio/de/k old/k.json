@@ -1,0 +1,28 @@
+[
+    {"full": [
+        {"filename":"a name1", "de":"auf deutsch", "en":"in english"},
+        {"filename":"a name2", "de":"auf deutsch", "en":"in english"},
+        {"filename":"a name3", "de":"auf deutsch", "en":"in english"}
+            ]},
+    {"help": [
+        {"filename":"help1 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"help2 name", "de":"auf deutsch", "en":"in english"}
+    ]},
+    {"object": [
+        {"filename":"object1 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"object2 name", "de":"auf deutsch", "en":"in english"}
+    ]},
+    {"subject":[
+        {"filename":"subject1 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"subject2 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"subject3 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"subject4 name", "de":"auf deutsch", "en":"in english"}
+    ]},
+    {"verb":[
+        {"filename":"verb1 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"verb2 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"verb3 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"verb4 name", "de":"auf deutsch", "en":"in english"},
+        {"filename":"verb5 name", "de":"auf deutsch", "en":"in english"}
+    ]}
+]
