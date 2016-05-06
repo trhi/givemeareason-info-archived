@@ -67,14 +67,20 @@
             <source src="audio/de/other/f03o.mp3" type="audio/mp3">
        </audio>
       
+      <audio id="test">
+            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
+       </audio>
+      
       <form>
             <button type="button" id="givemeareasonbutton"
                 onclick="giveMeAReason()" ></button>     
       </form>
 
      
-      <p id="demo"></p>
-      <p id="demo2"></p>
+      <div id="sentencesdiv">
+            <p id="demo"></p>            
+      </div>
+      
       
 
 
@@ -199,41 +205,167 @@
     function giveMeAReason(){
             
       //first, toggle button state: disable the button while audio is playing
-      // toggleButtonState();  
+      // for some reason it doesnt pick up on this command when its place here..
       toggleButtonState(); 
       
     
-    //this prints out random stuff now
-    //to-do: get it to work with another type of .json structure 
-    //ie. one more suitable for the needs of the button/samples
-    // now k.json is an array []
-    //but id rather it were { "full":[], "help":[]}
-    //so that I could call it k.full[].. ugh
-    //im confused..
+    //gets the x.json file and creates an object out of it.
+    //Create multiple Objects, for each person?
+    //Given the persons.json file?
+    //Then: simply choose from an array of persons[0-16]
+    //eg. persons[x].path = pathname;
+    //eg. persons[x].help[y].filename;
+    //pathname += filename;
+    //blabla.src = pathname;
     var xmlhttp = new XMLHttpRequest();
-    var url = "audio/de/k/k.json";
+    var personurl = "audio/de/h/h.json";
 
     xmlhttp.onreadystatechange = function() {
      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var myArr = JSON.parse(xmlhttp.responseText);
-          myFunction(myArr);
+            var personObject = JSON.parse(xmlhttp.responseText);
+          myFunction(personObject);
      }
     };
-    xmlhttp.open("GET", url, true);
+    xmlhttp.open("GET", personurl, true);
     xmlhttp.send();
     
-    function myFunction(arr) {
+    function myFunction(person) {
         var out = "";
         var i;
-        for(i = 0; i < arr.length; i++) {
-          out += "Filename is: " + arr[0].full[i].filename + "<br> And in german it says: " + 
-             arr[0].full[i].de + '</a><br>';
-      document.getElementById("demo").innerHTML = out;
-    }
-    }
-      
-      
         
+        
+        //In fact, first first, assign the src of a full recording to an audioelement
+        //and play that audioelement back 
+        //Works!! Success!!
+        /*
+        var fullpath = person.path;
+        fullpath += person.full[0].filename;
+        document.getElementById("test").src = fullpath;
+        //And then play that file!
+        //Works!! Success!!
+        document.getElementById("test").play();
+        */
+        
+        //Now get it to choose a random full recording..
+        //ie. given one person, choose random, assign source, playback
+        //Works!! Success!!
+        var fullpath = person.path;
+       
+       /*
+        var randomIndex = getRandomIndex(0, person.full.length);
+        fullpath += person.full[randomIndex].filename;
+        
+        document.getElementById("test").src = fullpath;
+        document.getElementById("test").play();
+        
+        document.getElementById("demo").innerHTML = person.full[randomIndex].de;
+        */
+        
+        //Now get it to put together a random sentence..
+        //ie. given one person, choose random help, subject, object, verb
+        //Am now commenting out the rest of the code below that would otherwise choose the stuff..
+        var randomHelp = getRandomIndex(0, person.help.length);
+        var randomSubject = getRandomIndex(0, person.subject.length);
+        var randomObject = getRandomIndex(0, person.object.length);
+        var randomVerb = getRandomIndex(0, person.verb.length);
+        
+        toggleButtonState();
+        
+        //create new <p> element
+        //which is an empty string (node)
+        var newsentence = document.createElement("p");
+        var node = document.createTextNode("");
+        newsentence.appendChild(node);
+        
+        //prepend the new p element to the already existing peas.
+        //Yay! This works! Success!!
+        $("p").prepend(newsentence);
+        
+        //Choose random person/path before selecting each audio element
+        
+        
+        
+        fullpath += person.help[randomHelp].filename;
+        document.getElementById("help/").src = fullpath;
+        document.getElementById("help/").play();
+        //should always be generating a new <p> to which to add it, 
+        //the other ones should still be visible below..
+        //document.getElementById("demo").innerHTML = person.help[randomHelp].de;
+        $(newsentence).append(person.help[randomHelp].de);
+        document.getElementById("help/").onended = function playSubject(){
+        
+        fullpath = person.path;
+        fullpath += person.subject[randomSubject].filename;
+        document.getElementById("subject/").src = fullpath;
+        document.getElementById("subject/").play();
+        //document.getElementById("demo").innerHTML = person.subject[randomSubject].de;
+        $(newsentence).append(" " + person.subject[randomSubject].de);
+        document.getElementById("subject/").onended = function playObject(){
+          
+            fullpath = person.path;
+            fullpath += person.object[randomObject].filename;
+            document.getElementById("object/").src = fullpath;
+            document.getElementById("object/").play();
+            //document.getElementById("demo").innerHTML = person.object[randomObject].de;
+            $(newsentence).append(" " + person.object[randomObject].de);
+            document.getElementById("object/").onended = function playVerb(){
+            
+                 fullpath = person.path;           
+                 fullpath += person.verb[randomVerb].filename;
+                 document.getElementById("verb/").src = fullpath;
+                 document.getElementById("verb/").play();
+                 //document.getElementById("demo").innerHTML = person.verb[randomVerb].de;
+                 $(newsentence).append(" " + person.verb[randomVerb].de);
+                 //$("#demo").prepend('<p></p>');
+                 document.getElementById("verb/").onended = toggleButtonState();
+             };
+        
+        };
+        
+    };
+        
+        
+
+        
+        // Returns a random integer between min (included) and max (excluded)
+        // Using Math.round() will give you a non-uniform distribution!
+        //pass zero as min and pass array.length as max
+        //eg. 0 and 5
+        //will return: 0, 1, 2, 3 or 4.
+        //these are all valid indeces of the array
+        function getRandomIndex(min, max) {
+             return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        
+        
+        
+        /*
+        //json to object works!
+        //calling the object attributes works!
+        //calling the attributes of the objects contained in the array works!
+        out += "The first big test!" + "<br>";
+        out += document.getElementById("test").src + "<br><br><br>";
+        out += person.name + "<br>";
+        out += person.path + "<br>";
+        out += person.workshop + "<br>";
+        out += person.full[0].filename;
+        document.getElementById("demo").innerHTML = out;
+        
+  
+        //This prints out all the filenames and de texts that there are.
+        for(i = 0; i < person.full.length; i++) {
+          out += "Filename is: " + person.full[i].filename + "<br> And in german it says: " + 
+             person.full[i].de + '</a><br>';
+        document.getElementById("demo").innerHTML = out;
+        }
+        */
+       
+        
+    }
+      
+      
+      /*  
       //givemeareason code  
       document.getElementById(types[typeIndex]).src = createSource(typeIndex);
       document.getElementById(types[typeIndex]).load();
@@ -272,6 +404,9 @@
               };
               
           };
+          */
+         //and copying toggleButtonState(); here below..
+         toggleButtonState();
           
     }
 
