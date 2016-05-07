@@ -113,6 +113,7 @@
         var person1;
         var person2;
         var person3;
+        var voices = [];
         
         //call the function
         //disableButton();
@@ -164,7 +165,9 @@
         }
            
             
-            
+            //this function loads the persons from the de-persons.json file
+            //and pushes each person created into a global voices array! yay!
+            //It works!! Success!!
             function loadPersons(){
                 
                 document.getElementById("demo").innerHTML = "hello again";
@@ -191,7 +194,9 @@
                                 //callback function would go here..
                                 //how to create something that iterates through
                                 //all the entries in data.persons[]??? 
-                                showresults(person0);
+                                //showresults(person0);
+                                voices.push(person0);
+                                showvoiceresults(voices);
                                  //assign the person to the array at position i..?
                                 
                             }
@@ -208,7 +213,9 @@
                                 //document.getElementById("demo").innerHTML = "hello 3rd time";
                                 //data.persons.push(person);
                                 
-                                showresults(person1);
+                                //showresults(person1);
+                                voices.push(person1);
+                                
                                  //assign the person to the array at position i..?
                                 enableButton();
                                 
@@ -219,6 +226,18 @@
                     
                 }
                          
+                //for seeing how it pushed the stuff into the voices array
+                //ie. it seems that although creating person0 with h.json is called first,
+                //and person1 with g.json, because theyre async functions
+                //i guess it takes longer to load h.json (there is more data..)
+                //and thats why h.json gets pushed to voices[] as the 2nd item, ie. at index=1.
+                function showvoiceresults(voices){
+                    document.getElementById("demo").innerHTML = "The voices array has: " 
+                        + voices.toString() + "<br>"
+                        + voices[0].name + "<br>"
+                        + voices[0].path + "<br>"
+                        + voices[0].full[1].de;
+                }
                 
                 function showresults(person){
                     
@@ -407,6 +426,11 @@
         var i;
         
         
+        //for test purposes, I am going to keep this code for now
+        //basically, I just have an extra person object called person (a local variable)
+        //alongside my global variables person0 and person1
+        //create a global array called voices? by pushing person0 and person1 to it?
+        
         //In fact, first first, assign the src of a full recording to an audioelement
         //and play that audioelement back 
         //Works!! Success!!
@@ -430,7 +454,15 @@
         //3. choose person
         //4. then choose subject..
         //... etc.
-        var randomPerson = getRandomIndex(0, persons.length);
+        //var randomPerson = getRandomIndex(0, persons.length);
+        //and now I have all the persons that the initialising algorithm loaded
+        //i have them all in a global voices array, yay!
+        
+        
+        
+        
+        
+        
        
        /*
         var randomIndex = getRandomIndex(0, person.full.length);
@@ -445,12 +477,12 @@
         //Now get it to put together a random sentence..
         //ie. given one person, choose random help, subject, object, verb
         //Am now commenting out the rest of the code below that would otherwise choose the stuff..
-        var randomHelp = getRandomIndex(0, person.help.length);
-        var randomSubject = getRandomIndex(0, person.subject.length);
-        var randomObject = getRandomIndex(0, person.object.length);
-        var randomVerb = getRandomIndex(0, person.verb.length);
+        //var randomHelp = getRandomIndex(0, person.help.length);
+        //var randomSubject = getRandomIndex(0, person.subject.length);
+        //var randomObject = getRandomIndex(0, person.object.length);
+        //var randomVerb = getRandomIndex(0, person.verb.length);
         
-        toggleButtonState();
+        //toggleButtonState();
         
         //create new <p> element
         //which is an empty string (node)
@@ -493,8 +525,126 @@
         
         //Choose random person/path before selecting each audio element
         
+        //var typeArray = ["help", "subject", "object", "verb"];
+        var counter = 0;
+        //var voiceIndex;
+        var helpVoice;
+        var subjectVoice;
+        var objectVoice;
+        var verbVoice;
+        var helpIndex;
+        var subjectIndex;
+        var objectIndex;
+        var verbIndex;
+        //var sentences = [];
+        var segmentpath;
+        
+        // Returns a random integer between min (included) and max (excluded)
+        // Using Math.round() will give you a non-uniform distribution!
+        //pass zero as min and pass array.length as max
+        //eg. 0 and 5
+        //will return: 0, 1, 2, 3 or 4.
+        //these are all valid indeces of the array
+        function getRandomIndex(min, max) {
+             return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        //chooses a voice to speak each
+        for(counter = 0; counter < 4; counter++){
+            
+            //does it wait for a return until it continues onto chooseSegment() ?
+            //or do i need to do a callback function again :D
+             chooseVoice();
+             chooseSegment();
+             //pushToSentences();
+        
+        };
+        
+        playSegments();
+                    
+        function chooseVoice(){
+         
+                //voiceIndex = getRandomIndex(0, voices.length);              
+               
+            if(counter===0){
+                helpVoice = getRandomIndex(0, voices.length);
+            }
+            if(counter===1){
+                
+                subjectVoice = getRandomIndex(0, voices.length);
+            }
+            if(counter===2){
+                objectVoice = getRandomIndex(0, voices.length); 
+            }
+            if(counter===3){
+                verbVoice = getRandomIndex(0, voices.length);
+            }
         
         
+        }
+        
+        function chooseSegment(){
+            
+            if(counter===0){
+                helpIndex = getRandomIndex(0, voices[helpVoice].help.length);
+                segmentpath = voices[helpVoice].path + voices[helpVoice].help[helpIndex].filename;
+                document.getElementById("help/").src = segmentpath;
+                document.getElementById("help/").preload; 
+            }
+            if(counter===1){
+                subjectIndex = getRandomIndex(0, voices[subjectVoice].subject.length);
+                segmentpath = voices[subjectVoice].path + voices[subjectVoice].subject[subjectIndex].filename;
+                document.getElementById("subject/").src = segmentpath;
+                document.getElementById("subject/").preload;
+            }
+            if(counter===2){
+                objectIndex = getRandomIndex(0, voices[objectVoice].object.length);
+                segmentpath = voices[objectVoice].path + voices[objectVoice].object[objectIndex].filename;
+                document.getElementById("object/").src = segmentpath;
+                document.getElementById("object/").preload; 
+            }
+            if(counter===3){
+                verbIndex = getRandomIndex(0, voices[verbVoice].verb.length);
+                segmentpath = voices[verbVoice].path + voices[verbVoice].verb[verbIndex].filename;
+                document.getElementById("verb/").src = segmentpath;
+                document.getElementById("verb/").preload; 
+            }
+                          
+        }
+        
+       /* forget about this pushToSentences method for now..
+        * function pushToSentences(){
+            
+            sentences.push([pIndex,])
+            
+        }*/
+        
+        function playSegments(){
+            
+            document.getElementById("help/").play();
+            $(newsentence).append(voices[helpVoice].help[helpIndex].de);
+            document.getElementById("help/").onended = function playSubject(){
+                    
+                document.getElementById("subject/").play();
+                $(newsentence).append(" " + voices[subjectVoice].subject[subjectIndex].de);
+                document.getElementById("subject/").onended = function playObject(){
+                        
+                    document.getElementById("object/").play();
+                    $(newsentence).append(" " + voices[objectVoice].object[objectIndex].de);
+                    document.getElementById("object/").onended = function playVerb(){
+                                
+                        document.getElementById("verb/").play();
+                        $(newsentence).append(" " + voices[verbVoice].verb[verbIndex].de);
+                        document.getElementById("verb/").onended = toggleButtonState();
+                                
+                    };
+                        
+                };                  
+            };
+        }
+        
+        
+        /*
         fullpath += person.help[randomHelp].filename;
         document.getElementById("help/").src = fullpath;
         document.getElementById("help/").preload; 
@@ -512,10 +662,11 @@
         fullpath = person.path;           
         fullpath += person.verb[randomVerb].filename;
         document.getElementById("verb/").src = fullpath;
-        document.getElementById("verb/").preload;
+        document.getElementById("verb/").preload;*/
         
         
-        
+        //comment out in order to test the new code..
+        /*
         document.getElementById("help/").play();
         //should always be generating a new <p> to which to add it, 
         //the other ones should still be visible below..
@@ -608,7 +759,7 @@
                     $(this).append(" <--- This was just clicked!!");
                 };*/
                 
-                 
+                 /*
                  document.getElementById("verb/").onended = toggleButtonState();
              };
         
@@ -616,19 +767,11 @@
         
     };
     
-        
+        */
         
 
         
-        // Returns a random integer between min (included) and max (excluded)
-        // Using Math.round() will give you a non-uniform distribution!
-        //pass zero as min and pass array.length as max
-        //eg. 0 and 5
-        //will return: 0, 1, 2, 3 or 4.
-        //these are all valid indeces of the array
-        function getRandomIndex(min, max) {
-             return Math.floor(Math.random() * (max - min)) + min;
-        }
+        
         
         
         
@@ -699,7 +842,7 @@
           };
           */
          //and copying toggleButtonState(); here below..
-         toggleButtonState();
+        // toggleButtonState();
           
     }
 
