@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -8,8 +7,7 @@
   <head>
       
     <!-- define character encoding: utf-8 -->
-    <meta charset="utf-8">
-    
+    <meta charset="utf-8"> 
     
    <!-- add metadata regarding keywords of project/site/button?
    <meta name="keywords" content="refugees welcome, migrants, european union, germany, altruism, volunteers, i help because, helping others"> 
@@ -48,48 +46,44 @@
     background-image: url(images/give-me-a-reason-loading-voices.png);
     cursor: url(images/Sun_symbol.svg), wait;
     }*/
-
    
-    </style>   
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    
-    <title>Give Me a Reason
-    </title>
+    </style>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
+    <title>Give Me a Reason</title>
 
   </head>
   <body>
 
-       <audio id="help/">
-            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-       </audio>
+    <audio id="help/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">     
+    </audio>
       
-       <audio id="subject/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3"> 
-       </audio>
+    <audio id="subject/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">      
+    </audio>
        
-       <audio id="verb/">
-            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-       </audio>
+    <audio id="verb/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">      
+    </audio>
        
-       <audio id="object/">
-            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-       </audio>
+    <audio id="object/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">
+    </audio>
       
-      
-      <form>
-            <button type="button" id="givemeareasonbutton"
-                onclick="giveMeAReason()" ></button>     
-      </form>
+    <form>
+        <button type="button" id="givemeareasonbutton" onclick="giveMeAReason()">      
+        </button>
+    </form>
 
-     
-      <div id="sentencesdiv">
-            <p id="demo"></p>            
-      </div>
+    <div id="sentencesdiv">
+        <p id="demo"></p>            
+    </div>
       
       
 
-
+    <!-- cope with screen rotations and scaling-->
+    <script src="javascripts/scale.fix.js"></script>
+    
     <script>
 
         //in order to assign an id value for the p element per sentence created per session
@@ -507,12 +501,6 @@
       
         }//end of givemeareason()
     
-    </script>
-      
-    
-    
-    <!-- cope with screen rotations and scaling-->
-    <script src="javascripts/scale.fix.js"></script>
-    
+    </script>   
   </body>
 </html>
