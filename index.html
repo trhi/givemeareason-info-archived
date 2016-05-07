@@ -12,7 +12,7 @@
     
     
    <!-- add metadata regarding keywords of project/site/button?
-   <meta name="keywords" content="refugees welcome, refugee crisis, european union, germany, altruism, i help because, helping others"> 
+   <meta name="keywords" content="refugees welcome, migrants, european union, germany, altruism, volunteers, i help because, helping others"> 
     -->   
     
     <!-- define: to cater to needs of IE9 and IE8 
@@ -39,6 +39,15 @@
     opacity: 0.6;
     cursor: url(images/Sun_symbol.svg), wait;
     }
+    
+    /* would be nice to implement this..
+    that the button says "loading voices" and is disabled
+    until the data has finished loading from the .json files
+    #givemeareasonbutton:loading{
+    opacity: 0.4;
+    background-image: url(images/give-me-a-reason-loading-voices.png);
+    cursor: url(images/Sun_symbol.svg), wait;
+    }*/
 
    
     </style>   
@@ -86,21 +95,184 @@
 
     <script>
 
+
+        //for json implementation
+        //in order to assign an id value for the p element per sentence created per session
+        //to begin with, it is 0. But the script will add 1 per sentence
+        var pInteger;
+        //This is to create an array of the sentences/data generated per session
+        //This array is also used for playing back sentences which the user chooses to click on
+        //var sentencesArray = [];
+        
+        //global variable personsurl = .json file with list of all participating voices/datasets
+        var personsurl = "audio/de/de-persons-test.json";
+        //global variable persons, this is the object containing all the persons
+        //eg. persons[0].name or persons[0].path
+        var data;
+        var person0;
+        var person1;
+        var person2;
+        var person3;
+        
+        //call the function
+        //disableButton();
+        document.getElementById("givemeareasonbutton").disabled = true;  
+        loadData(loadPersons);
+        //this is also undefined, because loadData() is or contains 
+        //an async function.
+        //The Javascript engine is immediately continuing
+        //in a synchronous manner, to execute the innerHTML command,
+        //but it will necessarily return undefined because
+        //the async function has not yet been evaluated
+        //document.getElementById("demo").innerHTML = data.toString() + " <br>" +
+         //                   data.persons[0].path + "<br>" + data.persons[1].path;
+       // loadPersons();
+        
+        //this is the function
+        function loadData(callback){
+            
+            //wish i could tweak the css to show "loading voices" while loading..
+            //document.getElementById("givemeareasonbutton").loading;
+            
+            //document.getElementById("demo").innerHTML = "hello world";
+            //should be loading personsObject here
+            //and also Object for each person..
+            var xmlhttp = new XMLHttpRequest();
+            
+           // var personsurl = "audio/de/de-persons-test.json";
+
+            //this creates the persons array, given the persons url
+            //well, or this is the async code, rather..
+            xmlhttp.open("GET", personsurl, true);
+            xmlhttp.send();
+            
+            //this is asynchronous code
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    //this is synchronous code
+                    data = JSON.parse(xmlhttp.responseText);
+                    //this is illegal in javascript, an asynchronous function cannot return:
+                    //return data;
+                    //document.getElementById("demo").innerHTML = "hello world";
+                  //  document.getElementById("demo").innerHTML = data.toString() + " <br>" +
+                    //        data.persons[0].path + "<br>" + data.persons[1].path;
+                    //loadPersons(data);
+                    callback();
+                    
+                }
+            }; 
+        }
+           
+            
+            
+            function loadPersons(){
+                
+                document.getElementById("demo").innerHTML = "hello again";
+                
+                
+            
+               // document.getElementById("demo").innerHTML = data.persons[0].name + "  " + data.persons[1].path
+               // + " And the length of the array is: " + data.persons.length;
+                //document.getElementById("demo").innerHTML = "hello again";
+            
+                //var i;
+                
+                        //the reason that data is undefined is because the loadpersons() function
+                        //is an async function and it has not yet had time enough to load
+                        var xmlhttp1 = new XMLHttpRequest();
+                        xmlhttp1.open("GET", data.persons[0].path, true);
+                        xmlhttp1.send();
+                        
+                        xmlhttp1.onreadystatechange = function() {
+                            if (xmlhttp1.readyState === 4 && xmlhttp1.status === 200) {
+       
+                                person0 = JSON.parse(xmlhttp1.responseText);
+                                //document.getElementById("demo").innerHTML = "hello again";
+                                //callback function would go here..
+                                //how to create something that iterates through
+                                //all the entries in data.persons[]??? 
+                                showresults(person0);
+                                 //assign the person to the array at position i..?
+                                
+                            }
+                        };
+                        
+                        var xmlhttp2 = new XMLHttpRequest();
+                        xmlhttp2.open("GET", data.persons[1].path, true);
+                        xmlhttp2.send();
+                        
+                        xmlhttp2.onreadystatechange = function() {
+                            if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
+       
+                                person1 = JSON.parse(xmlhttp2.responseText);
+                                //document.getElementById("demo").innerHTML = "hello 3rd time";
+                                //data.persons.push(person);
+                                
+                                showresults(person1);
+                                 //assign the person to the array at position i..?
+                                enableButton();
+                                
+                            }
+                        };
+                        
+                    
+                    
+                }
+                         
+                
+                function showresults(person){
+                    
+                    document.getElementById("demo").innerHTML = "The person object has: " 
+                        + person.toString() + "<br>"
+                        + person.path + "<br>"
+                        + person.full[1].filename;
+
+                    }
+                
+                function enableButton(){
+                    document.getElementById("givemeareasonbutton").disabled = false;
+                }
+                
+            
+            
+                  
+            
+            
+            
+            // document.getElementById("demo").innerHTML = data.persons[0].name;
+            
+            //And it works!! Yuhhuu!!
+            //document.getElementById("demo").innerHTML = personsObject.persons[1].name + "  " + personsObject.persons[1].path;
+
+            //this function iterates through the persons array
+            //and creates an object for each person given the path
+           
+            
+            
+    
+            //document.getElementById("demo").innerHTML = data.persons[0].name;
+            
+            
+            
+        
+        
+        
+        
           //var persons is a global variable = array of the current voices recorded
           //var persons = ["k","h","t","f","s"];
-          var persons = ["k","h","t","f","s"];
+          //var persons = ["k","h","t","f","s"];
           //var audiopath gives the path where you find all the files
-          var audiopath = "audio/de/";
+          //var audiopath = "audio/de/";
           //var mp3 for concatenation later on (need this be global? or just inside playAudio function?)
-          var mp3 = ".mp3";
+          //var mp3 = ".mp3";
 
           //var typeIndex starts at 0 and gets +1 everytime we go through one playAudio()
-          var typeIndex = 0; //global counter variable
+          //var typeIndex = 0; //global counter variable
           //var types is an array of the type of audio in question, this is used for 
           //concatenating the path of the audio source file later on
           //main purpose in this data structure solution is to create single 
           //playAudio() function ie. reuse code as much as possible.
-          var types = ["help/", "subject/", "object/", "verb/"];
+          //var types = ["help/", "subject/", "object/", "verb/"];
           
     
           //toggles the button state = enabled or disabled depending on whether audio is playing
@@ -201,6 +373,7 @@
                   return audiosrc = audiopath.concat(types[typeIndex], filename);
             }
        
+       
           
     function giveMeAReason(){
             
@@ -250,6 +423,14 @@
         //ie. given one person, choose random, assign source, playback
         //Works!! Success!!
         var fullpath = person.path;
+        
+        //go into the whole cycle of:
+        //1. choose person
+        //2. then choose help
+        //3. choose person
+        //4. then choose subject..
+        //... etc.
+        var randomPerson = getRandomIndex(0, persons.length);
        
        /*
         var randomIndex = getRandomIndex(0, person.full.length);
@@ -273,9 +454,38 @@
         
         //create new <p> element
         //which is an empty string (node)
+        //create a counter.. pInteger. 
+        //toString so that the id of the newly created p
+        //equals the value of the "counter"
+        //the id can later be retrieved and thereby also the sentence.
+        
+        //This works!  
+        if(pInteger === undefined){
+            pInteger = 0;
+        }
+        var pIndex = pInteger.toString();
         var newsentence = document.createElement("p");
-        var node = document.createTextNode("");
-        newsentence.appendChild(node);
+        var textNode = document.createTextNode("");
+        newsentence.appendChild(textNode);
+        newsentence.setAttribute("id", pIndex);
+        
+       
+       
+        //increment in preparation for next sentence
+        pInteger = pInteger + 1;
+        
+        /*
+        //set the onclick event using jQuery
+        $("p").click(function() {
+            alert("Hello World");
+        });
+        */
+        /*
+        //or javascript?
+        document.getElementById(newsentence.id).onclick = function() {
+            $(newsentence.id).append(" <--- This was just clicked!!");
+        };*/
+        
         
         //prepend the new p element to the already existing peas.
         //Yay! This works! Success!!
@@ -287,42 +497,125 @@
         
         fullpath += person.help[randomHelp].filename;
         document.getElementById("help/").src = fullpath;
+        document.getElementById("help/").preload; 
+        
+        fullpath = person.path;
+        fullpath += person.subject[randomSubject].filename;
+        document.getElementById("subject/").src = fullpath;
+        document.getElementById("subject/").preload;
+        
+        fullpath = person.path;
+        fullpath += person.object[randomObject].filename;
+        document.getElementById("object/").src = fullpath;
+        document.getElementById("object/").preload;
+        
+        fullpath = person.path;           
+        fullpath += person.verb[randomVerb].filename;
+        document.getElementById("verb/").src = fullpath;
+        document.getElementById("verb/").preload;
+        
+        
+        
         document.getElementById("help/").play();
         //should always be generating a new <p> to which to add it, 
         //the other ones should still be visible below..
         //document.getElementById("demo").innerHTML = person.help[randomHelp].de;
         $(newsentence).append(person.help[randomHelp].de);
+        
+     
+        
+        
+        //declare sentencesArray as a global variable var sentencesArray = [];
+        //add the data per step to the array
+        //sentences is an array of sentence -objects
+        //declare object sentence
+        //sentence.pIndex starts at 0.
+        //sentence.help
+        //sentence.help.person
+        //sentence.help.help
+        //etc.
+        
+        
+        //sentencesArray.addElem
+        
         document.getElementById("help/").onended = function playSubject(){
         
-        fullpath = person.path;
-        fullpath += person.subject[randomSubject].filename;
-        document.getElementById("subject/").src = fullpath;
+         
         document.getElementById("subject/").play();
         //document.getElementById("demo").innerHTML = person.subject[randomSubject].de;
         $(newsentence).append(" " + person.subject[randomSubject].de);
         document.getElementById("subject/").onended = function playObject(){
           
-            fullpath = person.path;
-            fullpath += person.object[randomObject].filename;
-            document.getElementById("object/").src = fullpath;
+
             document.getElementById("object/").play();
             //document.getElementById("demo").innerHTML = person.object[randomObject].de;
             $(newsentence).append(" " + person.object[randomObject].de);
             document.getElementById("object/").onended = function playVerb(){
             
-                 fullpath = person.path;           
-                 fullpath += person.verb[randomVerb].filename;
-                 document.getElementById("verb/").src = fullpath;
+                 
                  document.getElementById("verb/").play();
                  //document.getElementById("demo").innerHTML = person.verb[randomVerb].de;
                  $(newsentence).append(" " + person.verb[randomVerb].de);
                  //$("#demo").prepend('<p></p>');
+                 
+                 //try to see if it will display the sentencenumber..
+                 //Yus!! Success!! This works.
+                 //It means that the p called newsentence is assigned an id value
+                 // $(newsentence).append(" Sentence No.: " + newsentence.id);
+                 
+                 
+                 //now follows a long list of remnants of code where I was trying
+                 //trying to get the system to give me reliable feedback about which p 
+                 //was being clicked..
+                 //to no avail..
+                 //abort mission (for today)
+                 //attempt at implementing assigning function onclick to each p element created
+                 //I will probably need to implement closures here..
+                 //document.getElementById(pIndex).onclick = function() {
+               //     $(pIndex).append(" <--- This was just clicked!!");
+                //};
+                
+                /*
+                newsentence.onclick = pClick(this);
+                
+                function pClick(element){
+                    
+                    element.innerHTML = " <--- This was just clicked!!";
+                    //$(element).append(" <--- This was just clicked!!");
+                }
+                */
+                /*
+                function otherfunction(){
+                    
+                     $(this).append(" <--- This was just clicked!!");
+                };*/
+                
+                /*
+                <p id="demo" onclick="myFunction(this, 'red')">Click me to change my text color.</p>
+
+        <script>
+        function myFunction(elmnt,clr) {
+           elmnt.style.color = clr;
+        }
+        */
+                
+                
+                /*$(document).ready(function() {
+                    $(pIndex).click(clickP);
+                });
+                
+                function clickP(){
+                    $(this).append(" <--- This was just clicked!!");
+                };*/
+                
+                 
                  document.getElementById("verb/").onended = toggleButtonState();
              };
         
         };
         
     };
+    
         
         
 
