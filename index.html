@@ -123,6 +123,40 @@
         //the function calls the next step in the chain of events
         //namely loadPersons
         loadData(loadPersons);       
+        
+        //to show load voices while the button is loading
+        function buttonWaiting(){
+            
+            $("#givemeareasonbutton").css("background-image", "url(images/give-me-a-reason-loading-voices.png)");        
+            $("#givemeareasonbutton").prop('disabled', true);
+        }
+        
+        //to show give me a reason once the voices have loaded
+        function buttonReady(){
+            $("#givemeareasonbutton").css("background-image", "url(images/give-me-a-reason-ms.png)");        
+            $("#givemeareasonbutton").prop('disabled', false);
+        }
+        //$("#givemeareasonbutton").disabled;
+           // button.style.backgroundImage = "url('images/give-me-a-reason-loading-voices.png')";
+           // document.getElementById("givemeareasonbutton").style.backgroundImage =
+        //buttons[b].style.backgroundImage = "url('darkSquare.jpg')";
+            
+           /*     #givemeareasonbutton {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: url(images/give-me-a-reason-ms.png);
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    }
+    
+    #givemeareasonbutton:disabled{
+    opacity: 0.6;
+    cursor: url(images/Sun_symbol.svg), wait;
+    }*/
+            
+        
 
         //this function loads the information from de-persons-test.json
         //and loads it into a persons array
@@ -170,6 +204,9 @@
                 var person0;
                 var person1;
                 
+                //trying to display a disabled button that says "loading voices"
+                buttonWaiting();
+            
             
                // document.getElementById("demo").innerHTML = data.persons[0].name + "  " + data.persons[1].path
                // + " And the length of the array is: " + data.persons.length;
@@ -213,8 +250,16 @@
                                 //showresults(person1);
                                 voices.push(person1);
                                 
+                                //mock-up of async callback..
+                                //ie. give the code some time to load before you can begin to press it.
+                                //works!
+                                setTimeout(function(){
+                                    buttonReady();
+                                }, 2000);
+                                
+                                
                                  //assign the person to the array at position i..?
-                                toggleButtonState();
+                                //toggleButtonState();
                                 
                             }
                         };
