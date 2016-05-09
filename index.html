@@ -246,8 +246,7 @@
                         });*/
                         var webiget1 = new XMLHttpRequest();
                         webiget1.open("GET", data.persons[2].path, true);
-                        webiget1.send();
-                        
+                        webiget1.send();                       
                         webiget1.onreadystatechange = function() {
                             if (webiget1.readyState === 4 && webiget1.status === 200) {
                                 person2 = JSON.parse(webiget1.responseText);
@@ -259,7 +258,7 @@
                         var webiget2 = new XMLHttpRequest();
                         //webiget2.open("GET", data.persons[3].path, true);
                         //webiget2.send(); 
-                        webiget1.onreadystatechange = function() {
+                        webiget2.onreadystatechange = function() {
                             if (webiget2.readyState === 4 && webiget2.status === 200) {
                                 person3 = JSON.parse(webiget2.responseText);
                                 voices.push(person3);      
@@ -270,8 +269,8 @@
                         var webiget3 = new XMLHttpRequest();
                         //webiget3.open("GET", data.persons[4].path, true);
                         //webiget3.send(); 
-                        webiget1.onreadystatechange = function() {
-                            if (webiget3.readyState === 4 && webiget2.status === 200) {
+                        webiget3.onreadystatechange = function() {
+                            if (webiget3.readyState === 4 && webiget3.status === 200) {
                                 person4 = JSON.parse(webiget3.responseText);
                                 voices.push(person4);      
                             }
