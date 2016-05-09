@@ -1,0 +1,59 @@
+{
+	"name": "l",
+	"path": "audio/de/l/",
+	"workshop": "02",
+	"complete": {"filename": "l00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "l01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "l02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "l03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "l04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "l05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "l06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "l07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "l08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "l01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "l02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "l03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "l04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "l05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "l06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "l07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "l08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "l01s.mp3", "de": "weil ich", "en": "because I"},
+		{"filename": "l02s.mp3", "de": "weil ich", "en": "because I"},
+		{"filename": "l03s.mp3", "de": "weil ich", "en": "because I"},
+		{"filename": "l04s.mp3", "de": "weil ich", "en": "because I"},
+                {"filename": "l06s.mp3", "de": "weil ich", "en": "because I"},
+                {"filename": "l07s.mp3", "de": "weil nicht alles", "en": "because not everything"},
+                {"filename": "l08s.mp3", "de": "weil ich mich selbst", "en": "because I/myself"},                
+                {"filename": "l14s.mp3", "de": "weil ich", "en": "because I"}
+        ],
+	"object": [		
+		{"filename": "l02o.mp3", "de": "ein lebendiger Vertreter meines Landes", "en": ""},
+                {"filename": "l03o.mp3", "de": "ein Brückenbauer", "en": ""},
+                {"filename": "l04o.mp3", "de": "die Gesellschaft", "en": ""},
+                {"filename": "l05o.mp3", "de": "wie anders wir hier", "en": ""},
+                {"filename": "l06o.mp3", "de": "von den Flüchtlingen", "en": ""},
+                {"filename": "l07o.mp3", "de": "vom Staat", "en": ""},
+                {"filename": "l08o.mp3", "de": "damit", "en": ""},
+                {"filename": "l12o.mp3", "de": "den Flüchtlingen", "en": ""},
+                {"filename": "l14o.mp3", "de": "ein Vorbild", "en": ""}
+	],
+	"verb": [
+		{"filename": "l01v.mp3", "de": "informiert über das Geschehen sein will", "en": ""},
+		{"filename": "l02v.mp3", "de": "sein will", "en": ""},
+		{"filename": "l03v.mp3", "de": "sein will", "en": ""},
+		{"filename": "l04v.mp3", "de": "sein will", "en": ""},
+                {"filename": "l05v.mp3", "de": "wie anders wir hier leben", "en": ""},
+                {"filename": "l06v.mp3", "de": "lernen will", "en": ""},
+                {"filename": "l07v.mp3", "de": "erledigt werden kann", "en": ""},
+                {"filename": "l08v.mp3", "de": "weiterentwickeln kann", "en": ""},               
+                {"filename": "l15v.mp3", "de": "zeigen will", "en": ""},
+                {"filename": "l16v.mp3", "de": "von den Flüchtlingen lernen will", "en": ""}
+        ]
+}

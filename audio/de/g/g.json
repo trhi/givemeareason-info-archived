@@ -1,0 +1,56 @@
+{
+	"name": "g",
+	"path": "audio/de/g/",
+	"workshop": "03",
+	"complete": {"filename": "g00complete.mp3","de": "Ich helfe weil es mir hilft. Ich helfe weil ich Augen für die Bedürfnisse andere habe. Ich helfe weil ich weiss, dass Hilfe bitter nötig ist. Ich helfe weil ich nicht will, dass jemand in der Not alleine gelassen wird. Ich helfe weil ich nicht hilflos zusehen will. Ich helfe weil es mein Denken erweitert. Ich helfe weil ich lieber unter Menschen als alleine bin. Ich helfe weil ich nicht wegschauen will.", "en": "Translations coming soon.."},
+	"full": [
+		{"filename": "g01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "The sentence."},
+		{"filename": "g02full.mp3", "de": "Ich helfe weil ich Augen für die Bedürfnisse andere habe.", "en": "The sentence."},
+		{"filename": "g03full.mp3", "de": "Ich helfe weil ich weiss, dass Hilfe bitter nötig ist.", "en": "The sentence."},
+		{"filename": "g04full.mp3", "de": "Ich helfe weil ich nicht will, dass jemand in der Not alleine gelassen wird.", "en": "The sentence."},
+		{"filename": "g05full.mp3", "de": "Ich helfe weil ich nicht hilflos zusehen will.", "en": "The sentence."},
+		{"filename": "g06full.mp3", "de": "Ich helfe weil es mein Denken erweitert.", "en": "The sentence."},
+                {"filename": "g07full.mp3", "de": "Ich helfe weil ich lieber unter Menschen als alleine bin.", "en": "The sentence."},
+                {"filename": "g08full.mp3", "de": "Ich helfe weil ich nicht wegschauen will.", "en": "The sentence."}
+	],
+	"help": [
+		{"filename": "g01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "g02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "g03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "g04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "g05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "g06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "g07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "g08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "g01s.mp3", "de": "weil es", "en": "because it"},
+		{"filename": "g02s.mp3", "de": "weil ich", "en": "because I"},
+		{"filename": "g03s.mp3", "de": "weil ich", "en": "because I"},
+		{"filename": "g04s.mp3", "de": "weil ich nicht", "en": "because I don't"},
+                {"filename": "g05s.mp3", "de": "weil ich nicht", "en": "because I don't"},
+                {"filename": "g06s.mp3", "de": "weil es", "en": "because it"},
+                {"filename": "g07s.mp3", "de": "weil ich", "en": "because I"},
+                {"filename": "g08s.mp3", "de": "weil ich", "en": "because I"}
+        ],
+	"object": [
+		{"filename": "g01o.mp3", "de": "mir", "en": "me"},
+		{"filename": "g02o.mp3", "de": "Augen", "en": "eyes"},
+                {"filename": "g03o.mp3", "de": "dass Hilfe", "en": "that help"},
+                {"filename": "g04o.mp3", "de": "jemand in der Not", "en": "somebody in need"},
+                {"filename": "g06o.mp3", "de": "mein Denken", "en": "my thinking"},
+                {"filename": "g07o.mp3", "de": "lieber unter Menschen", "en": "preferably amongst people"}
+	],
+	"verb": [
+		{"filename": "g01v.mp3", "de": "mir hilft", "en": "test"},
+		{"filename": "g02v.mp3", "de": "für die Bedürfnisse andere habe", "en": "test"},
+		{"filename": "g03v.mp3", "de": "weiss", "en": "test"},
+		{"filename": "g04v.mp3", "de": "alleine gelassen wird", "en": "test"},
+                {"filename": "g05v.mp3", "de": "hilflos zusehen will", "en": "test"},
+                {"filename": "g06v.mp3", "de": "erweitert", "en": "test"},
+                {"filename": "g07v.mp3", "de": "als alleine bin", "en": "test"},
+                {"filename": "g08v.mp3", "de": "nicht wegschauen will", "en": "test"},
+                {"filename": "g33v.mp3", "de": "bitter nötig ist", "en": "test"},
+                {"filename": "g44v.mp3", "de": "will", "en": "test"}
+        ]
+}
