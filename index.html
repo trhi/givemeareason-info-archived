@@ -477,7 +477,8 @@
         };
         
         //plays the segments as soon as they have been chosen and assigned
-        playSegments();
+        document.getElementById("verb/").oncanplaythrough = playSegments();
+        
                     
         function chooseVoice(){
  
