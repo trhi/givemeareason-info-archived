@@ -1,0 +1,56 @@
+{
+	"name": "x",
+	"path": "audio/de/x/",
+	"workshop": "0x",
+	"complete": {"filename": "x00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "x01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "x02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "x03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "x04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "x05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "x06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "x07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "x08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "x01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "x02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "x03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "x04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "x05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "x06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "x07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "x08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "x01s.mp3", "de": "", "en": ""},
+		{"filename": "x02s.mp3", "de": "", "en": ""},
+		{"filename": "x03s.mp3", "de": "", "en": ""},
+		{"filename": "x04s.mp3", "de": "", "en": ""},
+                {"filename": "x05s.mp3", "de": "", "en": ""},
+                {"filename": "x06s.mp3", "de": "", "en": ""},
+                {"filename": "x07s.mp3", "de": "", "en": ""},
+                {"filename": "x08s.mp3", "de": "", "en": ""}
+        ],
+	"object": [
+		{"filename": "x01o.mp3", "de": "", "en": ""},
+		{"filename": "x02o.mp3", "de": "", "en": ""},
+                {"filename": "x03o.mp3", "de": "", "en": ""},
+                {"filename": "x04o.mp3", "de": "", "en": ""},
+                {"filename": "x05o.mp3", "de": "", "en": ""},
+                {"filename": "x06o.mp3", "de": "", "en": ""},
+                {"filename": "x07o.mp3", "de": "", "en": ""},
+                {"filename": "x08o.mp3", "de": "", "en": ""}
+	],
+	"verb": [
+		{"filename": "x01v.mp3", "de": "", "en": ""},
+		{"filename": "x02v.mp3", "de": "", "en": ""},
+		{"filename": "x03v.mp3", "de": "", "en": ""},
+		{"filename": "x04v.mp3", "de": "", "en": ""},
+                {"filename": "x05v.mp3", "de": "", "en": ""},
+                {"filename": "x06v.mp3", "de": "", "en": ""},
+                {"filename": "x07v.mp3", "de": "", "en": ""},
+                {"filename": "x08v.mp3", "de": "", "en": ""}
+        ]
+}

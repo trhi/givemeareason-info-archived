@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -8,11 +7,10 @@
   <head>
       
     <!-- define character encoding: utf-8 -->
-    <meta charset="utf-8">
-    
+    <meta charset="utf-8"> 
     
    <!-- add metadata regarding keywords of project/site/button?
-   <meta name="keywords" content="refugees welcome, refugee crisis, european union, germany, altruism, i help because, helping others"> 
+   <meta name="keywords" content="refugees welcome, migrants, european union, germany, altruism, volunteers, i help because, helping others"> 
     -->   
     
     <!-- define: to cater to needs of IE9 and IE8 
@@ -39,411 +37,560 @@
     opacity: 0.6;
     cursor: url(images/Sun_symbol.svg), wait;
     }
-
+    
+    /* would be nice to implement this..
+    that the button says "loading voices" and is disabled
+    until the data has finished loading from the .json files
+    #givemeareasonbutton:loading{
+    opacity: 0.4;
+    background-image: url(images/give-me-a-reason-loading-voices.png);
+    cursor: url(images/Sun_symbol.svg), wait;
+    }*/
    
-    </style>   
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    
-    <title>Give Me a Reason
-    </title>
+    </style>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
+    <title>Give Me a Reason</title>
 
   </head>
   <body>
 
-       <audio id="help/">
-            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-       </audio>
+    <audio id="help/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">     
+    </audio>
       
-       <audio id="subject/">
-           <source src="audio/de/other/f03o.mp3" type="audio/mp3"> 
-       </audio>
+    <audio id="subject/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">      
+    </audio>
        
-       <audio id="verb/">
-            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-       </audio>
+    <audio id="verb/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">      
+    </audio>
        
-       <audio id="object/">
-            <source src="audio/de/other/f03o.mp3" type="audio/mp3">
-       </audio>
+    <audio id="object/">
+        <source src="audio/de/other/f03o.mp3" type="audio/mp3">
+    </audio>
       
-      <form>
-            <button type="button" id="givemeareasonbutton"
-                onclick="giveMeAReason()" ></button>     
-      </form>
+    <form>
+        <button type="button" id="givemeareasonbutton" onclick="giveMeAReason()">      
+        </button>
+    </form>
 
-     
-      <p id="demo"></p>
+    <div id="sentencesdiv">
+        <p id="demo"></p>            
+    </div>
+      
       
 
-
+    <!-- cope with screen rotations and scaling-->
+    <script src="javascripts/scale.fix.js"></script>
+    
     <script>
-    
-    //attempt to implement jQuery
-   /* $(document).ready(function(){
+
+        //in order to assign an id value for the p element per sentence created per session
+        //to begin with, it is 0. But the script will add 1 per sentence
+        //global because possibly used with Sentences[] in next dev stage
+        var pInteger;
         
-      /*  $(":button").click(function(
-                
-                function toggleButtonState(){
+        //global variable personsurl = .json file with list of all participating voices/datasets
+        var personsurl = "audio/de/de-persons-test.json";
+        
+        //this is where the personsurl is then parsed into.
+        //A light array consisting of as many elements as there are voices.
+        var data;
+        
+        //the most important object of all!!
+        //This is where all the voices are pushed into..
+        //And the button then works heavily with this array afterwards..
+        //This monster of an array includes ALL the voices and ALL their data!
+        var voices = [];
+        
+        //a super essential function for toggling the givemeareason button state
+        function toggleButtonState(){
                 if (document.getElementById("givemeareasonbutton").disabled === false) {
                      document.getElementById("givemeareasonbutton").disabled = true;
                 }else{
                     document.getElementById("givemeareasonbutton").disabled = false;
                 }
            }
-                  
-        $(":button").click(function(){
-        $.getJSON("givemeareasonde.json", function(result){
-            $.each(result, function(i, field){
-                $("div").append(field + " ");
-            });
-        });
-         });         
-             
-     //end of jQuery methods*/
+        
+        //toggleButtonState to off while loading
+        //Ideally, I would like to have a "Voices loading"
+        //type image show up where the button is..
+        toggleButtonState();
+        
+        //loadData uses loadPerons as a callbackfunction
+        //This is so that, once the persons array has been loaded /async
+        //the function calls the next step in the chain of events
+        //namely loadPersons
+        loadData(loadPersons);       
+        
+        //to show load voices while the button is loading
+        function buttonWaiting(){
+            
+            $("#givemeareasonbutton").css("background-image", "url(images/give-me-a-reason-loading-voices.png)");        
+            $("#givemeareasonbutton").prop('disabled', true);
+        }
+        
+        //to show give me a reason once the voices have loaded
+        function buttonReady(){
+            $("#givemeareasonbutton").css("background-image", "url(images/give-me-a-reason-ms.png)");        
+            $("#givemeareasonbutton").prop('disabled', false);
+        }
+        //$("#givemeareasonbutton").disabled;
+           // button.style.backgroundImage = "url('images/give-me-a-reason-loading-voices.png')";
+           // document.getElementById("givemeareasonbutton").style.backgroundImage =
+        //buttons[b].style.backgroundImage = "url('darkSquare.jpg')";
+            
+           /*     #givemeareasonbutton {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: url(images/give-me-a-reason-ms.png);
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    }
     
-        
-       //toggles the button state = enabled or disabled depending on whether audio is playing
-          //and the best part is that this function actually works! Hurray!
-          
-        
-       /* function giveMeAReason(){
-            //first thing, last thing
-            //toggleButtonState();
+    #givemeareasonbutton:disabled{
+    opacity: 0.6;
+    cursor: url(images/Sun_symbol.svg), wait;
+    }*/
             
-            $(":button").toggleButtonState();
-            
-           // document.getElementById("demo").innerHTML = "Hello World";
-            
-            //xmlhttp request and json file
-            //var xmlhttp = new XMLHttpRequest();
-            var url = "/audio/de/givemeareasonde.json";
-            var reasonde = [];
-       
-            //reasonde = JSON.parse("/audio/de/givemeareasonde.json");
-       
-            /*xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readystate === 4 && xmlhttp.status === 200){
-                reasonde = JSON.parse(xmlhttp.responsetext);               
-            };
-            };
         
-            xmlhttp.open("GET", url, true);
+
+        //this function loads the information from de-persons-test.json
+        //and loads it into a persons array
+        function loadData(callback){
+            
+            
+            //wish i could tweak the css to show "loading voices" while loading..
+            //document.getElementById("givemeareasonbutton").loading;
+            
+            //document.getElementById("demo").innerHTML = "hello world";
+            //should be loading personsObject here
+            //and also Object for each person..
+            var xmlhttp = new XMLHttpRequest();
+            
+           // var personsurl = "audio/de/de-persons-test.json";
+
+            //this creates the persons array, given the persons url
+            //well, or this is the async code, rather..
+            xmlhttp.open("GET", personsurl, true);
             xmlhttp.send();
-            */
             
-
-            /*
-            var i;
-            for(i = 0; i < reasonde.f[1].length; i++) {
-                document.getElementById("demo").innerHTML = "Hello World";
-                out += 'Filename: ' + reasonde.f.help[i].filename + ' auf deutsch is: ' +
-                reasonde.f.help[i].de + '<br>';
-            }
-            document.getElementById("demo").innerHTML = out;
-            
-            
-            
-            //last thing, first thing
-            //toggleButtonState();
-        };*/
-    
-
-        
-          //var persons is a global variable = array of the current voices recorded
-          //var persons = ["k","h","t","f","s"];
-          var persons = ["k","h","t","f","s"];
-          //var audiopath gives the path where you find all the files
-          var audiopath = "audio/de/";
-          //var mp3 for concatenation later on (need this be global? or just inside playAudio function?)
-          var mp3 = ".mp3";
-
-          //var typeIndex starts at 0 and gets +1 everytime we go through one playAudio()
-          var typeIndex = 0; //global counter variable
-          //var types is an array of the type of audio in question, this is used for 
-          //concatenating the path of the audio source file later on
-          //main purpose in this data structure solution is to create single 
-          //playAudio() function ie. reuse code as much as possible.
-          var types = ["help/", "subject/", "object/", "verb/"];
-          
-    
-          //toggles the button state = enabled or disabled depending on whether audio is playing
-          //and the best part is that this function actually works! Hurray!
-          function toggleButtonState(){
-                if (document.getElementById("givemeareasonbutton").disabled === false) {
-                     document.getElementById("givemeareasonbutton").disabled = true;
-                }else{
-                    document.getElementById("givemeareasonbutton").disabled = false;
-                }
-           }
+            //this is asynchronous code
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    //this is synchronous code
+                    data = JSON.parse(xmlhttp.responseText);
+                    //this is illegal in javascript, an asynchronous function cannot return:
+                    //return data;
+                    //document.getElementById("demo").innerHTML = "hello world";
+                  //  document.getElementById("demo").innerHTML = data.toString() + " <br>" +
+                    //        data.persons[0].path + "<br>" + data.persons[1].path;
+                    //loadPersons(data);
+                    callback();
                     
-          //this function generates a randomIndex given a min and max value
-          //the max value should be the length of the array, min should be zero?
-          function randomIndex(min, max){
-              
-              //this function will work for the .json datamodel
-              
-              //standard means to choose random number between max (excluded) and min (included)
-              //max is exluded because max is given as the length of the array
-              //and min is given as 0.
-              //ie. if length = 2, there are indeces 0 and 1, not 0, 1 and 2.
-              //ugh, except this mucks up the generating for the chooserandom index
-              //for the recordings themselves..
-              //ie. take care of the 0 array index issue in choosePerson()
-              //return Math.floor(Math.random() * (max - min + 1)) + min;
-                //
-                
-               //function getRandomIntInclusive(min, max) {
-               // return Math.floor(Math.random() * (max - min + 1)) + min;
-               //
-              return Math.floor((Math.random() * max - min + 1) + min);
-              //return Math.floor(Math.random() * (max - min)) + min;
-              
-          }
-          
-          //chooses a person, ie. chooses random person from a list of persons
-          function choosePerson(){             
-            // var persons is an array of strings/characters..  
-            //var persons = ["k","h","t","f","s"];
-            //var randomIndex is an integer
-            //function chooseIndex(min, max) generates a random number between max inclusive and min inclusive
-            var index = randomIndex(1, persons.length);
-            //to correct for random number generator
-            var index = index - 1;
-            return persons[index];
+                }
+            }; 
+        }
+           
             
-              
-          }
-     
-    
-          //generates a random help utterance given a person
-          //each person has a different maximum number of utterances available
-          //grr.. although I wanted each to have 8 and 8 only..
-          //or should i call this by saying: persons[randomIndex]
-          function chooseIndex(person){              
-              if(person.match(/k/)){
-                  return randomIndex(1,12);               
-              }
-              if(person.match(/s/)){                  
-                  return randomIndex(1,9);                  
-              }              
-              if(person.match(/t/)){                  
-                  return randomIndex(1,8);                  
-              }
-              if(person.match(/f/)){                  
-                  return randomIndex(1,7);                  
-              }
-              if(person.match(/h/)){                  
-                  return randomIndex(1,6);                  
-              }            
-          }
- 
-    
-          //creates a string version of the index (for later path concatenation
-          function chooseStringIndex(person){
-            var index = chooseIndex(person);
-              if(index < 10){             
-                  var zero = "0";
-                  return zero.concat(index.toString());                 
-              }else{                               
-                  return index.toString();                 
-              }        
-          }
+            //this function loads the information form the persons array
+            //and pushes each person created into a global array called voices
+            //voices is later used heavily by the givemeareason function
+            function loadPersons(){
 
-            //concatenates the src/path+filename
-            //given the person = a letter,
-            //index of the audiofile in string form,
-            //and by taking the first letter of the category, eg. help = h
-            //and then creating the filename: eg. k+01+h+.mp3
-            //and then creating the full source using "audiopath"/string ie. audio/de/ 
-            //and the type from the types array eg. help/
-            //and finally, the filename eg. k001h.mp3
-            function createSource(typeIndex){                
-                  var person = choosePerson();
-                  var index = chooseStringIndex(person);
-                  //does this way of calling it work?
-                  var category = types[typeIndex].substring(0,1);
-                  var filename = person.concat(index, category, mp3);
-                  return audiosrc = audiopath.concat(types[typeIndex], filename);
-            }
+                var person0;
+                var person1;
+                var person2;
+                var person3;
+                var person4;
+                
+                //trying to display a disabled button that says "loading voices"
+                buttonWaiting();
+            
+            
+               // document.getElementById("demo").innerHTML = data.persons[0].name + "  " + data.persons[1].path
+               // + " And the length of the array is: " + data.persons.length;
+                //document.getElementById("demo").innerHTML = "hello again";
+            
+                //var i;
+                
+                        //the reason that data is undefined is because the loadpersons() function
+                        //is an async function and it has not yet had time enough to load
+                        var xmlhttp1 = new XMLHttpRequest();
+                        xmlhttp1.open("GET", data.persons[0].path, true);
+                        xmlhttp1.send();
+                        
+                        xmlhttp1.onreadystatechange = function() {
+                            if (xmlhttp1.readyState === 4 && xmlhttp1.status === 200) {
        
+                                person0 = JSON.parse(xmlhttp1.responseText);
+                                //document.getElementById("demo").innerHTML = "hello again";
+                                //callback function would go here..
+                                //how to create something that iterates through
+                                //all the entries in data.persons[]??? 
+                                //showresults(person0);
+                                voices.push(person0);
+                                //showvoiceresults(voices);
+                                 //assign the person to the array at position i..?
+                                
+                            }
+                        };
+                        
+                        /*  This did not work..
+                         * $.get(data.persons[2].path, function(data){
+                            person2 = JSON.parse(data);
+                            voices.push(person2);                      
+                        });*/
+                        var webiget1 = new XMLHttpRequest();
+                        webiget1.open("GET", data.persons[2].path, true);
+                        webiget1.send();                       
+                        webiget1.onreadystatechange = function() {
+                            if (webiget1.readyState === 4 && webiget1.status === 200) {
+                                person2 = JSON.parse(webiget1.responseText);
+                                voices.push(person2);      
+                            }
+                        };
+                        
+                        //Free webiget:
+                        var webiget2 = new XMLHttpRequest();
+                        //webiget2.open("GET", data.persons[3].path, true);
+                        //webiget2.send(); 
+                        webiget2.onreadystatechange = function() {
+                            if (webiget2.readyState === 4 && webiget2.status === 200) {
+                                person3 = JSON.parse(webiget2.responseText);
+                                voices.push(person3);      
+                            }
+                        };
+                        
+                        //Free webiget:
+                        var webiget3 = new XMLHttpRequest();
+                        //webiget3.open("GET", data.persons[4].path, true);
+                        //webiget3.send(); 
+                        webiget3.onreadystatechange = function() {
+                            if (webiget3.readyState === 4 && webiget3.status === 200) {
+                                person4 = JSON.parse(webiget3.responseText);
+                                voices.push(person4);      
+                            }
+                        };
+                        
+                        
+        
+        
+                       
+                        
+                        var xmlhttp2 = new XMLHttpRequest();
+                        xmlhttp2.open("GET", data.persons[1].path, true);
+                        xmlhttp2.send();
+                        
+                        xmlhttp2.onreadystatechange = function() {
+                            if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
+       
+                                person1 = JSON.parse(xmlhttp2.responseText);
+                                //document.getElementById("demo").innerHTML = "hello 3rd time";
+                                //data.persons.push(person);
+                                
+                                //showresults(person1);
+                                voices.push(person1);
+                                
+                                //mock-up of async callback..
+                                //ie. give the code some time to load before you can begin to press it.
+                                //works!
+                                setTimeout(function(){
+                                    buttonReady();
+                                }, 2000);
+                                
+                                
+                                 //assign the person to the array at position i..?
+                                //toggleButtonState();
+                                
+                            }
+                        };
+                        
+                    
+                    
+                }
+                    
+    
+    
+    
+    /*  test functions for displaying the contents of person or voices
+     * 
+     * 
+     * 
+     * 
+                
+                function showvoiceresults(voices){
+                    document.getElementById("demo").innerHTML = "The voices array has: " 
+                        + voices.toString() + "<br>"
+                        + voices[0].name + "<br>"
+                        + voices[0].path + "<br>"
+                        + voices[0].full[1].de;
+                }
+                
+                function showresults(person){
+                    
+                    document.getElementById("demo").innerHTML = "The person object has: " 
+                        + person.toString() + "<br>"
+                        + person.path + "<br>"
+                        + person.full[1].filename;
+
+                    }
+     */
+                
+                
+                
+                
+
+    /* Development Idea No I
+     * an attempt at showing a "load voices" image on the button..
+     * 
+     * 
+                function enableButton(){
+                    document.getElementById("givemeareasonbutton").disabled = false;
+        }*/
+  
+  
+  
+      
+        /*  Development Idea No II
+         *  A further development idea is:
+         *  to basically be able to click on the Sentences displayed
+         *  and have them be played back...
+         *  see details below:
+         * 
+         * 
+         * 
+         * 
+        //Sentences[] array
+        //plus
+        //a function which adds a onclick = function() to each <p>
+        //this way, whenever that <p> was clicked
+        //it would pass along its ID
+        //which would enable us to find the relevant data in the Sentences[] array
+        //and playback that sound! Once more. Without printing out a new <p> onto the screen.
+    
+        //declare sentencesArray as a global variable var sentencesArray = [];
+        //add the data per step to the array
+        //sentences is an array of sentence -objects
+        //declare object sentence
+        //sentence.pIndex starts at 0.
+        //sentence.help
+        //sentence.help.person
+        //sentence.help.help
+        //etc.
+        //The idea of having a Sentences[] array that saves all the ps. 
+        //Then you could click on a sentence you see on the screen
+        //And have the program replay that sentence..
+        //ie. reassign the values..
+        //would probably need to use closures
+        
+        
+        
+        //set the onclick event using jQuery
+        $("p").click(function() {
+            alert("Hello World");
+        });
+       
+        //or javascript?
+        document.getElementById(newsentence.id).onclick = function() {
+            $(newsentence.id).append(" <--- This was just clicked!!");
+        };
+    
+     //now follows a long list of remnants of code where I was trying
+                 //trying to get the system to give me reliable feedback about which p 
+                 //was being clicked..
+                 //to no avail..
+                 //abort mission (for today)
+                 //attempt at implementing assigning function onclick to each p element created
+                 //I will probably need to implement closures here..
+                 //document.getElementById(pIndex).onclick = function() {
+               //     $(pIndex).append(" <--- This was just clicked!!");
+                //};
+                
+               
+                newsentence.onclick = pClick(this);
+                
+                function pClick(element){         
+                    element.innerHTML = " <--- This was just clicked!!";
+                    //$(element).append(" <--- This was just clicked!!");
+                }
+                
+                function otherfunction(){
+                    
+                     $(this).append(" <--- This was just clicked!!");
+                };
+                
+                
+        <p id="demo" onclick="myFunction(this, 'red')">Click me to change my text color.</p>
+        function myFunction(elmnt,clr) {
+           elmnt.style.color = clr;
+        }
+        
+                
+                
+                $(document).ready(function() {
+                    $(pIndex).click(clickP);
+                });
+                
+                function clickP(){
+                    $(this).append(" <--- This was just clicked!!");
+                };*/
+    
+   
+        
           
     function giveMeAReason(){
             
       //first, toggle button state: disable the button while audio is playing
-      // toggleButtonState();  
       toggleButtonState(); 
       
-      
-      
-      /*
-      var text = '{"full":[' +
-    '{"filename":"f01full.mp3","de":"Ich helfe weil dadurch keine angst wachsen kann","en":"I help" },' +
-    '{"filename":"h02full.mp3","de":"Ich helfe weil ich dieser Menschen auch unser Umgebung zeigen will, damit sie sich auskennen." },' +
-    '{"filename":"Peter","de":"Jones" }]}';
-
-    obj = JSON.parse(text);
-    
-    document.getElementById("demo").innerHTML = "Filename is: " +
-    obj.full[0].filename + "<br>" + obj.full[1].de;
-      
-      */
-      
-      
-      
-      
-    var xmlhttp = new XMLHttpRequest();
-    var url = "/audio/de/a/a.txt";
-
-    xmlhttp.onreadystatechange = function() {
-     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var myArr = JSON.parse(xmlhttp.responseText);
-          myFunction(myArr);
-     }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-    
-    function myFunction(arr) {
-      var out = "";
-      var i;
-      for(i = 0; i < 4; i++) {
-          out += "Filename is: " + arr.full[i].filename 
-                  + " <br> And in german it is" + 
-          arr.full[i].de;
-     }
-      document.getElementById("demo").innerHTML = out;
-    }
-      
-      
-      
-      /*
-      var text = '{ "full": [' +
-       '{"filename":"a name1", "de":"auf deutsch", "en":"in english"},' +
-      '{"filename":"a name2", "de":"auf deutsch", "en":"in english"},' +
-       '{"filename":"a name3", "de":"auf deutsch", "en":"in english"}' +
-            '],' +
-    '"help": ['+
-       ' {"filename":"help1 name", "de":"auf deutsch", "en":"in english"},'+
-       ' {"filename":"help2 name", "de":"auf deutsch", "en":"in english"}'+
-   '],'+
-   '"object": ['+
-        '{"filename":"object1 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"object2 name", "de":"auf deutsch", "en":"in english"}'+
-   '],'+
-    '"subject":['+
-        '{"filename":"subject1 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"subject2 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"subject3 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"subject4 name", "de":"auf deutsch", "en":"in english"}'+
-   '],'+
-    '"verb":['+
-        '{"filename":"verb1 name", "de":"auf deutsch", "en":"in english"},'+
-       '{"filename":"verb2 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"verb3 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"verb4 name", "de":"auf deutsch", "en":"in english"},'+
-        '{"filename":"verb5 name", "de":"auf deutsch", "en":"in english"}'+
-    ']'+
-'}';
-      
-      
-     document.getElementById("demo").innerHTML = "Hello World";
-      
-   var trialobject = JSON.parse(text);   
-      
-      var i;
-      for(i=0; i<trialobject.length;i++){
-        
-        document.getElementById("demo").innerHTML =
-trialobject.full[i].filename;
-      
-        };
-        
-        */
-        
-      document.getElementById(types[typeIndex]).src = createSource(typeIndex);
-      document.getElementById(types[typeIndex]).load();
-      loadSubject();
-       
-        function loadSubject(){
-            document.getElementById(types[typeIndex+1]).src = createSource(typeIndex+1);
-            document.getElementById(types[typeIndex+1]).load();
-            loadObject();
-
-                    function loadObject(){                            
-                            document.getElementById(types[typeIndex+2]).src = createSource(typeIndex+2);
-                            document.getElementById(types[typeIndex+2]).load();
-                            loadVerb();
-   
-                                function loadVerb(){
-                                        document.getElementById(types[typeIndex+3]).src = createSource(typeIndex+3);
-                                        document.getElementById(types[typeIndex+3]).load();
-                                }
-                    }
+        //Create a new empty <p>/sentence to display on the screen
+        //later on, the voice.type.de data is appended to the p 
+        if(pInteger === undefined){
+            pInteger = 0;
         }
-        document.getElementById(types[typeIndex]).play();
-        //document.getElementById(types[typeIndex]).onended = function(){            
-           //this works setTimeout(function(){document.getElementById(types[typeIndex+1]).play();}, 1000);
-          //  };
-        document.getElementById(types[typeIndex]).onended = function(){   
-              document.getElementById(types[typeIndex+1]).play();
-              document.getElementById(types[typeIndex+1]).onended = function(){
-                   document.getElementById(types[typeIndex+2]).play();
-                   document.getElementById(types[typeIndex+2]).onended = function(){
-                       document.getElementById(types[typeIndex+3]).play();
-                       document.getElementById(types[typeIndex+3]).onended = function(){
-                           document.getElementById(types[typeIndex]).onended = toggleButtonState();
-                       };
-                   };
-              };
-              
-          };
-          
-    }
-        //some code to try to get the audio to run smoothly..
-        //document.getElementById(types[typeIndex+1]).onended = setTimeout(function(){document.getElementById(types[typeIndex+2]).play();}, 1000);  
-        //setTimeout(function(){document.getElementById(types[typeIndex+3]).play();}, 1000);
-        
-        
-       // document.getElementById("pause").play();
-       // document.getElementById("pause").play();
-       // document.getElementById("pause").play();
-       // document.getElementById("pause").play();
-        //document.getElementById(types[typeIndex+1]).play();
-           // document.getElementById(types[typeIndex+1]).play();
-        
-       // document.getElementById(types[typeIndex+1]).onended = document.getElementById(types[typeIndex+2]).play();
-       // document.getElementById(types[typeIndex+2]).onended = document.getElementById(types[typeIndex+3]).play();
+        var pIndex = pInteger.toString();
+        var newsentence = document.createElement("p");
+        var textNode = document.createTextNode("");
+        newsentence.appendChild(textNode);
+        newsentence.setAttribute("id", pIndex);
 
+        //increment in preparation for next sentence
+        pInteger = pInteger + 1;
 
-        //document.getElementById(types[typeIndex+2]).play();
-        //document.getElementById(types[typeIndex+3]).play();
-       // document.getElementById(types[typeIndex+3]).onended = toggleButtonState();
+        //prepend the new p element to the already existing peas.
+        $("p").prepend(newsentence);
         
-        // this was cut out document.getElementById(types[typeIndex]).onended = toggleButtonState();
-       
-                //again, an attempt to get the audio to run smoothly..
-        /*
-         * audio[0].onended=function(){
-        setTimeout(function(){
-         audio[1].play()
-        ;}, 2000);
+        //for choosing the voices and creating the segments
+        var counter = 0;
+
+        //for keeping track of who said what this iteration round
+        var helpVoice;
+        var subjectVoice;
+        var objectVoice;
+        var verbVoice;
+        
+        //for keeping track of which particular segment they said
+        var helpIndex;
+        var subjectIndex;
+        var objectIndex;
+        var verbIndex;
+
+        var segmentpath;
+        //for array of sentences.. couldn't this be
+        //that you have a helpPath, subjectPath, ObjectPath and verbPath.
+        //nope. You need the voice and help data.. because thats gonna be how
+        //you access the .de or .en data... gr
+        //ideally, you would then have
+        
+        // Returns a random integer between min (included) and max (excluded)
+        // Using Math.round() will give you a non-uniform distribution!
+        //pass zero as min and pass array.length as max
+        //eg. 0 and 5
+        //will return: 0, 1, 2, 3 or 4.
+        //these are all valid indeces of the array
+        function getRandomIndex(min, max) {
+             return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        //chooses a voice to speak each segment
+        //chooses a segment from each voice
+        //mua-a-haa!
+        for(counter = 0; counter < 4; counter++){
+            
+            //chooses the voice and segment per utterance
+            chooseVoice();
+            chooseSegment();
+             
+             //perhaps implement later.. to add the info to the Sentences[] array
+             //pushToSentences();
+        
         };
-        */
-              
-   // }
-
-
-    
-
-
-    
-    </script>
+        
+        //plays the segments as soon as they have been chosen and assigned
+        playSegments();
+                    
+        function chooseVoice(){
+ 
+            if(counter===0){
+                helpVoice = getRandomIndex(0, voices.length);
+            }
+            if(counter===1){
+                
+                subjectVoice = getRandomIndex(0, voices.length);
+            }
+            if(counter===2){
+                objectVoice = getRandomIndex(0, voices.length); 
+            }
+            if(counter===3){
+                verbVoice = getRandomIndex(0, voices.length);
+            }
+        
+        
+        }
+        
+        //well, this function not only chooses the segment,
+        //but also assigns the path+filname to the audio element.src
+        //AND preloads it!
+        function chooseSegment(){
+            
+            if(counter===0){
+                helpIndex = getRandomIndex(0, voices[helpVoice].help.length);
+                segmentpath = voices[helpVoice].path + voices[helpVoice].help[helpIndex].filename;
+                document.getElementById("help/").src = segmentpath;
+                document.getElementById("help/").preload; 
+            }
+            if(counter===1){
+                subjectIndex = getRandomIndex(0, voices[subjectVoice].subject.length);
+                segmentpath = voices[subjectVoice].path + voices[subjectVoice].subject[subjectIndex].filename;
+                document.getElementById("subject/").src = segmentpath;
+                document.getElementById("subject/").preload;
+            }
+            if(counter===2){
+                objectIndex = getRandomIndex(0, voices[objectVoice].object.length);
+                segmentpath = voices[objectVoice].path + voices[objectVoice].object[objectIndex].filename;
+                document.getElementById("object/").src = segmentpath;
+                document.getElementById("object/").preload; 
+            }
+            if(counter===3){
+                verbIndex = getRandomIndex(0, voices[verbVoice].verb.length);
+                segmentpath = voices[verbVoice].path + voices[verbVoice].verb[verbIndex].filename;
+                document.getElementById("verb/").src = segmentpath;
+                document.getElementById("verb/").preload; 
+            }
+                          
+        }
+        
+        //this function plays all the segments..
+        function playSegments(){
+            
+            document.getElementById("help/").play();
+            $(newsentence).append(voices[helpVoice].help[helpIndex].de);
+            document.getElementById("help/").onended = function playSubject(){
+                    
+                document.getElementById("subject/").play();
+                $(newsentence).append(" " + voices[subjectVoice].subject[subjectIndex].de);
+                document.getElementById("subject/").onended = function playObject(){
+                        
+                    document.getElementById("object/").play();
+                    $(newsentence).append(" " + voices[objectVoice].object[objectIndex].de);
+                    document.getElementById("object/").onended = function playVerb(){
+                                
+                        document.getElementById("verb/").play();
+                        $(newsentence).append(" " + voices[verbVoice].verb[verbIndex].de);
+                        document.getElementById("verb/").onended = toggleButtonState();
+                                
+                    };
+                        
+                };                  
+            };
+        }
       
+        }//end of givemeareason()
     
-    
-    <!-- cope with screen rotations and scaling-->
-    <script src="javascripts/scale.fix.js"></script>
-    
+    </script>   
   </body>
 </html>
