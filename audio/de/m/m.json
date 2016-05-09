@@ -1,0 +1,58 @@
+{
+	"name": "m",
+	"path": "audio/de/m/",
+	"workshop": "03",
+	"complete": {"filename": "m00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "m01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "m02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "m03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "m04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "m05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "m06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "m07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "m08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "m01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "m02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "m03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "m04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "m05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "m06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "m07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "m08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "m01s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "m02s.mp3", "de": "weil es", "en": ""},
+		{"filename": "m03s.mp3", "de": "weil der Mensch", "en": ""},
+		{"filename": "m04s.mp3", "de": "weil es ", "en": ""},
+                {"filename": "m05s.mp3", "de": "weil ein Lachen", "en": ""},
+                {"filename": "m06s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "m07s.mp3", "de": "weil der Mensch", "en": ""},
+                {"filename": "m08s.mp3", "de": "weil der Mensch", "en": ""}
+        ],
+	"object": [
+		{"filename": "m01o.mp3", "de": "Liebe", "en": ""},
+		{"filename": "m02o.mp3", "de": "so leicht zu helfen", "en": ""},
+                {"filename": "m04o.mp3", "de": "natürlich", "en": ""},
+                {"filename": "m05o.mp3", "de": "der Mensch", "en": ""},
+                {"filename": "m06o.mp3", "de": "im Leben", "en": ""},
+                {"filename": "m08o.mp3", "de": "seine tiefen Herz", "en": ""}
+	],
+	"verb": [
+		{"filename": "m01v.mp3", "de": "weitergeben mag", "en": ""},
+		{"filename": "m02v.mp3", "de": "ist", "en": ""},
+		{"filename": "m03v.mp3", "de": "die geholfen sein sollte", "en": ""},
+		{"filename": "m04v.mp3", "de": "ist", "en": ""},
+                {"filename": "m05v.mp3", "de": "hilft", "en": ""},
+                {"filename": "m06v.mp3", "de": "gut gehabt", "en": ""},
+                {"filename": "m07v.mp3", "de": "gut zu bleiben", "en": ""},
+                {"filename": "m08v.mp3", "de": "hilfbereit ist", "en": ""},
+                {"filename": "m33v.mp3", "de": "wartet darauf", "en": ""},
+                {"filename": "m66v.mp3", "de": "immer gut gehabt", "en": ""},
+                {"filename": "m77v.mp3", "de": "wird geholfen", "en": ""},
+                {"filename": "m88v.mp3", "de": "ist gut", "en": ""}
+        ]
+}
