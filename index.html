@@ -457,12 +457,15 @@
         var textNode = document.createTextNode("");
         newsentence.appendChild(textNode);
         newsentence.setAttribute("id", pIndex);
+        $("#sentencesdiv").prepend(newsentence);
 
         //increment in preparation for next sentence
         pInteger = pInteger + 1;
-
+             
         //prepend the new p element to the already existing peas.
         $("p").prepend(newsentence);
+        
+        //then remove the last sentence if there are already too many on the screen.
         
         //for choosing the voices and creating the segments
         var counter = 0;
