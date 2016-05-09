@@ -508,25 +508,25 @@
                 helpIndex = getRandomIndex(0, voices[helpVoice].help.length);
                 segmentpath = voices[helpVoice].path + voices[helpVoice].help[helpIndex].filename;
                 document.getElementById("help/").src = segmentpath;
-                document.getElementById("help/").preload; 
+                document.getElementById("help/").preload = "auto"; 
             }
             if(counter===1){
                 subjectIndex = getRandomIndex(0, voices[subjectVoice].subject.length);
                 segmentpath = voices[subjectVoice].path + voices[subjectVoice].subject[subjectIndex].filename;
                 document.getElementById("subject/").src = segmentpath;
-                document.getElementById("subject/").preload;
+                document.getElementById("subject/").preload = "auto";
             }
             if(counter===2){
                 objectIndex = getRandomIndex(0, voices[objectVoice].object.length);
                 segmentpath = voices[objectVoice].path + voices[objectVoice].object[objectIndex].filename;
                 document.getElementById("object/").src = segmentpath;
-                document.getElementById("object/").preload; 
+                document.getElementById("object/").preload = "auto"; 
             }
             if(counter===3){
                 verbIndex = getRandomIndex(0, voices[verbVoice].verb.length);
                 segmentpath = voices[verbVoice].path + voices[verbVoice].verb[verbIndex].filename;
                 document.getElementById("verb/").src = segmentpath;
-                document.getElementById("verb/").preload; 
+                document.getElementById("verb/").preload = "auto"; 
             }
                           
         }
