@@ -1,7 +1,10 @@
 {
 "persons": [
+        {"name": "c", "path": "audio/de/c/c.json"},
 	{"name": "g", "path": "audio/de/g/g.json"},
 	{"name": "h", "path": "audio/de/h/h.json"},
-        {"name": "l", "path": "audio/de/l/l.json"}
+        {"name": "l", "path": "audio/de/l/l.json"},
+        {"name": "u", "path": "audio/de/u/u.json"}
+        
 ]
 }
