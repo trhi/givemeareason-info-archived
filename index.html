@@ -58,7 +58,7 @@
     </audio>
        
     <audio id="object/">
-        <source src="audio/de/h/h01o.mp3" type="audio/mp3">
+        <source src="audio/de/h/h03o.mp3" type="audio/mp3">
     </audio>
       
     <form>
@@ -171,45 +171,42 @@
             //voices is later used heavily by the givemeareason function
             function loadPersons(){
 
-                var person0;
-                var person1;
-                var person2;
-                var person3;
-                var person4;
-                
-                //trying to display a disabled button that says "loading voices"
+                 //trying to display a disabled button that says "loading voices"
                 buttonWaiting();
-            
-            
-               // document.getElementById("demo").innerHTML = data.persons[0].name + "  " + data.persons[1].path
-               // + " And the length of the array is: " + data.persons.length;
-                //document.getElementById("demo").innerHTML = "hello again";
-            
-                //var i;
                 
-                        //the reason that data is undefined is because the loadpersons() function
-                        //is an async function and it has not yet had time enough to load
+                //ie. give the code some time to load before you can begin to press it.
+                //works!
+                setTimeout(function(){
+                    buttonReady();
+                }, 2000);
+                        
+                        //g
+                        var person0;
                         var xmlhttp1 = new XMLHttpRequest();
                         xmlhttp1.open("GET", data.persons[0].path, true);
                         xmlhttp1.send();
-                        
                         xmlhttp1.onreadystatechange = function() {
                             if (xmlhttp1.readyState === 4 && xmlhttp1.status === 200) {
-       
                                 person0 = JSON.parse(xmlhttp1.responseText);
-                                //document.getElementById("demo").innerHTML = "hello again";
-                                //callback function would go here..
-                                //how to create something that iterates through
-                                //all the entries in data.persons[]??? 
-                                //showresults(person0);
-                                voices.push(person0);
-                                //showvoiceresults(voices);
-                                 //assign the person to the array at position i..?
-                                
+                                voices.push(person0); 
                             }
                         };
                         
-
+                        //h
+                        //webiget for person1
+                        var person1;
+                        var xmlhttp2 = new XMLHttpRequest();
+                        xmlhttp2.open("GET", data.persons[1].path, true);
+                        xmlhttp2.send();
+                        xmlhttp2.onreadystatechange = function() {
+                            if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
+                                person1 = JSON.parse(xmlhttp2.responseText);
+                                voices.push(person1);
+                            }
+                        };
+                        
+                        //l
+                        var person2;
                         var webiget1 = new XMLHttpRequest();
                         webiget1.open("GET", data.persons[2].path, true);
                         webiget1.send();                       
@@ -220,10 +217,11 @@
                             }
                         };
                         
-                        //Free webiget:
+                        //u
+                        var person3;
                         var webiget2 = new XMLHttpRequest();
-                        //webiget2.open("GET", data.persons[3].path, true);
-                        //webiget2.send(); 
+                        webiget2.open("GET", data.persons[3].path, true);
+                        webiget2.send(); 
                         webiget2.onreadystatechange = function() {
                             if (webiget2.readyState === 4 && webiget2.status === 200) {
                                 person3 = JSON.parse(webiget2.responseText);
@@ -231,10 +229,11 @@
                             }
                         };
                         
-                        //Free webiget:
+                        
+                        var person4;
                         var webiget3 = new XMLHttpRequest();
-                        //webiget3.open("GET", data.persons[4].path, true);
-                        //webiget3.send(); 
+                        webiget3.open("GET", data.persons[4].path, true);
+                        webiget3.send(); 
                         webiget3.onreadystatechange = function() {
                             if (webiget3.readyState === 4 && webiget3.status === 200) {
                                 person4 = JSON.parse(webiget3.responseText);
@@ -242,38 +241,18 @@
                             }
                         };
                         
-                        
-        
-        
-                       
-                        
-                        var xmlhttp2 = new XMLHttpRequest();
-                        xmlhttp2.open("GET", data.persons[1].path, true);
-                        xmlhttp2.send();
-                        
-                        xmlhttp2.onreadystatechange = function() {
-                            if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
-       
-                                person1 = JSON.parse(xmlhttp2.responseText);
-                                //document.getElementById("demo").innerHTML = "hello 3rd time";
-                                //data.persons.push(person);
-                                
-                                //showresults(person1);
-                                voices.push(person1);
-                                
-                                //mock-up of async callback..
-                                //ie. give the code some time to load before you can begin to press it.
-                                //works!
-                                setTimeout(function(){
-                                    buttonReady();
-                                }, 2000);
-                                
-                                
-                                 //assign the person to the array at position i..?
-                                //toggleButtonState();
-                                
+                        var person5;
+                        var webiget4 = new XMLHttpRequest();
+                        webiget4.open("GET", data.persons[5].path, true);
+                        webiget4.send(); 
+                        webiget4.onreadystatechange = function() {
+                            if (webiget4.readyState === 4 && webiget4.status === 200) {
+                                person5 = JSON.parse(webiget4.responseText);
+                                voices.push(person5);      
                             }
                         };
+                        
+                        
                         
                     
                     
