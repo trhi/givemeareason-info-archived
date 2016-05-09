@@ -1,0 +1,51 @@
+{
+	"name": "f",
+	"path": "audio/de/f/",
+	"workshop": "01",
+	"complete": {"filename": "f00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "f01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "f02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "f03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "f04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "f05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "f06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "f07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "f08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "f01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "f02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "f03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "f04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "f05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "f06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "f07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "f99h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "f01s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "f02s.mp3", "de": "weil soziales miteinander", "en": ""},
+		{"filename": "f03s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "f04s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "f05s.mp3", "de": "weil es", "en": ""},
+                {"filename": "f06s.mp3", "de": "weil es", "en": ""},
+                {"filename": "f07s.mp3", "de": "weil es", "en": ""}
+        ],
+	"object": [
+		{"filename": "f01o.mp3", "de": "Christin", "en": ""},
+		{"filename": "f02o.mp3", "de": "für mich zum Alltag", "en": ""},
+                {"filename": "f05o.mp3", "de": "mir selbst", "en": ""},
+                {"filename": "f08o.mp3", "de": "andere Menschen", "en": ""}
+	],
+	"verb": [
+		{"filename": "f01v.mp3", "de": "bin", "en": ""},
+		{"filename": "f02v.mp3", "de": "gehört", "en": ""},
+		{"filename": "f03v.mp3", "de": "mitfühle", "en": ""},
+		{"filename": "f04v.mp3", "de": "zurückgeben möchte", "en": ""},
+                {"filename": "f05v.mp3", "de": "gut geht", "en": ""},
+                {"filename": "f07v.mp3", "de": "auch sinn gibt", "en": ""},
+                {"filename": "f08v.mp3", "de": "freut", "en": ""},
+                {"filename": "f09v.mp3", "de": "kennen zu lernen", "en": ""}
+        ]
+}
