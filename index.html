@@ -37,15 +37,6 @@
     opacity: 0.6;
     cursor: url(images/Sun_symbol.svg), wait;
     }
-    
-    /* would be nice to implement this..
-    that the button says "loading voices" and is disabled
-    until the data has finished loading from the .json files
-    #givemeareasonbutton:loading{
-    opacity: 0.4;
-    background-image: url(images/give-me-a-reason-loading-voices.png);
-    cursor: url(images/Sun_symbol.svg), wait;
-    }*/
    
     </style>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
@@ -92,7 +83,7 @@
         var pInteger;
         
         //global variable personsurl = .json file with list of all participating voices/datasets
-        var personsurl = "audio/de/de-persons-test.json";
+        var personsurl = "audio/de/de-persons.json";
         
         //this is where the personsurl is then parsed into.
         //A light array consisting of as many elements as there are voices.
@@ -136,27 +127,6 @@
             $("#givemeareasonbutton").css("background-image", "url(images/give-me-a-reason-ms.png)");        
             $("#givemeareasonbutton").prop('disabled', false);
         }
-        //$("#givemeareasonbutton").disabled;
-           // button.style.backgroundImage = "url('images/give-me-a-reason-loading-voices.png')";
-           // document.getElementById("givemeareasonbutton").style.backgroundImage =
-        //buttons[b].style.backgroundImage = "url('darkSquare.jpg')";
-            
-           /*     #givemeareasonbutton {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background-image: url(images/give-me-a-reason-ms.png);
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    }
-    
-    #givemeareasonbutton:disabled{
-    opacity: 0.6;
-    cursor: url(images/Sun_symbol.svg), wait;
-    }*/
-            
-        
 
         //this function loads the information from de-persons-test.json
         //and loads it into a persons array
@@ -239,11 +209,7 @@
                             }
                         };
                         
-                        /*  This did not work..
-                         * $.get(data.persons[2].path, function(data){
-                            person2 = JSON.parse(data);
-                            voices.push(person2);                      
-                        });*/
+
                         var webiget1 = new XMLHttpRequest();
                         webiget1.open("GET", data.persons[2].path, true);
                         webiget1.send();                       
@@ -316,7 +282,11 @@
     
     
     
-    /*  test functions for displaying the contents of person or voices
+    /* * * *
+     * 
+     *     Begin testing functions
+     *     
+     *     test functions for displaying the contents of person or voices
      * 
      * 
      * 
@@ -338,24 +308,18 @@
                         + person.full[1].filename;
 
                     }
-     */
+     *   
+     *   End of testing function
+     *
+     * * * */
                 
                 
-                
-                
-
-    /* Development Idea No I
-     * an attempt at showing a "load voices" image on the button..
-     * 
-     * 
-                function enableButton(){
-                    document.getElementById("givemeareasonbutton").disabled = false;
-        }*/
-  
-  
-  
-      
-        /*  Development Idea No II
+   
+        /* * * *  
+         * 
+         *  
+         *  Begin Development Idea No I
+         *
          *  A further development idea is:
          *  to basically be able to click on the Sentences displayed
          *  and have them be played back...
@@ -422,14 +386,7 @@
                     
                      $(this).append(" <--- This was just clicked!!");
                 };
-                
-                
-        <p id="demo" onclick="myFunction(this, 'red')">Click me to change my text color.</p>
-        function myFunction(elmnt,clr) {
-           elmnt.style.color = clr;
-        }
-        
-                
+                        
                 
                 $(document).ready(function() {
                     $(pIndex).click(clickP);
@@ -437,7 +394,13 @@
                 
                 function clickP(){
                     $(this).append(" <--- This was just clicked!!");
-                };*/
+                };
+     
+     *
+     *  end of Development Idea I
+     *  
+     *
+     * * * */
     
    
         
