@@ -1,0 +1,19 @@
+{
+"persons": [
+	{"name": "a", "path": "audio/de/a/a.json"},
+	{"name": "b", "path": "audio/de/b/b.json"},
+	{"name": "c", "path": "audio/de/c/c.json"},
+	{"name": "f", "path": "audio/de/f/f.json"},
+	{"name": "g", "path": "audio/de/g/g.json"},
+	{"name": "h", "path": "audio/de/h/h.json"},
+	{"name": "i", "path": "audio/de/i/i.json"},
+	{"name": "k", "path": "audio/de/k/k.json"},
+	{"name": "l", "path": "audio/de/l/l.json"},
+	{"name": "m", "path": "audio/de/m/m.json"},
+	{"name": "n", "path": "audio/de/n/n.json"},
+	{"name": "r", "path": "audio/de/r/r.json"},
+	{"name": "s", "path": "audio/de/s/s.json"},
+	{"name": "t", "path": "audio/de/t/t.json"},
+	{"name": "u", "path": "audio/de/u/u.json"}
+]
+}
