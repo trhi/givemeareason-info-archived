@@ -1,0 +1,58 @@
+{
+	"name": "i",
+	"path": "audio/de/i/",
+	"workshop": "02",
+	"complete": {"filename": "i00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "i01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "i02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "i03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "i04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "i05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "i06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "i07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "i08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "i01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "i02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "i04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "i05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "i06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "i07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "i08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "i01s.mp3", "de": "weil ich denke, dass", "en": ""},
+		{"filename": "i02s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "i07s.mp3", "de": "weil ich nicht", "en": ""},
+                {"filename": "i08s.mp3", "de": "weil ich finde", "en": ""}
+        ],
+	"object": [
+		{"filename": "i01o.mp3", "de": "dieser besonderen Situation im Moment", "en": ""},
+		{"filename": "i02o.mp3", "de": "eventuell mal selbst in einer Lage bin", "en": ""},
+                {"filename": "i03o.mp3", "de": "die Zeit", "en": ""},
+                {"filename": "i04o.mp3", "de": "fremden Menschen und Kulturen", "en": ""},
+                {"filename": "i05o.mp3", "de": "hilfe der Bevölkerung", "en": ""},
+                {"filename": "i06o.mp3", "de": "auch von den Flüchtlingen", "en": ""},
+                {"filename": "i07o.mp3", "de": "meine Zeit", "en": "my time"},
+                {"filename": "i15o.mp3", "de": "der Meinung", "en": ""},
+                {"filename": "i21o.mp3", "de": "dieses Problem", "en": ""},
+                {"filename": "i25o.mp3", "de": "Integration", "en": ""},                
+                {"filename": "i11o.mp3", "de": "Regierung und Verwaltung", "en": ""}
+	],
+	"verb": [
+		{"filename": "i01v.mp3", "de": "die Bevölkerung gefragt ist", "en": ""},
+		{"filename": "i02v.mp3", "de": "Hilfe brauche", "en": ""},
+		{"filename": "i03v.mp3", "de": "die Zeit nehmen kann", "en": ""},
+                {"filename": "i05v.mp3", "de": "gelingen kann", "en": ""},
+                {"filename": "i06v.mp3", "de": "lernen kann, nicht nur sie von mir", "en": ""},
+                {"filename": "i07v.mp3", "de": "spende ich so zu sagen meine Zeit", "en": ""},
+                {"filename": "i08v.mp3", "de": "gutem Beispiel vorausgehen sollte", "en": ""},               
+                {"filename": "i13v.mp3", "de": "nehmen kann", "en": ""},
+                {"filename": "i16v.mp3", "de": "lernen kann", "en": ""},
+                {"filename": "i17v.mp3", "de": "Geld spenden kann", "en": ""},
+                {"filename": "i21v.mp3", "de": "allein nicht lösen können", "en": ""},
+                {"filename": "i27v.mp3", "de": "spenden", "en": ""}              
+        ]
+}
