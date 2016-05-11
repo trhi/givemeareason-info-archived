@@ -7,6 +7,7 @@
         {"name": "l", "path": "audio/de/l/l.json"},
         {"name": "m", "path": "audio/de/m/m.json"},
         {"name": "n", "path": "audio/de/n/n.json"},
+        {"name": "r", "path": "audio/de/r/r.json"},
         {"name": "u", "path": "audio/de/u/u.json"}
         
 ]
