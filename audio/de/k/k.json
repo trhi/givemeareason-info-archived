@@ -1,0 +1,64 @@
+{
+	"name": "k",
+	"path": "audio/de/k/",
+	"workshop": "01",
+	"complete": {"filename": "k00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "k01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "k02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "k03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "k04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "k05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "k06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "k07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "k08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "h01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "h02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "h03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "h04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "h05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "h06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "h07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "h08h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "h09h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "h01s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "h02s.mp3", "de": "weil wir", "en": ""},
+		{"filename": "h03s.mp3", "de": "weil es", "en": ""},
+		{"filename": "h04s.mp3", "de": "weil die Hilfe", "en": ""},
+                {"filename": "h05s.mp3", "de": "weil die neue Situation", "en": ""},
+                {"filename": "h06s.mp3", "de": "weil dadurch", "en": ""},
+                {"filename": "h08s.mp3", "de": "weil wir", "en": ""},
+                {"filename": "h09s.mp3", "de": "weil wir", "en": ""},
+                {"filename": "h09s.mp3", "de": "weil diese neuen Menschen", "en": ""}
+        ],
+	"object": [
+		{"filename": "h01o.mp3", "de": "Menschen", "en": ""},
+		{"filename": "h02o.mp3", "de": "uns", "en": ""},
+                {"filename": "h03o.mp3", "de": "selbstverständlich", "en": ""},
+                {"filename": "h04o.mp3", "de": "gegenseitig", "en": ""},
+                {"filename": "h06o.mp3", "de": "keine Angst", "en": ""},
+                {"filename": "h07o.mp3", "de": "notwendig", "en": ""},
+                {"filename": "h08o.mp3", "de": "alle", "en": ""},
+                {"filename": "h09o.mp3", "de": "in Zukunft", "en": ""},
+                {"filename": "h11o.mp3", "de": "hier", "en": ""},
+                {"filename": "h13o.mp3", "de": "miteinander", "en": ""}
+	],
+	"verb": [
+		{"filename": "h01v.mp3", "de": "liebe", "en": ""},
+		{"filename": "h02v.mp3", "de": "kennenlernen", "en": ""},
+		{"filename": "h04v.mp3", "de": "sein wird", "en": ""},
+                {"filename": "h05v.mp3", "de": "leichter wird", "en": ""},
+                {"filename": "h06v.mp3", "de": "wachsen kann", "en": ""},
+                {"filename": "h08v.mp3", "de": "zusammengehören", "en": ""},
+                {"filename": "h09v.mp3", "de": "leben werden", "en": ""},
+                {"filename": "h11v.mp3", "de": "gut zurecht kommen müssen", "en": ""},
+                {"filename": "h12v.mp3", "de": "zugute kommen wird", "en": ""},
+                {"filename": "h13v.mp3", "de": "weiss", "en": ""},
+                {"filename": "h14v.mp3", "de": "hilfe braucht", "en": ""},
+                {"filename": "h15v.mp3", "de": "anfühlt", "en": ""}
+        ]
+}
