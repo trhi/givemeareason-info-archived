@@ -1,0 +1,55 @@
+{
+	"name": "t",
+	"path": "audio/de/t/",
+	"workshop": "01",
+	"complete": {"filename": "t00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "t01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "t02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "t03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "t04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "t05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "t06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "t07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "t08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "t01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "t02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "t03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "t04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "t05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "t06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "t07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "t08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "t01s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "t02s.mp3", "de": "weil diese Menschen", "en": ""},
+		{"filename": "t03s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "t04s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "t05s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "t06s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "t07s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "t08s.mp3", "de": "weil ich", "en": ""}
+        ],
+	"object": [
+		{"filename": "t01o.mp3", "de": "etwas", "en": ""},
+                {"filename": "t03o.mp3", "de": "das Gefühl", "en": ""},
+                {"filename": "t05o.mp3", "de": "etwas konkretes", "en": ""},
+                {"filename": "t06o.mp3", "de": "ein freundliches Gesicht", "en": ""},
+                {"filename": "t07o.mp3", "de": "möchte dass mir in so einer Situation", "en": ""},
+                {"filename": "t08o.mp3", "de": "Kontakt mit den Menschen", "en": ""},
+                {"filename": "t08o.mp3", "de": "an eine neue Ort", "en": ""}
+	],
+	"verb": [
+		{"filename": "t01v.mp3", "de": "lernen will", "en": ""},
+                {"filename": "t05v.mp3", "de": "tun will", "en": ""},
+                {"filename": "t06v.mp3", "de": "sein will", "en": ""},
+                {"filename": "t08v.mp3", "de": "haben will", "en": ""},
+                {"filename": "t09v.mp3", "de": "geben", "en": ""},
+                {"filename": "t11v.mp3", "de": "anzukommen", "en": ""},
+                {"filename": "t11v.mp3", "de": "ohne jemanden zu kennen", "en": ""},
+                {"filename": "t11v.mp3", "de": "etwas geben", "en": ""}
+        ]
+}
