@@ -8,6 +8,7 @@
         {"name": "m", "path": "audio/de/m/m.json"},
         {"name": "n", "path": "audio/de/n/n.json"},
         {"name": "r", "path": "audio/de/r/r.json"},
+        {"name": "s", "path": "audio/de/s/s.json"},
         {"name": "u", "path": "audio/de/u/u.json"}
         
 ]
