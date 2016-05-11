@@ -1,0 +1,54 @@
+{
+	"name": "r",
+	"path": "audio/de/r/",
+	"workshop": "03",
+	"complete": {"filename": "r00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "r01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "r02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "r03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "r04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "r05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "r06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "r07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "r08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "r01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "r02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "r03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "r04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "r05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "r06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "r07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "r08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "r02s.mp3", "de": "weil es", "en": ""},
+		{"filename": "r03s.mp3", "de": "weil es", "en": ""},
+		{"filename": "r04s.mp3", "de": "weil es", "en": ""},
+                {"filename": "r06s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "r07s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "r08s.mp3", "de": "weil meine Kinder", "en": ""}
+        ],
+	"object": [
+		{"filename": "r01o.mp3", "de": "gegen Ausländerfeindlichkeit", "en": ""},
+                {"filename": "r03o.mp3", "de": "Spass", "en": ""},
+                {"filename": "r04o.mp3", "de": "absolut notwendig", "en": ""},
+                {"filename": "r05o.mp3", "de": "die Flüchtlinge", "en": ""},
+                {"filename": "r06o.mp3", "de": "Angst vor Rechtsradikalismus", "en": ""},
+                {"filename": "r07o.mp3", "de": "dadurch interessante Leute", "en": ""},
+                {"filename": "r08o.mp3", "de": "die Gesellschaft", "en": ""},
+                {"filename": "r88o.mp3", "de": "meine Kinder", "en": ""}
+	],
+	"verb": [
+		{"filename": "r01v.mp3", "de": "setzen will", "en": ""},
+		{"filename": "r02v.mp3", "de": "gut tut", "en": ""},
+		{"filename": "r03v.mp3", "de": "macht", "en": ""},
+		{"filename": "r04v.mp3", "de": "ist zu helfen", "en": ""},
+                {"filename": "r05v.mp3", "de": "leid tun", "en": ""},
+                {"filename": "r06v.mp3", "de": "habe", "en": ""},
+                {"filename": "r07v.mp3", "de": "kennenlerne", "en": ""},
+                {"filename": "r88v.mp3", "de": "sehen sollen", "en": ""}
+        ]
+}
