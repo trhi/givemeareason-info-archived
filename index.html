@@ -315,11 +315,11 @@
                         };
                         
                         
-                        //free
+                        //a
                         var person11;
                         var webiget10 = new XMLHttpRequest();
-                        //webiget10.open("GET", data.persons[11].path, true);
-                        //webiget10.send(); 
+                        webiget10.open("GET", data.persons[11].path, true);
+                        webiget10.send(); 
                         webiget10.onreadystatechange = function() {
                             if (webiget10.readyState === 4 && webiget10.status === 200) {
                                 person11 = JSON.parse(webiget10.responseText);
@@ -328,15 +328,55 @@
                         };
                         
                         
-                        //free
+                        //b
                         var person12;
                         var webiget11 = new XMLHttpRequest();
-                        //webiget11.open("GET", data.persons[12].path, true);
-                        //webiget11.send(); 
+                        webiget11.open("GET", data.persons[12].path, true);
+                        webiget11.send(); 
                         webiget11.onreadystatechange = function() {
                             if (webiget11.readyState === 4 && webiget11.status === 200) {
                                 person12 = JSON.parse(webiget11.responseText);
                                 voices.push(person12);      
+                            }
+                        };
+                        
+                        
+                        //free
+                        var person13;
+                        var webiget12 = new XMLHttpRequest();
+                        //webiget12.open("GET", data.persons[13].path, true);
+                        //webiget12.send(); 
+                        webiget12.onreadystatechange = function() {
+                            if (webiget12.readyState === 4 && webiget12.status === 200) {
+                                person13 = JSON.parse(webiget12.responseText);
+                                voices.push(person13);      
+                            }
+                        };
+                        
+                        
+                        //free
+                        var person14;
+                        var webiget13 = new XMLHttpRequest();
+                        //webiget13.open("GET", data.persons[14].path, true);
+                        //webiget13.send(); 
+                        webiget13.onreadystatechange = function() {
+                            if (webiget13.readyState === 4 && webiget13.status === 200) {
+                                person14 = JSON.parse(webiget13.responseText);
+                                voices.push(person14);      
+                            }
+                        };
+                        
+                        
+                        
+                        //free
+                        var person15;
+                        var webiget14 = new XMLHttpRequest();
+                        //webiget14.open("GET", data.persons[15].path, true);
+                        //webiget14.send(); 
+                        webiget14.onreadystatechange = function() {
+                            if (webiget14.readyState === 4 && webiget14.status === 200) {
+                                person15 = JSON.parse(webiget14.responseText);
+                                voices.push(person15);      
                             }
                         };
                         
