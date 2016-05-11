@@ -1,7 +1,0 @@
-{
-"persons": [
-	{"name": "g", "path": "audio/de/g/g.json"},
-	{"name": "h", "path": "audio/de/h/h.json"},
-        {"name": "l", "path": "audio/de/l/l.json"}
-]
-}

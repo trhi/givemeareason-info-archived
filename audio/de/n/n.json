@@ -1,0 +1,52 @@
+{
+	"name": "n",
+	"path": "audio/de/n/",
+	"workshop": "03",
+	"complete": {"filename": "n00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "n01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "n02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "n03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "n04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "n05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "n06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "n07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "n08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "n01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "n02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "n03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "n04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "n05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "n06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "n07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "n08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "n01s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "n02s.mp3", "de": "weil mir", "en": ""},
+		{"filename": "n03s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "n04s.mp3", "de": "weil ich es", "en": ""},
+                {"filename": "n07s.mp3", "de": "weil wir", "en": ""},
+                {"filename": "n08s.mp3", "de": "weil es", "en": ""}
+        ],
+	"object": [
+		{"filename": "n01o.mp3", "de": "Menschen", "en": ""},
+                {"filename": "n03o.mp3", "de": "Menschen", "en": ""},
+                {"filename": "n05o.mp3", "de": "den Menschen", "en": ""},
+                {"filename": "n07o.mp3", "de": "eine tolle Helfergruppe", "en": ""},
+                {"filename": "n08o.mp3", "de": "grosse Freude", "en": ""},
+                {"filename": "n33o.mp3", "de": "neugierig", "en": ""},
+                {"filename": "n88o.mp3", "de": "spass", "en": ""}
+	],
+	"verb": [
+		{"filename": "n01v.mp3", "de": "mag", "en": ""},
+		{"filename": "n02v.mp3", "de": "auch geholfen wurde", "en": ""},
+		{"filename": "n03v.mp3", "de": "neugierig auf Menschen bin", "en": ""},
+		{"filename": "n04v.mp3", "de": "gut kann", "en": ""},
+                {"filename": "n05v.mp3", "de": "freundlich macht", "en": ""},
+                {"filename": "n06v.mp3", "de": "mag", "en": ""},
+                {"filename": "n08v.mp3", "de": "macht", "en": ""}
+        ]
+}

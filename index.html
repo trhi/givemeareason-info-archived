@@ -58,7 +58,7 @@
     </audio>
        
     <audio id="object/">
-        <source src="audio/de/h/h01o.mp3" type="audio/mp3">
+        <source src="audio/de/h/h03o.mp3" type="audio/mp3">
     </audio>
       
     <form>
@@ -171,45 +171,42 @@
             //voices is later used heavily by the givemeareason function
             function loadPersons(){
 
-                var person0;
-                var person1;
-                var person2;
-                var person3;
-                var person4;
-                
-                //trying to display a disabled button that says "loading voices"
+                 //trying to display a disabled button that says "loading voices"
                 buttonWaiting();
-            
-            
-               // document.getElementById("demo").innerHTML = data.persons[0].name + "  " + data.persons[1].path
-               // + " And the length of the array is: " + data.persons.length;
-                //document.getElementById("demo").innerHTML = "hello again";
-            
-                //var i;
                 
-                        //the reason that data is undefined is because the loadpersons() function
-                        //is an async function and it has not yet had time enough to load
+                //ie. give the code some time to load before you can begin to press it.
+                //works!
+                setTimeout(function(){
+                    buttonReady();
+                }, 2000);
+                        
+                        //g
+                        var person0;
                         var xmlhttp1 = new XMLHttpRequest();
                         xmlhttp1.open("GET", data.persons[0].path, true);
                         xmlhttp1.send();
-                        
                         xmlhttp1.onreadystatechange = function() {
                             if (xmlhttp1.readyState === 4 && xmlhttp1.status === 200) {
-       
                                 person0 = JSON.parse(xmlhttp1.responseText);
-                                //document.getElementById("demo").innerHTML = "hello again";
-                                //callback function would go here..
-                                //how to create something that iterates through
-                                //all the entries in data.persons[]??? 
-                                //showresults(person0);
-                                voices.push(person0);
-                                //showvoiceresults(voices);
-                                 //assign the person to the array at position i..?
-                                
+                                voices.push(person0); 
                             }
                         };
                         
-
+                        //h
+                        //webiget for person1
+                        var person1;
+                        var xmlhttp2 = new XMLHttpRequest();
+                        xmlhttp2.open("GET", data.persons[1].path, true);
+                        xmlhttp2.send();
+                        xmlhttp2.onreadystatechange = function() {
+                            if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
+                                person1 = JSON.parse(xmlhttp2.responseText);
+                                voices.push(person1);
+                            }
+                        };
+                        
+                        //l
+                        var person2;
                         var webiget1 = new XMLHttpRequest();
                         webiget1.open("GET", data.persons[2].path, true);
                         webiget1.send();                       
@@ -220,10 +217,11 @@
                             }
                         };
                         
-                        //Free webiget:
+                        //u
+                        var person3;
                         var webiget2 = new XMLHttpRequest();
-                        //webiget2.open("GET", data.persons[3].path, true);
-                        //webiget2.send(); 
+                        webiget2.open("GET", data.persons[3].path, true);
+                        webiget2.send(); 
                         webiget2.onreadystatechange = function() {
                             if (webiget2.readyState === 4 && webiget2.status === 200) {
                                 person3 = JSON.parse(webiget2.responseText);
@@ -231,10 +229,11 @@
                             }
                         };
                         
-                        //Free webiget:
+                        //added c
+                        var person4;
                         var webiget3 = new XMLHttpRequest();
-                        //webiget3.open("GET", data.persons[4].path, true);
-                        //webiget3.send(); 
+                        webiget3.open("GET", data.persons[4].path, true);
+                        webiget3.send(); 
                         webiget3.onreadystatechange = function() {
                             if (webiget3.readyState === 4 && webiget3.status === 200) {
                                 person4 = JSON.parse(webiget3.responseText);
@@ -242,38 +241,146 @@
                             }
                         };
                         
-                        
-        
-        
-                       
-                        
-                        var xmlhttp2 = new XMLHttpRequest();
-                        xmlhttp2.open("GET", data.persons[1].path, true);
-                        xmlhttp2.send();
-                        
-                        xmlhttp2.onreadystatechange = function() {
-                            if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
-       
-                                person1 = JSON.parse(xmlhttp2.responseText);
-                                //document.getElementById("demo").innerHTML = "hello 3rd time";
-                                //data.persons.push(person);
-                                
-                                //showresults(person1);
-                                voices.push(person1);
-                                
-                                //mock-up of async callback..
-                                //ie. give the code some time to load before you can begin to press it.
-                                //works!
-                                setTimeout(function(){
-                                    buttonReady();
-                                }, 2000);
-                                
-                                
-                                 //assign the person to the array at position i..?
-                                //toggleButtonState();
-                                
+                        //added u
+                        var person5;
+                        var webiget4 = new XMLHttpRequest();
+                        webiget4.open("GET", data.persons[5].path, true);
+                        webiget4.send(); 
+                        webiget4.onreadystatechange = function() {
+                            if (webiget4.readyState === 4 && webiget4.status === 200) {
+                                person5 = JSON.parse(webiget4.responseText);
+                                voices.push(person5);      
                             }
                         };
+                        
+                        //n
+                        var person6;
+                        var webiget5 = new XMLHttpRequest();
+                        webiget5.open("GET", data.persons[6].path, true);
+                        webiget5.send(); 
+                        webiget5.onreadystatechange = function() {
+                            if (webiget5.readyState === 4 && webiget5.status === 200) {
+                                person6 = JSON.parse(webiget5.responseText);
+                                voices.push(person6);      
+                            }
+                        };
+                        
+                        //m
+                        var person7;
+                        var webiget6 = new XMLHttpRequest();
+                        webiget6.open("GET", data.persons[7].path, true);
+                        webiget6.send(); 
+                        webiget6.onreadystatechange = function() {
+                            if (webiget6.readyState === 4 && webiget6.status === 200) {
+                                person7 = JSON.parse(webiget6.responseText);
+                                voices.push(person7);      
+                            }
+                        };
+                        
+                        //r
+                        var person8;
+                        var webiget7 = new XMLHttpRequest();
+                        webiget7.open("GET", data.persons[8].path, true);
+                        webiget7.send(); 
+                        webiget7.onreadystatechange = function() {
+                            if (webiget7.readyState === 4 && webiget7.status === 200) {
+                                person8 = JSON.parse(webiget7.responseText);
+                                voices.push(person8);      
+                            }
+                        };
+                        
+                        //s
+                        var person9;
+                        var webiget8 = new XMLHttpRequest();
+                        webiget8.open("GET", data.persons[9].path, true);
+                        webiget8.send(); 
+                        webiget8.onreadystatechange = function() {
+                            if (webiget8.readyState === 4 && webiget8.status === 200) {
+                                person9 = JSON.parse(webiget8.responseText);
+                                voices.push(person9);      
+                            }
+                        };
+                        
+                        
+                        //t
+                        var person10;
+                        var webiget9 = new XMLHttpRequest();
+                        webiget9.open("GET", data.persons[10].path, true);
+                        webiget9.send(); 
+                        webiget9.onreadystatechange = function() {
+                            if (webiget9.readyState === 4 && webiget9.status === 200) {
+                                person10 = JSON.parse(webiget9.responseText);
+                                voices.push(person10);      
+                            }
+                        };
+                        
+                        
+                        //a
+                        var person11;
+                        var webiget10 = new XMLHttpRequest();
+                        webiget10.open("GET", data.persons[11].path, true);
+                        webiget10.send(); 
+                        webiget10.onreadystatechange = function() {
+                            if (webiget10.readyState === 4 && webiget10.status === 200) {
+                                person11 = JSON.parse(webiget10.responseText);
+                                voices.push(person11);      
+                            }
+                        };
+                        
+                        
+                        //b
+                        var person12;
+                        var webiget11 = new XMLHttpRequest();
+                        webiget11.open("GET", data.persons[12].path, true);
+                        webiget11.send(); 
+                        webiget11.onreadystatechange = function() {
+                            if (webiget11.readyState === 4 && webiget11.status === 200) {
+                                person12 = JSON.parse(webiget11.responseText);
+                                voices.push(person12);      
+                            }
+                        };
+                        
+                        
+                        //i
+                        var person13;
+                        var webiget12 = new XMLHttpRequest();
+                        webiget12.open("GET", data.persons[13].path, true);
+                        webiget12.send(); 
+                        webiget12.onreadystatechange = function() {
+                            if (webiget12.readyState === 4 && webiget12.status === 200) {
+                                person13 = JSON.parse(webiget12.responseText);
+                                voices.push(person13);      
+                            }
+                        };
+                        
+                        
+                        //k
+                        var person14;
+                        var webiget13 = new XMLHttpRequest();
+                        webiget13.open("GET", data.persons[14].path, true);
+                        webiget13.send(); 
+                        webiget13.onreadystatechange = function() {
+                            if (webiget13.readyState === 4 && webiget13.status === 200) {
+                                person14 = JSON.parse(webiget13.responseText);
+                                voices.push(person14);      
+                            }
+                        };
+                        
+                        
+                        
+                        //free
+                        var person15;
+                        var webiget14 = new XMLHttpRequest();
+                        //webiget14.open("GET", data.persons[15].path, true);
+                        //webiget14.send(); 
+                        webiget14.onreadystatechange = function() {
+                            if (webiget14.readyState === 4 && webiget14.status === 200) {
+                                person15 = JSON.parse(webiget14.responseText);
+                                voices.push(person15);      
+                            }
+                        };
+                        
+                        
                         
                     
                     

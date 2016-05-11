@@ -1,0 +1,53 @@
+{
+	"name": "u",
+	"path": "audio/de/u/",
+	"workshop": "02",
+	"complete": {"filename": "u00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "u01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "u02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "u03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "u04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "u05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "u06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "u07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "u08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "u01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "u02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "u03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "u04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "u05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "u06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "u07h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "u08h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "u01s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "u03s.mp3", "de": "weil ich", "en": ""},
+                {"filename": "u08s.mp3", "de": "weil ich", "en": ""}
+        ],
+	"object": [
+		{"filename": "u01o.mp3", "de": "neue Erfahrungen", "en": ""},
+		{"filename": "u02o.mp3", "de": "die Herausforderung für Europa, Deutschland", "en": ""},
+                {"filename": "u03o.mp3", "de": "Zeit", "en": ""},
+                {"filename": "u04o.mp3", "de": "guten Erfahrungen", "en": ""},
+                {"filename": "u05o.mp3", "de": "meine Ausbaufähigen Französischkenntnisse", "en": ""},
+                {"filename": "u06o.mp3", "de": "von den Erfahrungen der Menschen", "en": ""},
+                {"filename": "u07o.mp3", "de": "meine eigenen Ideen", "en": ""},
+                {"filename": "u15o.mp3", "de": "den Senegalesen", "en": ""},
+                {"filename": "u44o.mp3", "de": "Mentor bei Jobblinge", "en": ""}
+	],
+	"verb": [
+		{"filename": "u01v.mp3", "de": "machen wollte", "en": ""},
+		{"filename": "u02v.mp3", "de": "persönlich erfahren und gestalten wollte", "en": ""},
+		{"filename": "u03v.mp3", "de": "Zeit hatte", "en": ""},
+		{"filename": "u04v.mp3", "de": "anknüpfen konnte und wollte", "en": ""},
+                {"filename": "u05v.mp3", "de": "erweitern wollte", "en": ""},
+                {"filename": "u06v.mp3", "de": "lernen wollte", "en": ""},
+                {"filename": "u07v.mp3", "de": "weitergeben wollte", "en": ""},
+                {"filename": "u08v.mp3", "de": "wichtig finde", "en": ""},
+                {"filename": "u44v.mp3", "de": "und wollte", "en": ""}
+        ]
+}
