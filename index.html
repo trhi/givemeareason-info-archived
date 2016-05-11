@@ -229,7 +229,7 @@
                             }
                         };
                         
-                        
+                        //added c
                         var person4;
                         var webiget3 = new XMLHttpRequest();
                         webiget3.open("GET", data.persons[4].path, true);
@@ -241,6 +241,7 @@
                             }
                         };
                         
+                        //added u
                         var person5;
                         var webiget4 = new XMLHttpRequest();
                         webiget4.open("GET", data.persons[5].path, true);
@@ -249,6 +250,93 @@
                             if (webiget4.readyState === 4 && webiget4.status === 200) {
                                 person5 = JSON.parse(webiget4.responseText);
                                 voices.push(person5);      
+                            }
+                        };
+                        
+                        //n
+                        var person6;
+                        var webiget5 = new XMLHttpRequest();
+                        webiget5.open("GET", data.persons[6].path, true);
+                        webiget5.send(); 
+                        webiget5.onreadystatechange = function() {
+                            if (webiget5.readyState === 4 && webiget5.status === 200) {
+                                person6 = JSON.parse(webiget5.responseText);
+                                voices.push(person6);      
+                            }
+                        };
+                        
+                        //m
+                        var person7;
+                        var webiget6 = new XMLHttpRequest();
+                        webiget6.open("GET", data.persons[7].path, true);
+                        webiget6.send(); 
+                        webiget6.onreadystatechange = function() {
+                            if (webiget6.readyState === 4 && webiget6.status === 200) {
+                                person7 = JSON.parse(webiget6.responseText);
+                                voices.push(person7);      
+                            }
+                        };
+                        
+                        //r
+                        var person8;
+                        var webiget7 = new XMLHttpRequest();
+                        webiget7.open("GET", data.persons[8].path, true);
+                        webiget7.send(); 
+                        webiget7.onreadystatechange = function() {
+                            if (webiget7.readyState === 4 && webiget7.status === 200) {
+                                person8 = JSON.parse(webiget7.responseText);
+                                voices.push(person8);      
+                            }
+                        };
+                        
+                        //s
+                        var person9;
+                        var webiget8 = new XMLHttpRequest();
+                        webiget8.open("GET", data.persons[9].path, true);
+                        webiget8.send(); 
+                        webiget8.onreadystatechange = function() {
+                            if (webiget8.readyState === 4 && webiget8.status === 200) {
+                                person9 = JSON.parse(webiget8.responseText);
+                                voices.push(person9);      
+                            }
+                        };
+                        
+                        
+                        //t
+                        var person10;
+                        var webiget9 = new XMLHttpRequest();
+                        webiget9.open("GET", data.persons[10].path, true);
+                        webiget9.send(); 
+                        webiget9.onreadystatechange = function() {
+                            if (webiget9.readyState === 4 && webiget9.status === 200) {
+                                person10 = JSON.parse(webiget9.responseText);
+                                voices.push(person10);      
+                            }
+                        };
+                        
+                        
+                        //free
+                        var person11;
+                        var webiget10 = new XMLHttpRequest();
+                        //webiget10.open("GET", data.persons[11].path, true);
+                        //webiget10.send(); 
+                        webiget10.onreadystatechange = function() {
+                            if (webiget10.readyState === 4 && webiget10.status === 200) {
+                                person11 = JSON.parse(webiget10.responseText);
+                                voices.push(person11);      
+                            }
+                        };
+                        
+                        
+                        //free
+                        var person12;
+                        var webiget11 = new XMLHttpRequest();
+                        //webiget11.open("GET", data.persons[12].path, true);
+                        //webiget11.send(); 
+                        webiget11.onreadystatechange = function() {
+                            if (webiget11.readyState === 4 && webiget11.status === 200) {
+                                person12 = JSON.parse(webiget11.responseText);
+                                voices.push(person12);      
                             }
                         };
                         
