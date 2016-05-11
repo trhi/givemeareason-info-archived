@@ -1,0 +1,59 @@
+{
+	"name": "b",
+	"path": "audio/de/b/",
+	"workshop": "02",
+	"complete": {"filename": "b00complete.mp3","de": "Test. All sentences.", "en": "Test."},
+	"full": [
+		{"filename": "b01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "b02full.mp3", "de": ".", "en": "Test."},
+		{"filename": "b03full.mp3", "de": ".", "en": "Test."},
+		{"filename": "b04full.mp3", "de": ".", "en": "Test."},
+		{"filename": "b05full.mp3", "de": ".", "en": "Test."},
+		{"filename": "b06full.mp3", "de": ".", "en": "Test."},
+                {"filename": "b07full.mp3", "de": ".", "en": "Test."},
+                {"filename": "b08full.mp3", "de": ".", "en": "Test."}
+	],
+	"help": [
+		{"filename": "b01h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "b02h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "b03h.mp3", "de": "Ich helfe", "en": "I help"},
+		{"filename": "b04h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "b05h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "b06h.mp3", "de": "Ich helfe", "en": "I help"},
+                {"filename": "b07h.mp3", "de": "Ich helfe", "en": "I help"}
+	],
+	"subject": [
+		{"filename": "b02s.mp3", "de": "weil ich", "en": ""},
+		{"filename": "b03s.mp3", "de": "weil es mich", "en": ""},
+		{"filename": "b04s.mp3", "de": "weil mich", "en": ""},
+                {"filename": "b05s.mp3", "de": "weil ich mich", "en": ""},
+                {"filename": "b06s.mp3", "de": "weil ich mir selbst", "en": ""},
+                {"filename": "b07s.mp3", "de": "weil ich mich", "en": ""}
+        ],
+	"object": [
+		{"filename": "b01o.mp3", "de": "die Flüchtlinge", "en": ""},
+		{"filename": "b02o.mp3", "de": "ein Gegenpol", "en": ""},
+                {"filename": "b03o.mp3", "de": "meine Arbeit", "en": ""},
+                {"filename": "b04o.mp3", "de": "Menschen und ihre Geschichte", "en": ""},
+                {"filename": "b05o.mp3", "de": "andere Länder und Kulturen", "en": ""},
+                {"filename": "b06o.mp3", "de": "mit den Flüchtlingen", "en": ""},
+                {"filename": "b07o.mp3", "de": "das Erfolgserlebnis", "en": ""},
+                {"filename": "b08o.mp3", "de": "Helferkreis", "en": ""},
+                {"filename": "b22o.mp3", "de": "besorgten Menschen", "en": ""},
+                {"filename": "b66o.mp3", "de": "meine Angst", "en": ""}             
+	],
+	"verb": [
+		{"filename": "b01v.mp3", "de": "leid tun", "en": ""},
+		{"filename": "b02v.mp3", "de": "sein will", "en": ""},
+		{"filename": "b03v.mp3", "de": "eine Freude gemacht wird", "en": ""},
+		{"filename": "b04v.mp3", "de": "interessieren", "en": ""},
+                {"filename": "b05v.mp3", "de": "interessiere", "en": ""},
+                {"filename": "b06v.mp3", "de": "geholfen habe", "en": ""},
+                {"filename": "b07v.mp3", "de": "vermittelt zu haben", "en": ""},
+                {"filename": "b08v.mp3", "de": "auch sozial eingestellt sind", "en": ""},
+                {"filename": "b33v.mp3", "de": "freut", "en": ""},
+                {"filename": "b55v.mp3", "de": "mehr erfahren möchte", "en": ""},
+                {"filename": "b77v.mp3", "de": "freuen kann", "en": ""},
+                {"filename": "b88v.mp3", "de": "kennenlernen wollte", "en": ""}
+        ]
+}
