@@ -33,11 +33,9 @@
 		{"filename": "u02o.mp3", "de": "die Herausforderung für Europa, Deutschland", "en": ""},
                 {"filename": "u03o.mp3", "de": "Zeit", "en": ""},
                 {"filename": "u04o.mp3", "de": "guten Erfahrungen", "en": ""},
-                {"filename": "u05o.mp3", "de": "meine Ausbaufähigen Französischkenntnisse", "en": ""},
                 {"filename": "u06o.mp3", "de": "von den Erfahrungen der Menschen", "en": ""},
                 {"filename": "u07o.mp3", "de": "meine eigenen Ideen", "en": ""},
-                {"filename": "u15o.mp3", "de": "den Senegalesen", "en": ""},
-                {"filename": "u44o.mp3", "de": "Mentor bei Jobblinge", "en": ""}
+                {"filename": "u15o.mp3", "de": "den Senegalesen", "en": ""}
 	],
 	"verb": [
 		{"filename": "u01v.mp3", "de": "machen wollte", "en": ""},
