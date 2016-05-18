@@ -2,7 +2,7 @@
 	"name": "g",
 	"path": "audio/de/g/",
 	"workshop": "03",
-	"complete": {"filename": "g00complete.mp3","de": "<br>Ich helfe weil es mir hilft. <br><br>Ich helfe weil ich Augen für die Bedürfnisse andere habe. <br><br>Ich helfe weil ich weiss, dass Hilfe bitter nötig ist. <br><br>Ich helfe weil ich nicht will, dass jemand in der Not alleine gelassen wird. <br><br>Ich helfe weil ich nicht hilflos zusehen will. <br><br>Ich helfe weil es mein Denken erweitert. <br><br>Ich helfe weil ich lieber unter Menschen als alleine bin. <br><br>Ich helfe weil ich nicht wegschauen will.<br>", "en": "Translations coming soon.."},
+	"complete": {"filename": "g00complete.mp3","de": "<br><br><br>", "en": "Translations coming soon.."},
 	"full": [
 		{"filename": "g01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "The sentence."},
 		{"filename": "g02full.mp3", "de": "Ich helfe weil ich Augen für die Bedürfnisse andere habe.", "en": "The sentence."},
