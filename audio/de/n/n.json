@@ -4,7 +4,7 @@
 	"workshop": "03",
 	"complete": {"filename": "n00complete.mp3","de": "Test. All sentences.", "en": "Test."},
 	"full": [
-		{"filename": "n01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "n01full.mp3", "de": ".", "en": "Test."},
 		{"filename": "n02full.mp3", "de": ".", "en": "Test."},
 		{"filename": "n03full.mp3", "de": ".", "en": "Test."},
 		{"filename": "n04full.mp3", "de": ".", "en": "Test."},
