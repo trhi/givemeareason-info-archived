@@ -723,8 +723,10 @@
                                 
                         document.getElementById("verb/").play();
                         $(newsentence).append(" " + voices[verbVoice].verb[verbIndex].de);
-                        document.getElementById("verb/").onended = function(){toggleButtonState();};
-                                
+                        //this actually makes it wait until the verb has palyed:
+                        //but I realised that it's better the faster you can click again
+                        //document.getElementById("verb/").onended = function(){toggleButtonState();};
+                        toggleButtonState();        
                     };
                         
                 };                  
