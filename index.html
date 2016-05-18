@@ -609,7 +609,7 @@
             //$("#test").src = fullPath;
             //$("#test").play();
             $(newsentence).append(voices[fullVoice].full[fullIndex].de);
-            document.getElementById("test").onended = toggleButtonState();
+            document.getElementById("test").onended = function(){toggleButtonState();};
            
             
         }
@@ -629,7 +629,7 @@
             //$("#test").src = fullPath;
             //$("#test").play();
             $(newsentence).append(result[0].complete.de);
-            document.getElementById("mantra").onended = toggleButtonState();
+            //document.getElementById("mantra").onended = function(){toggleButtonState();};
             
         }
         
@@ -723,7 +723,7 @@
                                 
                         document.getElementById("verb/").play();
                         $(newsentence).append(" " + voices[verbVoice].verb[verbIndex].de);
-                        document.getElementById("verb/").onended = toggleButtonState();
+                        document.getElementById("verb/").onended = function(){toggleButtonState();};
                                 
                     };
                         
