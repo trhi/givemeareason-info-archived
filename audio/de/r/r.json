@@ -4,7 +4,7 @@
 	"workshop": "03",
 	"complete": {"filename": "r00complete.mp3","de": "Test. All sentences.", "en": "Test."},
 	"full": [
-		{"filename": "r01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "r01full.mp3", "de": ".", "en": "Test."},
 		{"filename": "r02full.mp3", "de": ".", "en": "Test."},
 		{"filename": "r03full.mp3", "de": ".", "en": "Test."},
 		{"filename": "r04full.mp3", "de": ".", "en": "Test."},
@@ -37,7 +37,6 @@
                 {"filename": "r04o.mp3", "de": "absolut notwendig", "en": ""},
                 {"filename": "r05o.mp3", "de": "die Flüchtlinge", "en": ""},
                 {"filename": "r06o.mp3", "de": "Angst vor Rechtsradikalismus", "en": ""},
-                {"filename": "r07o.mp3", "de": "dadurch interessante Leute", "en": ""},
                 {"filename": "r08o.mp3", "de": "die Gesellschaft", "en": ""},
                 {"filename": "r88o.mp3", "de": "meine Kinder", "en": ""}
 	],
