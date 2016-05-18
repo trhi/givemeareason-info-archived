@@ -4,7 +4,7 @@
 	"workshop": "01",
 	"complete": {"filename": "t00complete.mp3","de": "Test. All sentences.", "en": "Test."},
 	"full": [
-		{"filename": "t01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "t01full.mp3", "de": ".", "en": "Test."},
 		{"filename": "t02full.mp3", "de": ".", "en": "Test."},
 		{"filename": "t03full.mp3", "de": ".", "en": "Test."},
 		{"filename": "t04full.mp3", "de": ".", "en": "Test."},
@@ -39,8 +39,7 @@
                 {"filename": "t05o.mp3", "de": "etwas konkretes", "en": ""},
                 {"filename": "t06o.mp3", "de": "ein freundliches Gesicht", "en": ""},
                 {"filename": "t07o.mp3", "de": "möchte dass mir in so einer Situation", "en": ""},
-                {"filename": "t08o.mp3", "de": "Kontakt mit den Menschen", "en": ""},
-                {"filename": "t08o.mp3", "de": "an eine neue Ort", "en": ""}
+                {"filename": "t08o.mp3", "de": "Kontakt mit den Menschen", "en": ""}
 	],
 	"verb": [
 		{"filename": "t01v.mp3", "de": "lernen will", "en": ""},

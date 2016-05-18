@@ -4,7 +4,7 @@
 	"workshop": "03",
 	"complete": {"filename": "a00complete.mp3","de": "Test. All sentences.", "en": "Test."},
 	"full": [
-		{"filename": "a01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "a01full.mp3", "de": ".", "en": "Test."},
 		{"filename": "a02full.mp3", "de": ".", "en": "Test."},
 		{"filename": "a03full.mp3", "de": ".", "en": "Test."},
 		{"filename": "a04full.mp3", "de": ".", "en": "Test."},
@@ -15,7 +15,6 @@
 	],
 	"help": [
 		{"filename": "a01h.mp3", "de": "Ich helfe", "en": "I help"},
-		{"filename": "a02h.mp3", "de": "Ich helfe", "en": "I help"},
 		{"filename": "a04h.mp3", "de": "Ich helfe", "en": "I help"},
                 {"filename": "a05h.mp3", "de": "Ich helfe", "en": "I help"},
                 {"filename": "a07h.mp3", "de": "Ich helfe", "en": "I help"},
@@ -41,7 +40,6 @@
 	],
 	"verb": [
 		{"filename": "a01v.mp3", "de": "zeigen möchte, dass es auch anders geht", "en": ""},
-		{"filename": "a03v.mp3", "de": "gemerkt habe, wie wichtig", "en": ""},
 		{"filename": "a04v.mp3", "de": "nicht Verantwortung auf andere schiebe", "en": ""},
                 {"filename": "a05v.mp3", "de": "sehr früh registriert habe", "en": ""},
                 {"filename": "a06v.mp3", "de": "wir es uns nicht leisten können", "en": ""},

@@ -4,7 +4,7 @@
 	"workshop": "03",
 	"complete": {"filename": "m00complete.mp3","de": "Test. All sentences.", "en": "Test."},
 	"full": [
-		{"filename": "m01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "m01full.mp3", "de": ".", "en": "Test."},
 		{"filename": "m02full.mp3", "de": ".", "en": "Test."},
 		{"filename": "m03full.mp3", "de": ".", "en": "Test."},
 		{"filename": "m04full.mp3", "de": ".", "en": "Test."},
@@ -44,7 +44,6 @@
 	"verb": [
 		{"filename": "m01v.mp3", "de": "weitergeben mag", "en": ""},
 		{"filename": "m02v.mp3", "de": "ist", "en": ""},
-		{"filename": "m03v.mp3", "de": "die geholfen sein sollte", "en": ""},
 		{"filename": "m04v.mp3", "de": "ist", "en": ""},
                 {"filename": "m05v.mp3", "de": "hilft", "en": ""},
                 {"filename": "m06v.mp3", "de": "gut gehabt", "en": ""},
