@@ -61,6 +61,14 @@
         <source src="audio/de/h/h03o.mp3" type="audio/mp3">
     </audio>
       
+      <audio id="test">
+        <source src="audio/de/h/h03o.mp3" type="audio/mp3">
+    </audio>
+      
+      <audio id="mantra">
+        <source src="audio/de/g/g00complete.mp3" type="audio/mp3">
+    </audio>
+      
     <form>
         <button type="button" id="givemeareasonbutton" onclick="giveMeAReason()">      
         </button>
@@ -569,11 +577,70 @@
              return Math.floor(Math.random() * (max - min)) + min;
         }
         
+        if(pInteger%8 === 0){
+	
+		playFullSentence();
+
+            }else{
+                
+                if(pInteger%18 === 0){ 
+                    
+                    playFullMantra();
+                    
+                }else{
+                    createSegments();
+                }
+        }	
+
+        
+        
+        function playFullSentence(){
+            
+            var fullVoice;
+            var fullIndex;
+            var fullPath;
+            
+            fullVoice = getRandomIndex(0, voices.length);
+            fullIndex = getRandomIndex(0, voices[fullVoice].full.length);
+            fullPath = voices[fullVoice].path + voices[fullVoice].full[fullIndex].filename;
+                       
+            document.getElementById("test").src = fullPath;            
+            document.getElementById("test").play();            
+            //$("#test").src = fullPath;
+            //$("#test").play();
+            $(newsentence).append(voices[fullVoice].full[fullIndex].de);
+            document.getElementById("test").onended = toggleButtonState();
+           
+            
+        }
+        
+        function playFullMantra(){
+            
+            var result = $.grep(voices, function(e){ return e.name === "g";});
+
+            //var completePath = result[0].path + result[0].complete.filename;
+            
+            //fullVoice = getRandomIndex(0, voices.length);
+            //fullIndex = getRandomIndex(0, voices[fullVoice].full.length);
+            //fullPath = voices[fullVoice].path + voices[fullVoice].full[fullIndex].filename;
+                       
+            //document.getElementById("mantra").src = completePath;            
+            document.getElementById("mantra").play();            
+            //$("#test").src = fullPath;
+            //$("#test").play();
+            $(newsentence).append(result[0].complete.de);
+            document.getElementById("mantra").onended = toggleButtonState();
+            
+        }
+        
+        function createSegments(){
         //chooses a voice to speak each segment
         //chooses a segment from each voice
         //mua-a-haa!
         for(counter = 0; counter < 4; counter++){
             
+            
+           
             //chooses the voice and segment per utterance
             chooseVoice();
             chooseSegment();
@@ -586,6 +653,7 @@
         //plays the segments as soon as they have been chosen and assigned
         document.getElementById("verb/").oncanplaythrough = playSegments();
         
+    }
                     
         function chooseVoice(){
  
