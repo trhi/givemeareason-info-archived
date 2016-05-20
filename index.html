@@ -44,7 +44,15 @@
 
   </head>
   <body>
-
+      <!--
+      toying around with a google translate element.. nah
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'de', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->                               
+      
     <audio id="help/">
         <source src="audio/de/h/h99h.mp3" type="audio/mp3">     
     </audio>
@@ -73,6 +81,7 @@
         <button type="button" id="givemeareasonbutton" onclick="giveMeAReason()">      
         </button>
     </form>
+       
 
     <div id="sentencesdiv">
         <p id="demo"></p>            
@@ -577,13 +586,13 @@
              return Math.floor(Math.random() * (max - min)) + min;
         }
         
-        if(pInteger%8 === 0){
+        if(pInteger%9 === 0){
 	
 		playFullSentence();
 
             }else{
                 
-                if(pInteger%28 === 0){ 
+                if(pInteger%33 === 0){ 
                     
                     playFullMantra();
                     
@@ -625,10 +634,12 @@
             //fullPath = voices[fullVoice].path + voices[fullVoice].full[fullIndex].filename;
                        
             //document.getElementById("mantra").src = completePath;            
-            document.getElementById("mantra").play();            
+            document.getElementById("mantra").play(); 
+            $(newsentence).append(result[0].complete.de);
+            document.getElementById("mantra").onended = function(){toggleButtonState();};
             //$("#test").src = fullPath;
             //$("#test").play();
-            $(newsentence).append(result[0].complete.de);
+            
             //document.getElementById("mantra").onended = function(){toggleButtonState();};
             
         }
