@@ -4,12 +4,12 @@
 	"workshop": "01",
 	"complete": {"filename": "h00complete.mp3","de": "Ich helfe weil ich helfen will. Ich helfe weil  die Menschen die sich nicht auskennen. Ich helfe weil diese Flüchtlinge, die hier bleiben unser Leben kennen lernen sollen. Ich helfe weil ich den Flüchtlingen auch unsere Umgebung zeigen will damit sie sich auskennen. Ich helfe weil ich weiss wie schwer es für meine Mutti war. Ich helfe weil uns keine 45 geholfen hat.", "en": "Translations coming soon.."},
 	"full": [
-		{"filename": "h01full.mp3", "de": "Ich helfe weil ich helfen will.", "en": "The sentence."},
-		{"filename": "h02full.mp3", "de": "Ich helfe weil  die Menschen sich hier nicht auskennen.", "en": "The sentence."},
-		{"filename": "h03full.mp3", "de": "Ich helfe weil diese Flüchtlinge, die hier bleiben unser Leben kennen lernen sollen.", "en": "The sentence."},
-		{"filename": "h04full.mp3", "de": "Ich helfe weil ich den Flüchtlingen auch unsere Umgebung zeigen will damit sie sich auskennen.", "en": "The sentence."},
-		{"filename": "h05full.mp3", "de": "Ich helfe weil ich weiss wie schwer es für meine Mutti war.", "en": "The sentence."},
-		{"filename": "h06full.mp3", "de": "Ich helfe weil uns keine 45 geholfen hat.", "en": "The sentence."}		
+		{"filename": "h01full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "h02full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "h03full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "h04full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "h05full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "h06full.mp3", "de": ".", "en": "The sentence."}		
 	],
 	"help": [
 		{"filename": "h01h.mp3", "de": "Ich helfe", "en": "I help"},
