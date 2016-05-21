@@ -10,8 +10,7 @@
 		{"filename": "f04full.mp3", "de": ".", "en": "Test."},
 		{"filename": "f05full.mp3", "de": ".", "en": "Test."},
 		{"filename": "f06full.mp3", "de": ".", "en": "Test."},
-                {"filename": "f07full.mp3", "de": ".", "en": "Test."},
-                {"filename": "f08full.mp3", "de": ".", "en": "Test."}
+                {"filename": "f07full.mp3", "de": ".", "en": "Test."}
 	],
 	"help": [
 		{"filename": "f01h.mp3", "de": "Ich helfe", "en": "I help"},
