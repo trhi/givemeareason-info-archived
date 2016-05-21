@@ -4,14 +4,14 @@
 	"workshop": "03",
 	"complete": {"filename": "g00complete.mp3","de": "<br><br><br>", "en": "Translations coming soon.."},
 	"full": [
-		{"filename": "g01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "The sentence."},
-		{"filename": "g02full.mp3", "de": "Ich helfe weil ich Augen für die Bedürfnisse andere habe.", "en": "The sentence."},
-		{"filename": "g03full.mp3", "de": "Ich helfe weil ich weiss, dass Hilfe bitter nötig ist.", "en": "The sentence."},
-		{"filename": "g04full.mp3", "de": "Ich helfe weil ich nicht will, dass jemand in der Not alleine gelassen wird.", "en": "The sentence."},
-		{"filename": "g05full.mp3", "de": "Ich helfe weil ich nicht hilflos zusehen will.", "en": "The sentence."},
-		{"filename": "g06full.mp3", "de": "Ich helfe weil es mein Denken erweitert.", "en": "The sentence."},
-                {"filename": "g07full.mp3", "de": "Ich helfe weil ich lieber unter Menschen als alleine bin.", "en": "The sentence."},
-                {"filename": "g08full.mp3", "de": "Ich helfe weil ich nicht wegschauen will.", "en": "The sentence."}
+		{"filename": "g01full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "g02full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "g03full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "g04full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "g05full.mp3", "de": ".", "en": "The sentence."},
+		{"filename": "g06full.mp3", "de": ".", "en": "The sentence."},
+                {"filename": "g07full.mp3", "de": ".", "en": "The sentence."},
+                {"filename": "g08full.mp3", "de": ".", "en": "The sentence."}
 	],
 	"help": [
 		{"filename": "g01h.mp3", "de": "Ich helfe", "en": "I help"},
