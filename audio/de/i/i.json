@@ -4,7 +4,7 @@
 	"workshop": "02",
 	"complete": {"filename": "i00complete.mp3","de": "Test. All sentences.", "en": "Test."},
 	"full": [
-		{"filename": "i01full.mp3", "de": "Ich helfe weil es mir hilft.", "en": "Test."},
+		{"filename": "i01full.mp3", "de": ".", "en": "Test."},
 		{"filename": "i02full.mp3", "de": ".", "en": "Test."},
 		{"filename": "i03full.mp3", "de": ".", "en": "Test."},
 		{"filename": "i04full.mp3", "de": ".", "en": "Test."},
@@ -48,7 +48,7 @@
                 {"filename": "i05v.mp3", "de": "gelingen kann", "en": ""},
                 {"filename": "i06v.mp3", "de": "lernen kann, nicht nur sie von mir", "en": ""},
                 {"filename": "i07v.mp3", "de": "spende ich so zu sagen meine Zeit", "en": ""},
-                {"filename": "i08v.mp3", "de": "gutem Beispiel vorausgehen sollte", "en": ""},               
+                {"filename": "i08v.mp3", "de": "gutem Beispiel vorangehen sollte", "en": ""},               
                 {"filename": "i13v.mp3", "de": "nehmen kann", "en": ""},
                 {"filename": "i16v.mp3", "de": "lernen kann", "en": ""},
                 {"filename": "i17v.mp3", "de": "Geld spenden kann", "en": ""},
