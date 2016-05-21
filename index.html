@@ -586,19 +586,21 @@ function googleTranslateElementInit() {
              return Math.floor(Math.random() * (max - min)) + min;
         }
         
-        if(pInteger%9 === 0){
+        if(pInteger%3 === 0){
 	
-		playFullSentence();
+		createSegments();
 
             }else{
                 
-                if(pInteger%33 === 0){ 
+                playFullSentence();
+                
+                //if(pInteger%33 === 0){ 
                     
-                    playFullMantra();
+                //    playFullMantra();
                     
-                }else{
-                    createSegments();
-                }
+                //}else{
+                    
+                //}
         }	
 
         
